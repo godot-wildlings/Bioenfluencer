@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
-"path": "res://scripts/template_level.gd"
+"path": "res://Scenes/Levels/template_level.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "PlayerCharacter",
 "language": "GDScript",
-"path": "res://scripts/player_top_down.gd"
+"path": "res://Scenes/Player/PlayerTopDown.gd"
 } ]
 _global_script_class_icons={
 "Level": "",
@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ludum dare 44"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/Main/Main.tscn"
 config/icon="res://icon.png"
 
 [input]
