@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scripts/template_level.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PlayerCharacter",
+"language": "GDScript",
+"path": "res://scripts/player_top_down.gd"
+} ]
 _global_script_class_icons={
-
+"Level": "",
+"PlayerCharacter": ""
 }
 
 [application]

@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name PlayerCharacter
+
 const COLLISION = Vector2(0,0)
 var motion = Vector2()
 
