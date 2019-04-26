@@ -4,6 +4,7 @@ const UP = Vector2(0,-1)
 var motion = Vector2()
 
 export var movement_speed : float = 100
+const NO_MOVEMENT : int = 0
 export var jump_speed : float = -100
 
 func _ready():
@@ -17,7 +18,7 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		
-		motion.y = 0
+		motion.y = NO_MOVEMENT
 		
 		if Input.is_action_pressed("spacebar_key"):
 			motion.y = jump_speed
@@ -25,13 +26,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("d_key") || Input.is_action_pressed("a_key"):
 		motion.x = (int(Input.is_action_pressed("d_key"))-int(Input.is_action_pressed("a_key"))) * movement_speed
 	else:
-		motion.x = 0
+		motion.x = NO_MOVEMENT
+	
+	motion = motion.normalized()
 	
 	move_and_slide(motion, UP)
-
-#func _input(event):
-#
-#	if event.is_action_pressed("d_key") || event.is_action_pressed("a_key"):
-#		motion.x = (int(event.is_action_pressed("d_key"))-int(event.is_action_pressed("a_key"))) * movement_speed
-#	else:
-#		motion.x = 0
