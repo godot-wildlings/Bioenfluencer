@@ -1,56 +1,83 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/CraftingLab/CraftingLab.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/CraftingLab/AvailableBodyParts.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/BodyPart/BodyPart.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/BodyPart/Head03.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/BodyPart/Body03.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/BodyPart/Tail01.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/BodyPart/Legs02.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/BodyPart/BodyPart.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/BodyPart/Head03.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/BodyPart/Body03.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/BodyPart/Tail01.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/BodyPart/Legs02.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/CraftingLab/BodyParts.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=8]
 
 [node name="CraftingLab" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="BodyParts" type="Node" parent="."]
-script = ExtResource( 2 )
 
-[node name="BodyPart" parent="BodyParts" instance=ExtResource( 3 )]
+[node name="BodyPart" parent="BodyParts" instance=ExtResource( 2 )]
+visible = false
 part_name = "Lizard Head"
 weight = 45.0
-icon = ExtResource( 4 )
+icon = ExtResource( 3 )
 
-[node name="BodyPart2" parent="BodyParts" instance=ExtResource( 3 )]
+[node name="BodyPart2" parent="BodyParts" instance=ExtResource( 2 )]
+visible = false
 part_name = "Lizard Torso"
 category = 1
 weight = 60.0
-icon = ExtResource( 5 )
+icon = ExtResource( 4 )
 
-[node name="BodyPart3" parent="BodyParts" instance=ExtResource( 3 )]
+[node name="BodyPart3" parent="BodyParts" instance=ExtResource( 2 )]
+visible = false
 part_name = "Lizard Tail"
 category = 3
 weight = 35.0
-icon = ExtResource( 6 )
+icon = ExtResource( 5 )
 
-[node name="BodyPart4" parent="BodyParts" instance=ExtResource( 3 )]
+[node name="BodyPart4" parent="BodyParts" instance=ExtResource( 2 )]
+visible = false
 part_name = "Lizard Legs"
 category = 2
 weight = 20.0
-icon = ExtResource( 7 )
+icon = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-margin_left = 294.0
-margin_top = 39.0
-margin_right = 478.0
-margin_bottom = 315.0
+margin_left = 420.399
+margin_top = 35.5083
+margin_right = 604.399
+margin_bottom = 311.508
 size_flags_horizontal = 3
 size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="ItemList" type="ItemList" parent="CanvasLayer/Panel"]
+[node name="BodyParts" type="ItemList" parent="CanvasLayer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-select_mode = 1
+script = ExtResource( 7 )
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+margin_left = 221.373
+margin_top = 35.5083
+margin_right = 405.373
+margin_bottom = 311.508
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StagedBodyParts" type="ItemList" parent="CanvasLayer/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 8 )
+
+[node name="CreaturePreviewContainer" type="Node2D" parent="."]
 

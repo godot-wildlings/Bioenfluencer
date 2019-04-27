@@ -6,8 +6,8 @@ extends HSlider
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	min_value == 0.0001
-	step == 0.0001
+	min_value = 0.0001
+	step = 0.0001
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

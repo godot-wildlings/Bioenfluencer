@@ -66,7 +66,7 @@ func get_trend_performance(influencer):
 
 func get_trends():
 	# **** TBD
-	# get three random trends from the data_store, or grab trends with specific performance characteristics based on the influencer
+	# get three random trends from the DataStore, or grab trends with specific performance characteristics based on the influencer
 	return "red, furry, spikey"
 
 func update_text(influencer_node):

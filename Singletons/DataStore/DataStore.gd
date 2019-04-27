@@ -17,6 +17,7 @@ func _ready() -> void:
 func _populate_genes_dict() -> void:
 	var dir : Directory = Directory.new()
 	if dir.open(gene_resources_path) == OK:
+		#warning-ignore:return_value_discarded
 		dir.list_dir_begin(true, true)
 		var file_name : String = dir.get_next()
 		while (file_name != "" and file_name != " "):
@@ -36,4 +37,11 @@ func get_gene(gene_name : String) -> Gene:
 		return genes.get(gene_name)
 	else:
 		print("Gene " + gene_name + " not in gene pool!")
+		return null
+
+func get_body_part(body_part_name : String) -> BodyPart:
+	if body_parts.has(body_part_name):
+		return body_parts.get(body_part_name)
+	else:
+		print("Gene " + body_part_name + " not in body part pool!")
 		return null
