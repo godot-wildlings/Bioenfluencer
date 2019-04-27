@@ -84,17 +84,17 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="stream_UI"]
-margin_left = 195.014
-margin_top = 250.415
-margin_right = 278.014
-margin_bottom = 270.415
+margin_left = 35.4571
+margin_top = 69.8061
+margin_right = 118.457
+margin_bottom = 89.8061
 text = "Pose 1"
 
 [node name="Label" type="Label" parent="stream_UI"]
-margin_left = 196.892
-margin_top = 205.0
-margin_right = 275.892
-margin_bottom = 238.0
+margin_left = 37.3352
+margin_top = 24.3906
+margin_right = 116.335
+margin_bottom = 57.3906
 text = "Choose
 Pose"
 
