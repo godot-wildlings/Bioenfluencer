@@ -40,3 +40,9 @@ format = 1
 [node name="Letters" type="Node2D" parent="TrendFeed1/Panel/WordGrid"]
 script = ExtResource( 4 )
 
+[node name="Timer" type="Timer" parent="TrendFeed1/Panel/WordGrid"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TrendFeed1/Panel/WordGrid/Timer" to="TrendFeed1/Panel/WordGrid/Letters" method="_on_Timer_timeout"]
