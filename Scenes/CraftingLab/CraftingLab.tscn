@@ -44,6 +44,7 @@ icon = ExtResource( 6 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+editor/display_folded = true
 margin_left = 420.399
 margin_top = 35.5083
 margin_right = 604.399
@@ -62,6 +63,7 @@ size_flags_vertical = 3
 script = ExtResource( 7 )
 
 [node name="Panel2" type="Panel" parent="CanvasLayer"]
+editor/display_folded = true
 margin_left = 221.373
 margin_top = 35.5083
 margin_right = 405.373
@@ -78,6 +80,15 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 8 )
+
+[node name="CraftingBudgetLabel" type="Label" parent="CanvasLayer"]
+margin_left = 271.0
+margin_top = 5.0
+margin_right = 548.0
+margin_bottom = 33.0
+text = "CRAFTING BUDGET LEFT: 100 / 100"
+align = 1
+valign = 1
 
 [node name="CreaturePreviewContainer" type="Node2D" parent="."]
 

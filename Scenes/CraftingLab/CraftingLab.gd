@@ -3,14 +3,27 @@ extends Node2D
 class_name CraftingLab
 
 #warning-ignore:unused_class_variable
-export var crafting_budget : int = 100
-
+export var max_crafting_budget : float = 100
+export var crafting_budget : float = max_crafting_budget setget _set_crafting_budget
 #warning-ignore:unused_class_variable
 onready var body_parts : ItemList = $CanvasLayer/Panel/BodyParts
 #warning-ignore:unused_class_variable
 onready var staged_body_parts : ItemList = $CanvasLayer/Panel2/StagedBodyParts
 #warning-ignore:unused_class_variable
 onready var preview_container : Node2D = $CreaturePreviewContainer
+#warning-ignore:unused_class_variable
+onready var budget_label : Label = $CanvasLayer/CraftingBudgetLabel
+
+signal on_crafting_budget_change
 
 func _ready() -> void:
 	Game.crafting_lab = self
+	connect("on_crafting_budget_change", self, "_on_CraftingLab_crafting_budget_change")
+
+func _set_crafting_budget(new_val : float) -> void:
+	if new_val != crafting_budget:
+		crafting_budget = new_val
+		emit_signal("on_crafting_budget_change")
+
+func _on_CraftingLab_crafting_budget_change() -> void:
+	budget_label.text = "CRAFTING BUDGET LEFT: %s / %s" % [str(crafting_budget), str(max_crafting_budget)]

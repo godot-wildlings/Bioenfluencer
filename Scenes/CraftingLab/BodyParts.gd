@@ -24,6 +24,7 @@ func _on_BodyParts_item_selected(index : int) -> void:
 		var body_part : BodyPart = DataStore.get_body_part(get_item_text(index))
 		if is_instance_valid(body_part):
 			if Game.crafting_lab.crafting_budget - body_part.weight > 0:
+				Game.crafting_lab.crafting_budget -= body_part.weight
 				remove_item(index)
 				Game.crafting_lab.staged_body_parts.add_item(body_part.part_name, body_part.icon, true)
 		else:
