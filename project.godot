@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ludum dare 44"
+config/name="Bioenfluencer"
 run/main_scene="res://scenes/Main/Main.tscn"
 config/icon="res://icon.png"
 
