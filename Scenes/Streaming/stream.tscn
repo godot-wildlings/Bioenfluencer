@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Streaming/stream.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Streaming/Label2.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "subscribe_to_pewdiepie"
+tracks/0/type = "value"
+tracks/0/path = NodePath("head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[node name="stream" type="Node"]
+script = ExtResource( 1 )
+
+[node name="creature" type="Node2D" parent="."]
+position = Vector2( 486.316, 258.947 )
+
+[node name="hindlegs" type="AnimatedSprite" parent="creature"]
+position = Vector2( -50, 40 )
+frames = SubResource( 1 )
+
+[node name="forelegs" type="AnimatedSprite" parent="creature"]
+position = Vector2( 50, 40 )
+frames = SubResource( 2 )
+
+[node name="body" type="AnimatedSprite" parent="creature"]
+frames = SubResource( 3 )
+
+[node name="head" type="AnimatedSprite" parent="creature"]
+position = Vector2( 60, -50 )
+frames = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../creature")
+anims/subscribe_to_pewdiepie = SubResource( 5 )
+
+[node name="stream_UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button" type="Button" parent="stream_UI"]
+margin_left = 195.014
+margin_top = 250.415
+margin_right = 278.014
+margin_bottom = 270.415
+text = "Pose 1"
+
+[node name="Label" type="Label" parent="stream_UI"]
+margin_left = 196.892
+margin_top = 205.0
+margin_right = 275.892
+margin_bottom = 238.0
+text = "Choose
+Pose"
+
+[node name="Label2" type="Label" parent="stream_UI"]
+margin_left = 462.0
+margin_top = 110.0
+margin_right = 555.0
+margin_bottom = 137.0
+text = "Pose:"
+script = ExtResource( 3 )
+
+[node name="Button2" type="Button" parent="stream_UI"]
+margin_left = 445.613
+margin_top = 432.036
+margin_right = 534.613
+margin_bottom = 452.036
+text = "STREAM!"
+
+[connection signal="pressed" from="stream_UI/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="stream_UI/Button2" to="." method="_on_Button2_pressed"]
