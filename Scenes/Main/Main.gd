@@ -1,7 +1,7 @@
 extends Node
 
 onready var level_container = $Levels
-onready var main_gui = $CanvasLayer/MainUI
+onready var main_gui = $UI/MainUI
 
 var current_level
 
