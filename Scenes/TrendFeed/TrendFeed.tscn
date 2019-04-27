@@ -16,12 +16,12 @@ anchor_bottom = 1.0
 theme = SubResource( 1 )
 script = ExtResource( 2 )
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="TrendFeed1" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 2 )
 
-[node name="Panel" type="NinePatchRect" parent="Panel2"]
+[node name="Panel" type="NinePatchRect" parent="TrendFeed1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 3 )
@@ -31,12 +31,12 @@ patch_margin_top = 13
 patch_margin_right = 10
 patch_margin_bottom = 68
 
-[node name="WordGrid" type="TileMap" parent="Panel2/Panel"]
+[node name="WordGrid" type="TileMap" parent="TrendFeed1/Panel"]
 cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="caret" type="Position2D" parent="Panel2/Panel/WordGrid"]
+[node name="caret" type="Position2D" parent="TrendFeed1/Panel/WordGrid"]
 
-[node name="Letters" type="Node2D" parent="Panel2/Panel/WordGrid"]
+[node name="Letters" type="Node2D" parent="TrendFeed1/Panel/WordGrid"]
 script = ExtResource( 4 )
 

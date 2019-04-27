@@ -19,10 +19,10 @@ var creature_movement = [ "wobbly", "bouncy", "jittery", "calm" ]
 var trends = creature_colors + body_shapes + creature_movement
 onready var active_trends : Dictionary = {}
 
-onready var grid : TileMap = $Panel2/Panel/WordGrid
+onready var grid : TileMap = $TrendFeed1/Panel/WordGrid
 onready var grid_size : Vector2 = grid.get_cell_size()
-onready var caret : Position2D = $Panel2/Panel/WordGrid/caret
-onready var letters_container = $Panel2/Panel/WordGrid/Letters
+onready var caret : Position2D = $TrendFeed1/Panel/WordGrid/caret
+onready var letters_container = $TrendFeed1/Panel/WordGrid/Letters
 onready var grid_rows = 32
 onready var grid_cols = 32
 onready var grid_offset = Vector2(16,16)
@@ -37,10 +37,13 @@ func _ready() -> void:
 
 	populate_field(visible_area)
 
-	self.connect("give_trend_letter", $Panel2/Panel/WordGrid/Letters, "_on_give_trend_letter")
+	#warning-ignore:unused_return_value
+	self.connect("give_trend_letter", letters_container, "_on_give_trend_letter")
 
 	generate_trending_words(5)
 	display_trends(5)
+
+
 
 func generate_trending_words(num_trends_active : int) -> void:
 	#warning-ignore:unused_variable
@@ -55,17 +58,15 @@ func display_trends(num_trends_visible : int) -> void:
 	for i in range(grid_cols):
 		columns.push_back(i)
 	columns.shuffle()
-#	print(str(columns))
+
 
 	#warning-ignore:unused_variable
 	for i in range(num_trends_visible):
 		var word = active_trends.keys()[randi()%active_trends.size()]
-#		print(str(word))
+
 		var rand_col = columns.pop_front()
 		var rand_row = randi()%(grid_rows - word.length())
-#		print(str(rand_row))
 		var location = Vector2(grid_offset.x + rand_col*grid_size.x, grid_offset.y + rand_row*grid_size.y)
-#		print(str(location))
 		insert_word(word, location, Vector2.DOWN )
 
 
@@ -97,7 +98,7 @@ func populate_field(area : Rect2) -> void:
 			letters_container.add_child(new_label)
 			new_label.set_position(caret.position)
 			new_label.name = str(floor(caret.position.x/grid_size.x)) + "x" + str(floor(caret.position.y/grid_size.y))
-#			print(str(new_label.name))
+
 			caret.position.x += grid_size.x
 		caret.position.x = area.position.x
 		caret.position.y += grid_size.y
@@ -117,7 +118,7 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 			#used_letters.push_back(node_name)
 
 			var movement_speed = active_trends[word]
-			print("movement_speed == " , movement_speed)
+
 			emit_signal("give_trend_letter",node_name, movement_speed)
 		else:
 			push_warning(self.name + ": something wrong with node_name in insert_word()")
