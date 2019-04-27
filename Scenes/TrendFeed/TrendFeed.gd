@@ -28,12 +28,15 @@ onready var grid_offset = Vector2(16,16)
 onready var visible_area : Rect2 = Rect2(grid_offset, Vector2(grid_cols * grid_size.x, grid_rows * grid_size.y))
 onready var active_trends : Dictionary = {}
 
+signal give_trend_letter
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 
 	populate_field(visible_area)
 
+	self.connect("give_trend_letter", $Panel2/Panel/WordGrid/Letters, "_on_give_trend_letter")
 
 	generate_trending_words(5)
 	display_trends(5)
@@ -107,6 +110,7 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 			letters_container.get_node(node_name).set_text(letter)
 			letters_container.get_node(node_name).set_self_modulate(Color.white)
 			#used_letters.push_back(node_name)
+			emit_signal("give_trend_letter",node_name)
 		else:
 			push_warning(self.name + ": something wrong with node_name in insert_word()")
 		if direction == Vector2.RIGHT:
