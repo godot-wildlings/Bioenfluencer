@@ -30,6 +30,10 @@ config/name="Bioenfluencer"
 run/main_scene="res://scenes/Main/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+data_store="*res://Singletons/DataStore/DataStore.tscn"
+
 [input]
 
 w_key={

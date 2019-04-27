@@ -33,6 +33,9 @@ signal give_trend_letter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var gene : Gene = data_store.get_gene(creature_colors[3])
+	print(gene.name)
+	
 	randomize()
 
 	populate_field(visible_area)

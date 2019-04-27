@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="CraftingLab" type="Node2D"]
+
+[node name="AvailableGenes" type="Node2D" parent="."]
+
+[node name="CraftingBox" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="CraftingBox"]
+
+[node name="Area2D" type="Area2D" parent="CraftingBox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CraftingBox/Area2D"]
+
