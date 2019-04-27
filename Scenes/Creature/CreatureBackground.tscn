@@ -1,0 +1,21 @@
+[gd_scene format=2]
+
+[node name="CreatureBackground" type="Node2D"]
+
+[node name="HeadPosition" type="Position2D" parent="."]
+position = Vector2( 349.627, 148.929 )
+
+[node name="FrontLegPosition" type="Position2D" parent="."]
+position = Vector2( 326.308, 178.981 )
+
+[node name="FrontLeg2Position" type="Position2D" parent="."]
+position = Vector2( 313.988, 171.767 )
+
+[node name="BackLeg1Position" type="Position2D" parent="."]
+position = Vector2( 245.822, 169.625 )
+
+[node name="BackLeg2Position" type="Position2D" parent="."]
+position = Vector2( 257.899, 180.354 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
