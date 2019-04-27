@@ -25,3 +25,10 @@ func _on_OptionsButton_pressed():
 func _on_TextureButton_pressed():
 	get_node("options_ui").hide()
 	get_node("main_ui").show()
+
+func _on_FullScreenButton_pressed():
+	
+	if OS.window_fullscreen == false:
+		OS.window_fullscreen = true
+	else:
+		OS.window_fullscreen = false

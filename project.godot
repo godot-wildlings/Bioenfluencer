@@ -34,6 +34,11 @@ config/icon="res://icon.png"
 
 data_store="*res://Singletons/DataStore/DataStore.tscn"
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [input]
 
 w_key={
