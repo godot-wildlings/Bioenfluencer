@@ -49,9 +49,17 @@ margin_bottom = 139.0
 max_value = 1.0
 step = 0.0
 value = 1.0
+ticks_on_borders = false
 script = ExtResource( 4 )
 
-[node name="TextureButton" type="TextureButton" parent="options_ui"]
+[node name="FullScreenButton" type="TextureButton" parent="options_ui"]
+margin_left = 459.0
+margin_top = 203.0
+margin_right = 523.0
+margin_bottom = 267.0
+texture_normal = ExtResource( 2 )
+
+[node name="ReturnButton" type="TextureButton" parent="options_ui"]
 margin_left = 459.0
 margin_top = 310.0
 margin_right = 523.0
@@ -65,4 +73,5 @@ stream = ExtResource( 5 )
 [connection signal="pressed" from="main_ui/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="main_ui/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="value_changed" from="options_ui/HSlider" to="options_ui/HSlider" method="_on_HSlider_value_changed"]
-[connection signal="pressed" from="options_ui/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="options_ui/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
+[connection signal="pressed" from="options_ui/ReturnButton" to="." method="_on_TextureButton_pressed"]
