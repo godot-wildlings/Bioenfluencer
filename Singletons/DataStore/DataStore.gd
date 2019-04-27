@@ -4,10 +4,14 @@ export var gene_resources_path : String = "res://Resources/Genes"
 export var gene_resource_prefix : String = "gene_"
 
 var genes : Dictionary
-var unlocked_body_parts : Dictionary
+var unlocked_body_parts : Array
 var body_parts : Dictionary
 
 func _ready() -> void:
+	unlocked_body_parts = [
+		"Lizard Head",
+		"Lizard Legs"
+	]
 	_populate_genes_dict()
 
 func _populate_genes_dict() -> void:
