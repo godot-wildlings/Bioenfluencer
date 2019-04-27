@@ -30,7 +30,6 @@ onready var visible_area : Rect2 = Rect2(grid_offset, Vector2(grid_cols * grid_s
 
 onready var falling_letter = preload("res://Scenes/TrendFeed/FallingLetter.tscn")
 
-signal give_trend_letter
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +41,7 @@ func _ready() -> void:
 	populate_field(visible_area)
 
 	#warning-ignore:unused_return_value
-	self.connect("give_trend_letter", letters_container, "_on_give_trend_letter")
+	#self.connect("give_trend_letter", letters_container, "_on_give_trend_letter")
 
 	generate_trending_words(5)
 	display_trends(5)
@@ -125,7 +124,6 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 			var movement_speed = active_trends[word]
 			falling_letter.set_speed(movement_speed)
 
-			emit_signal("give_trend_letter",node_name, movement_speed)
 		else:
 			push_warning(self.name + ": something wrong with node_name in insert_word()")
 		if direction == Vector2.RIGHT:
@@ -142,3 +140,9 @@ func _process(delta) -> void:
 	"""
 	#streaming letters is not yet implemented
 	pass
+
+
+func _on_Timer_timeout():
+	for letter in letters_container.get_children():
+		letter.drop()
+
