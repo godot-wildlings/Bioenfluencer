@@ -57,17 +57,21 @@ script = ExtResource( 3 )
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
 
 [node name="InfluencerIcon" type="CenterContainer" parent="VBoxContainer"]
-margin_right = 640.0
-margin_bottom = 158.0
+margin_right = 600.0
+margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 162.0
-margin_right = 640.0
-margin_bottom = 320.0
+margin_top = 142.0
+margin_right = 600.0
+margin_bottom = 280.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
@@ -75,10 +79,10 @@ bbcode_text = "[i]Influencer[/i] was spotted at [i]Location[/i], leading her new
 text = "Influencer was spotted at Location, leading her newest Creation"
 
 [node name="ChooseStory" type="Button" parent="VBoxContainer"]
-margin_left = 220.0
-margin_top = 324.0
-margin_right = 420.0
-margin_bottom = 360.0
+margin_left = 200.0
+margin_top = 284.0
+margin_right = 400.0
+margin_bottom = 320.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "ReChirp this Story"

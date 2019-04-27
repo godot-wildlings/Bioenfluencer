@@ -25,8 +25,8 @@ onready var caret : Position2D = $TrendFeed1/Panel/WordGrid/caret
 onready var letters_container = $TrendFeed1/Panel/WordGrid/Letters
 onready var grid_rows = 32
 onready var grid_cols = 32
-onready var grid_offset = Vector2(16,16)
-onready var visible_area : Rect2 = Rect2(grid_offset, Vector2(grid_cols * grid_size.x, grid_rows * grid_size.y))
+onready var grid_offset = $TrendFeed1/Panel/WordGrid/UpperLeft.position
+onready var visible_area : Rect2 = Rect2(grid_offset, $TrendFeed1/Panel/WordGrid/BottomRight.position - grid_offset)
 
 onready var falling_letter = preload("res://Scenes/TrendFeed/FallingLetter.tscn")
 
