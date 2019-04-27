@@ -2,7 +2,8 @@ extends GridContainer
 
 """
 Render each BodyPart
-- unlocked: render as CheckButton so that you can select (up to 4) BodyParts
+- unlocked: render as CheckButton so that you can select BodyParts 
+	(as many as the budget allows (weight property) 
 - locked : Render as Button with buy action
 """
 
@@ -11,5 +12,4 @@ func _ready() -> void:
 		if part is BodyPart and data_store.unlocked_body_parts.has(part.part_name):
 			part.state = BodyPart.States.GUI
 		else:
-			print("not unlocked")
-			print(part.part_name)
+			print("not unlocked : " + part.part_name)
