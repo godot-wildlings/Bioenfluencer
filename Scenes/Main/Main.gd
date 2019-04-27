@@ -3,7 +3,7 @@ extends Node
 var current_level
 
 func _ready():
-	pass
+	$AudioStreamPlayer.play()
 
 func _on_StartButton_pressed():
 	
