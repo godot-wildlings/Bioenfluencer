@@ -4,16 +4,15 @@ var current_level
 
 func _ready():
 	pass
-	#var load_level = preload("res://Scenes/Levels/template_level.tscn")
 
-	#current_level = load_level.instance()
-	#self.add_child(current_level)
+func _on_StartButton_pressed():
+	
+	var load_level = preload("res://Scenes/Streaming/stream.tscn")
+	
+	remove_child(get_node("main_ui"))
+	
+	var instance_level = load_level.instance()
+	add_child(instance_level)
 
-func _on_Signal_level_changed():
-	pass
-	#var load_level = preload("res://Scenes/Levels/template_level.tscn")
-
-#	self.remove_child(current_level)
-#
-#	#current_level = load_level.instance()
-#	add_child(current_level)
+func _on_QuitButton_pressed():
+	get_tree().quit()
