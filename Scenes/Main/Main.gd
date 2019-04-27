@@ -4,7 +4,7 @@ var current_level
 
 func _ready():
 
-	var load_level = preload("res://scenes/template_level.tscn")
+	var load_level = preload("res://Scenes/Levels/template_level.tscn")
 
 	current_level = load_level.instance()
 	self.add_child(current_level)
@@ -15,7 +15,7 @@ func _ready():
 
 func _on_Signal_level_changed():
 
-	var load_level = preload("res://scenes/template_level.tscn")
+	var load_level = preload("res://Scenes/Levels/template_level.tscn")
 
 	self.remove_child(current_level)
 
