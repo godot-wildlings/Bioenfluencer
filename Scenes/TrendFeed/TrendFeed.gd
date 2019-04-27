@@ -89,6 +89,7 @@ func populate_field(area : Rect2) -> void:
 			letters_container.add_child(new_label)
 			new_label.set_position(caret.position)
 			new_label.name = str(floor(caret.position.x/grid_size.x)) + "x" + str(floor(caret.position.y/grid_size.y))
+#			print(str(new_label.name))
 			caret.position.x += grid_size.x
 		caret.position.x = area.position.x
 		caret.position.y += grid_size.y
