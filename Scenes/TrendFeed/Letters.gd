@@ -18,3 +18,14 @@ func _process(delta):
 			child.rect_position.y += 2
 		else:
 			pass
+
+#COMMENTED OUT BECAUSE NOT FUNCTIONING
+
+#func _input(event):
+#
+#	if event is InputEventMouseButton && event.is_action_pressed("mouse_button_left"):
+#		for child in get_children():
+#			if trend_letters.has(child.name):
+#				if event.position == child.get_rect():
+#					remove_child(child)
+#					print("clicked")

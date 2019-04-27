@@ -54,13 +54,17 @@ func display_trends(num_trends_visible : int) -> void:
 	for i in range(grid_cols):
 		columns.push_back(i)
 	columns.shuffle()
+#	print(str(columns))
 
 	#warning-ignore:unused_variable
 	for i in range(num_trends_visible):
 		var word = active_trends.keys()[randi()%active_trends.size()]
+#		print(str(word))
 		var rand_col = columns.pop_front()
 		var rand_row = randi()%(grid_rows - word.length())
+#		print(str(rand_row))
 		var location = Vector2(grid_offset.x + rand_col*grid_size.x, grid_offset.y + rand_row*grid_size.y)
+#		print(str(location))
 		insert_word(word, location, Vector2.DOWN )
 
 
