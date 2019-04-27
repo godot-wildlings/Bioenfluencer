@@ -18,13 +18,13 @@ func _ready():
 #	pass
 
 func _on_Button2_pressed():
-	
+
 	print("You gained " + str(10) + " followers!")
-	
+
 	_take_Info_From_Creature()
-	
+
 	followers_gained = followers_gained + 10 #+ some randomizing rng unfortunate misfortune #add depression to Bioenfluencer
-	
+
 	_calc_Followers(followers_gained)
 
 
@@ -33,11 +33,11 @@ func _on_Button_pressed():
 	emit_signal("pose_changed")
 
 func _calc_Followers(num : int):
-	
+
 	followers = followers + num
 
 func _take_Info_From_Creature():
-	
+
 	var info
-	
+
 	return info

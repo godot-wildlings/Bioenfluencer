@@ -6,17 +6,21 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Panel" type="Panel" parent="."]
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/separation = 50
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="SwipeInfluenceBox" parent="HSplitContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 295.0
+margin_bottom = 360.0
 
-[node name="SwipeInfluenceBox" parent="Panel/HSplitContainer" instance=ExtResource( 1 )]
-margin_right = 506.0
-
-[node name="SwipeInfluenceBox2" parent="Panel/HSplitContainer" instance=ExtResource( 1 )]
-margin_left = 518.0
+[node name="SwipeInfluenceBox2" parent="HSplitContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 345.0
+margin_right = 640.0
+margin_bottom = 360.0
 
