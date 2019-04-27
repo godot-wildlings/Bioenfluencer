@@ -11,12 +11,13 @@ Each trend needs a slope : float (x/y)
 
 extends Control
 
-# Declare member variables here. Examples:
+# This will move to the resource Caevv set up
 var creature_colors = ["pink", "red", "brown", "blue"]
 var body_shapes = ["pudgy", "lean", "pear", "wobbly", "thin", "muscular" ]
 var creature_movement = [ "wobbly", "bouncy", "jittery", "calm" ]
 
 var trends = creature_colors + body_shapes + creature_movement
+onready var active_trends : Dictionary = {}
 
 onready var grid : TileMap = $Panel2/Panel/WordGrid
 onready var grid_size : Vector2 = grid.get_cell_size()
@@ -26,7 +27,7 @@ onready var grid_rows = 32
 onready var grid_cols = 32
 onready var grid_offset = Vector2(16,16)
 onready var visible_area : Rect2 = Rect2(grid_offset, Vector2(grid_cols * grid_size.x, grid_rows * grid_size.y))
-onready var active_trends : Dictionary = {}
+
 
 signal give_trend_letter
 
@@ -72,7 +73,7 @@ func get_random_trend() -> String:
 	return trends[randi()%trends.size()]
 
 func get_random_trending_rate() -> float:
-	return randf()*2.0
+	return randf()*5.0
 
 func get_random_grid_location(area : Rect2) -> Vector2:
 	var tiles : Vector2 = Vector2(area.size.x / grid_size.x, area.size.y / grid_size.y)
@@ -114,7 +115,10 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 			letters_container.get_node(node_name).set_text(letter)
 			letters_container.get_node(node_name).set_self_modulate(Color.white)
 			#used_letters.push_back(node_name)
-			emit_signal("give_trend_letter",node_name)
+
+			var movement_speed = active_trends[word]
+			print("movement_speed == " , movement_speed)
+			emit_signal("give_trend_letter",node_name, movement_speed)
 		else:
 			push_warning(self.name + ": something wrong with node_name in insert_word()")
 		if direction == Vector2.RIGHT:

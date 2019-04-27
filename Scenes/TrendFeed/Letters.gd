@@ -1,21 +1,33 @@
 extends Node2D
 
+# trend_letters and letter_speeds need the same indexing for now
 var trend_letters = []
+var letter_speeds = []
 
+var trend_words = []
+
+
+var movement_speed : float
 
 func _ready():
 	pass
 
-func _on_give_trend_letter(node_name : String):
-	
-	trend_letters.insert(trend_letters.size(), node_name)
+func _on_word_created(word : String, speed: float):
+	trend_words.push_back(word)
+
+func _on_give_trend_letter(node_name : String, speed : float):
+	movement_speed = speed
+	trend_letters.push_back(node_name)
+	letter_speeds.push_back(speed)
+
 
 func _process(delta):
-	
-	for child in get_children():
-		
-		if trend_letters.has(child.name):
-			child.rect_position.y += 2
+
+	for i in range(trend_letters.size()):
+
+		if has_node(trend_letters[i]):
+			get_node(trend_letters[i]).rect_position.y += letter_speeds[i]
+
 		else:
 			pass
 
