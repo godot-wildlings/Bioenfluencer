@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Main/options_ui.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=4]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -24,5 +26,40 @@ margin_right = 522.0
 margin_bottom = 267.0
 texture_normal = ExtResource( 2 )
 
+[node name="OptionsButton" type="TextureButton" parent="main_ui"]
+margin_left = 458.0
+margin_top = 310.0
+margin_right = 522.0
+margin_bottom = 374.0
+texture_normal = ExtResource( 2 )
+
+[node name="options_ui" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+script = ExtResource( 3 )
+
+[node name="HSlider" type="HSlider" parent="options_ui"]
+margin_left = 416.0
+margin_top = 123.0
+margin_right = 564.0
+margin_bottom = 139.0
+max_value = 1.0
+step = 0.0
+value = 1.0
+ticks_on_borders = false
+script = ExtResource( 4 )
+
+[node name="TextureButton" type="TextureButton" parent="options_ui"]
+margin_left = 459.0
+margin_top = 310.0
+margin_right = 523.0
+margin_bottom = 374.0
+texture_normal = ExtResource( 2 )
+
 [connection signal="pressed" from="main_ui/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="main_ui/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="main_ui/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="value_changed" from="options_ui/HSlider" to="options_ui/HSlider" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="options_ui/TextureButton" to="." method="_on_TextureButton_pressed"]

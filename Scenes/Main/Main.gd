@@ -16,3 +16,12 @@ func _on_StartButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
+
+func _on_OptionsButton_pressed():
+	get_node("main_ui").hide()
+	get_node("options_ui").show()
+
+
+func _on_TextureButton_pressed():
+	get_node("options_ui").hide()
+	get_node("main_ui").show()
