@@ -36,7 +36,7 @@ signal give_trend_letter
 func _ready() -> void:
 	var gene : Gene = data_store.get_gene(creature_colors[3])
 	print(gene.name)
-	
+
 	randomize()
 
 	populate_field(visible_area)
@@ -102,6 +102,7 @@ func populate_field(area : Rect2) -> void:
 			#new_falling_letter.set_text(".")
 			letters_container.add_child(new_falling_letter)
 			new_falling_letter.set_position(caret.position)
+			new_falling_letter.screen_area = visible_area
 			new_falling_letter.name = str(floor(caret.position.x/grid_size.x)) + "x" + str(floor(caret.position.y/grid_size.y))
 			caret.position.x += grid_size.x
 		caret.position.x = area.position.x

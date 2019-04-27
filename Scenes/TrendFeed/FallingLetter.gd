@@ -2,6 +2,7 @@ extends Label
 
 # Declare member variables here. Examples:
 var movement_speed : float = 1.0
+var screen_area : Rect2
 
 enum states { STATIC, FALLING }
 var state = states.STATIC
@@ -14,6 +15,9 @@ func _ready():
 func _process(delta):
 	if state == states.FALLING:
 		rect_position.y += movement_speed
+		if screen_area.has_point(rect_position) == false:
+			rect_position.y = screen_area.position.y
+
 
 func set_speed(speed):
 	if speed != null:
