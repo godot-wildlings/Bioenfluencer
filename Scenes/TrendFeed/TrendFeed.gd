@@ -28,6 +28,7 @@ onready var grid_cols = 32
 onready var grid_offset = Vector2(16,16)
 onready var visible_area : Rect2 = Rect2(grid_offset, Vector2(grid_cols * grid_size.x, grid_rows * grid_size.y))
 
+onready var falling_letter = preload("res://Scenes/TrendFeed/FallingLetter.tscn")
 
 signal give_trend_letter
 
@@ -77,7 +78,7 @@ func get_random_trend() -> String:
 	return trends[randi()%trends.size()]
 
 func get_random_trending_rate() -> float:
-	return randf()*5.0
+	return randf()*3.0 + 2.0
 
 func get_random_grid_location(area : Rect2) -> Vector2:
 	var tiles : Vector2 = Vector2(area.size.x / grid_size.x, area.size.y / grid_size.y)
@@ -94,14 +95,14 @@ func populate_field(area : Rect2) -> void:
 	for row in range(area.size.y/grid_size.y):
 		#warning-ignore:unused_variable
 		for col in range(area.size.x/grid_size.x):
-			var new_label = Label.new()
-			new_label.set_text(letters.substr(randi()%letters.length(), 1))
-			new_label.set_self_modulate(Color.darkgray)
-			#new_label.set_text(".")
-			letters_container.add_child(new_label)
-			new_label.set_position(caret.position)
-			new_label.name = str(floor(caret.position.x/grid_size.x)) + "x" + str(floor(caret.position.y/grid_size.y))
+			var new_falling_letter = falling_letter.instance()
 
+			new_falling_letter.set_text(letters.substr(randi()%letters.length(), 1))
+			new_falling_letter.set_self_modulate(Color.darkgray)
+			#new_falling_letter.set_text(".")
+			letters_container.add_child(new_falling_letter)
+			new_falling_letter.set_position(caret.position)
+			new_falling_letter.name = str(floor(caret.position.x/grid_size.x)) + "x" + str(floor(caret.position.y/grid_size.y))
 			caret.position.x += grid_size.x
 		caret.position.x = area.position.x
 		caret.position.y += grid_size.y
@@ -116,11 +117,12 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 		var letter = word.substr(i, 1)
 
 		if letters_container.has_node(node_name):
-			letters_container.get_node(node_name).set_text(letter)
-			letters_container.get_node(node_name).set_self_modulate(Color.white)
-			#used_letters.push_back(node_name)
+			var falling_letter = letters_container.get_node(node_name)
+			falling_letter.set_text(letter)
+			falling_letter.set_self_modulate(Color.white)
 
 			var movement_speed = active_trends[word]
+			falling_letter.set_speed(movement_speed)
 
 			emit_signal("give_trend_letter",node_name, movement_speed)
 		else:
