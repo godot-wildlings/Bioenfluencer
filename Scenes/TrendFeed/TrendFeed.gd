@@ -26,16 +26,26 @@ onready var grid_rows = 32
 onready var grid_cols = 32
 onready var grid_offset = Vector2(16,16)
 onready var visible_area : Rect2 = Rect2(grid_offset, Vector2(grid_cols * grid_size.x, grid_rows * grid_size.y))
+onready var active_trends : Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 
 	populate_field(visible_area)
+
+
+	generate_trending_words(5)
 	display_trends(5)
 
+func generate_trending_words(num_trends_active : int) -> void:
+	#warning-ignore:unused_variable
+	for i in range(num_trends_active):
+		var word = get_random_trend()
+		active_trends[word] = get_random_trending_rate()
 
-func display_trends(num_trends_visible : int):
+
+func display_trends(num_trends_visible : int) -> void:
 	var columns = []
 	#warning-ignore:unused_variable
 	for i in range(grid_cols):
@@ -44,7 +54,7 @@ func display_trends(num_trends_visible : int):
 
 	#warning-ignore:unused_variable
 	for i in range(num_trends_visible):
-		var word = get_random_trend()
+		var word = active_trends.keys()[randi()%active_trends.size()]
 		var rand_col = columns.pop_front()
 		var rand_row = randi()%(grid_rows - word.length())
 		var location = Vector2(grid_offset.x + rand_col*grid_size.x, grid_offset.y + rand_row*grid_size.y)
@@ -54,6 +64,8 @@ func display_trends(num_trends_visible : int):
 func get_random_trend() -> String:
 	return trends[randi()%trends.size()]
 
+func get_random_trending_rate() -> float:
+	return randf()*2.0
 
 func get_random_grid_location(area : Rect2) -> Vector2:
 	var tiles : Vector2 = Vector2(area.size.x / grid_size.x, area.size.y / grid_size.y)
@@ -103,4 +115,10 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 
 #warning-ignore:unused_argument
 func _process(delta) -> void:
+	"""
+	The active_trends dictionary holds trend words along with a float value from 0 to 2.0
+	The goal is to use the float to indicate how fast the letters should move down the page.
+	Faster letters are more trendy, therefore those qualities should be more valuable.
+	"""
+	#streaming letters is not yet implemented
 	pass
