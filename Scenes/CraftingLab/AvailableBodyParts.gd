@@ -2,8 +2,8 @@ extends GridContainer
 
 """
 Render each BodyPart
-- unlocked: render as CheckButton so that you can select BodyParts 
-	(as many as the budget allows (weight property) 
+- unlocked: render as CheckButton so that you can select BodyParts
+	(as many as the budget allows (weight property)
 - locked : Render as Button with buy action
 """
 

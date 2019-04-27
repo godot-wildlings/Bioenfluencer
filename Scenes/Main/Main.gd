@@ -1,9 +1,36 @@
 extends Node
 
+onready var level_container = $Levels
+onready var main_gui = $CanvasLayer/MainUI
+
 var current_level
 
 func _ready():
 	$AudioStreamPlayer.play()
+
+func load_level(level_name : String ) -> void:
+	var levels : Dictionary = {
+			"Feed" : "res://Scenes/TrendFeed/TrendFeed.tscn",
+			"Chirp" : "res://Scenes/TrendFeed/SwipeStories.tscn",
+			"Lab" : "res://Scenes/CraftingLab/CraftingLab.tscn",
+			"Store" : ""
+		}
+
+	hide_ui()
+	remove_old_level()
+
+	var level_scene = load(levels[level_name])
+	var new_level = level_scene.instance()
+	level_container.add_child(new_level)
+	current_level = new_level
+
+
+func hide_ui():
+	main_gui.hide()
+
+func remove_old_level():
+	if current_level != null and is_instance_valid(current_level):
+		current_level.call_deferred("queue_free")
 
 func _on_StartButton_pressed():
 
@@ -32,3 +59,18 @@ func _on_FullScreenButton_pressed():
 		OS.window_fullscreen = true
 	else:
 		OS.window_fullscreen = false
+
+func _on_NewsFeedButton_pressed():
+	load_level("Feed")
+
+
+func _on_ChirperButton_pressed():
+	load_level("Chirp")
+
+
+func _on_CreatureLabButton_pressed():
+	load_level("Lab")
+
+
+func _on_StoreButton_pressed():
+	load_level("Store")
