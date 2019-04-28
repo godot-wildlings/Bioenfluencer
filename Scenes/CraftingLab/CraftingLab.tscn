@@ -23,6 +23,14 @@ margin_bottom = 360.0
 texture = ExtResource( 2 )
 expand = true
 
+[node name="CreatureNameLabel" type="Label" parent="Control/CraftingTube"]
+margin_left = 184.488
+margin_top = 279.801
+margin_right = 464.488
+margin_bottom = 293.801
+text = "test"
+align = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 margin_right = 648.0
 margin_bottom = 360.0
