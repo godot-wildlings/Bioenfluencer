@@ -11,7 +11,7 @@ export(GeneCategory) var category : int = GeneCategory.CATEGORY_MISC
 export var number_of_followers : int = 100
 
 #warning-ignore:unused_class_variable
-export var trending_factor : float = 0.0 # rise over run (followers per week)
+export var trending_factor : float # rise over run (followers per week)
 
 #warning-ignore:unused_class_variable
 export var icon : Texture = preload("res://icon.png") as Texture

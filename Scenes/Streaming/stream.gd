@@ -8,9 +8,9 @@ onready var creatures_display = $stream_UI/RightSide/ItemList
 var trends
 
 func _ready():
-	
+
 	for i in DataStore.crafted_creatures:
-		
+
 		if i is Creature and is_instance_valid(i):
 			creatures_display.add_item(i.creature_name,null,true)
 

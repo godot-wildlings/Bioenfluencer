@@ -28,8 +28,8 @@ onready var caret : Position2D = $TrendFeed1/Panel/WordGrid/caret
 onready var letters_container = $TrendFeed1/Panel/WordGrid/Letters
 onready var trending_gene_label = $TrendFeed1/Panel/VBoxContainer/TrendingGene
 onready var analyst_button = $TrendFeed1/Panel/VBoxContainer/HBoxContainer/AnalystButton
-onready var grid_rows = 32
-onready var grid_cols = 32
+onready var grid_rows : int
+onready var grid_cols : int
 onready var grid_offset = $TrendFeed1/Panel/WordGrid/UpperLeft.position
 onready var visible_area : Rect2 = Rect2(grid_offset, $TrendFeed1/Panel/WordGrid/BottomRight.position - grid_offset)
 
@@ -41,6 +41,7 @@ func _ready() -> void:
 	#var gene : Gene = DataStore.get_gene(creature_colors[3])
 
 	randomize()
+	setup_grid()
 
 	populate_field(visible_area)
 
@@ -52,13 +53,17 @@ func _ready() -> void:
 
 	analyst_button.set_tooltip("Paying an analyst will cost you followers.")
 
+func setup_grid():
+	grid_rows = visible_area.size.y / grid_size.y
+	grid_cols = visible_area.size.x / grid_size.x
 
 func generate_trending_words(num_trends_active : int) -> void:
 	#warning-ignore:unused_variable
 	for i in range(num_trends_active):
 		var word = get_random_trend()
-		active_trends[word] = get_random_trending_rate()
-
+		#active_trends[word] = get_random_trending_rate()
+		active_trends[word] = DataStore.get_gene(word).trending_factor
+		print("trending rate for ", word, " == " , active_trends[word])
 
 func display_trends(num_trends_visible : int) -> void:
 	var columns = []
@@ -116,6 +121,7 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 
 	caret.position = location
 	#warning-ignore:unused_variable
+	print(word)
 	for i in range(word.length()):
 		var node_name = str(int((caret.position.x)/grid_size.x)) + "x" + str(int(caret.position.y/grid_size.y))
 

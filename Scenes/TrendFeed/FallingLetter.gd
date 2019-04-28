@@ -16,9 +16,14 @@ func _ready():
 
 func _process(delta):
 	if state == states.FALLING:
+		var lower_margin = screen_area.position.y + screen_area.size.y
 		rect_position.y += movement_speed * base_speed * delta
+
 		if screen_area.has_point(rect_position) == false:
-			rect_position.y = screen_area.position.y
+			if rect_position.y > lower_margin:
+				rect_position.y = screen_area.position.y
+			else:
+				rect_position.y = lower_margin
 
 
 func set_speed(speed):
