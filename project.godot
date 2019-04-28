@@ -23,17 +23,11 @@ _global_script_classes=[ {
 "class": "Gene",
 "language": "GDScript",
 "path": "res://Resources/Gene/Gene.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "PlayerCharacter",
-"language": "GDScript",
-"path": "res://Scenes/Player/PlayerTopDown.gd"
 } ]
 _global_script_class_icons={
 "BodyPart": "",
 "CraftingLab": "",
-"Gene": "res://Resources/Gene/gene_icon.png",
-"PlayerCharacter": ""
+"Gene": "res://Resources/Gene/gene_icon.png"
 }
 
 [application]
