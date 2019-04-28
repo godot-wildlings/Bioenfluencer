@@ -40,13 +40,14 @@ func _on_CraftCreatureButton_pressed() -> void:
 	# clean up the leftovers from the previous creation
 	for children in preview_container.get_children():
 		preview_container.remove_child(children)
-
-	# instantiate a creature background and put proper body parts in place
-	var creature_background : Object = creature_background_tscn.instance()
-	preview_container.add_child(creature_background)
-	for i in range(staged_body_parts.get_item_count()):
-		var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
-		var draggable_body_part : Sprite = draggable_body_part_tscn.instance()
-		creature_background.add_child(draggable_body_part)
-		draggable_body_part.sprite.texture = body_part.icon
-	emit_signal("crafting_completed")
+	var amount_of_staged_body_parts : int = staged_body_parts.get_item_count()
+	if amount_of_staged_body_parts > 0:
+		# instantiate a creature background and put proper body parts in place
+		var creature_background : Object = creature_background_tscn.instance()
+		preview_container.add_child(creature_background)
+		for i in range(amount_of_staged_body_parts):
+			var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
+			var draggable_body_part : Sprite = draggable_body_part_tscn.instance()
+			creature_background.add_child(draggable_body_part)
+			draggable_body_part.sprite.texture = body_part.icon
+		emit_signal("crafting_completed")
