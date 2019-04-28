@@ -3,8 +3,8 @@ extends Control
 class_name CraftingLab
 
 #warning-ignore:unused_class_variable
-export var max_crafting_budget : float = 100
-export var crafting_budget : float = max_crafting_budget setget _set_crafting_budget
+export var max_crafting_budget : int = 100
+export var crafting_budget : int = max_crafting_budget setget _set_crafting_budget
 export var creature_background_tscn : PackedScene = preload("res://Scenes/Creature/CreatureBackground.tscn") as PackedScene
 export var draggable_body_part_tscn : PackedScene = preload("res://Scenes/BodyPart/DraggableBodyPart.tscn") as PackedScene
 export var disabled_items_color : Color = Color.red
@@ -28,7 +28,7 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	craft_creature_button.connect("pressed", self, "_on_CraftCreatureButton_pressed")
 
-func _set_crafting_budget(new_val : float) -> void:
+func _set_crafting_budget(new_val : int) -> void:
 	if new_val != crafting_budget:
 		crafting_budget = new_val
 		emit_signal("on_crafting_budget_change")
