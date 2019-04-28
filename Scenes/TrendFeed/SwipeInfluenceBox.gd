@@ -84,4 +84,9 @@ func update_text(influencer_node):
 	text_box.set_bbcode(story)
 
 func _on_ChooseStory_pressed():
+	"""
+		Get a list of the trends in the story, and how they're likely to change.
+		Tell DataStore that trends are changing.
+
+	"""
 	pass # Replace with function body.

@@ -40,7 +40,7 @@ func _on_CraftCreatureButton_pressed() -> void:
 	# clean up the leftovers from the previous creation
 	for children in preview_container.get_children():
 		preview_container.remove_child(children)
-	
+
 	# instantiate a creature background and put proper body parts in place
 	var creature_background : Object = creature_background_tscn.instance()
 	preview_container.add_child(creature_background)

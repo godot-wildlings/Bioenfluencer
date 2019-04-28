@@ -34,7 +34,6 @@ onready var falling_letter = preload("res://Scenes/TrendFeed/FallingLetter.tscn"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var gene : Gene = DataStore.get_gene(creature_colors[3])
-	print(gene.name)
 
 	randomize()
 
@@ -125,24 +124,20 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 			falling_letter.set_speed(movement_speed)
 
 		else:
-			push_warning(self.name + ": something wrong with node_name in insert_word()")
+			#push_warning(self.name + ": something wrong with node_name in insert_word()")
+			pass
+
 		if direction == Vector2.RIGHT:
 			caret.position.x += grid_size.x
 		else:
 			caret.position.y += grid_size.y
-
-#warning-ignore:unused_argument
-func _process(delta) -> void:
-	"""
-	The active_trends dictionary holds trend words along with a float value from 0 to 2.0
-	The goal is to use the float to indicate how fast the letters should move down the page.
-	Faster letters are more trendy, therefore those qualities should be more valuable.
-	"""
-	#streaming letters is not yet implemented
-	pass
 
 
 func _on_Timer_timeout():
 	for letter in letters_container.get_children():
 		letter.drop()
 
+
+func _on_AnalystButton_pressed():
+	var trending_gene_name = DataStore.get_trending_gene().name
+	$VBoxContainer/TrendingGene.set_text("Analyst says: " + trending_gene_name + " is trending.")
