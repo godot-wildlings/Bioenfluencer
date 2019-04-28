@@ -19,6 +19,7 @@ onready var budget_label : Label = $CanvasLayer/CraftingBudgetLabel
 onready var craft_creature_button : Button = $CanvasLayer/CraftCreatureButton
 
 signal on_crafting_budget_change
+signal crafting_completed
 
 func _ready() -> void:
 	Game.crafting_lab = self
@@ -46,5 +47,6 @@ func _on_CraftCreatureButton_pressed() -> void:
 	for i in range(staged_body_parts.get_item_count()):
 		var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
 		var draggable_body_part : Sprite = draggable_body_part_tscn.instance()
-		draggable_body_part.texture = body_part.icon
 		creature_background.add_child(draggable_body_part)
+		draggable_body_part.sprite.texture = body_part.icon
+	emit_signal("crafting_completed")
