@@ -34,7 +34,7 @@ func _set_crafting_budget(new_val : int) -> void:
 		emit_signal("on_crafting_budget_change")
 
 func _on_CraftingLab_crafting_budget_change() -> void:
-	budget_label.text = "CRAFTING BUDGET LEFT: %s / %s" % [str(crafting_budget), str(max_crafting_budget)]
+	budget_label.text = "CRAFTING BUDGET LEFT\n%s / %s" % [str(crafting_budget), str(max_crafting_budget)]
 
 func _on_CraftCreatureButton_pressed() -> void:
 	# clean up the leftovers from the previous creation
