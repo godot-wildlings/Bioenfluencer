@@ -176,13 +176,16 @@ anchor_bottom = 1.0
 [node name="TabContainer" type="TabContainer" parent="UI/IntroStory"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+tabs_visible = false
 
 [node name="Tab1" type="Tabs" parent="UI/IntroStory/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -203,10 +206,10 @@ margin_top = -20.0
 text = "Next"
 
 [node name="Tab2" type="Tabs" parent="UI/IntroStory/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 

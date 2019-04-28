@@ -28,10 +28,12 @@ func load_level(level_name : String ) -> void:
 	hide_ui()
 	remove_old_level()
 
-	var level_scene = load(levels[level_name])
-	var new_level = level_scene.instance()
-	level_container.add_child(new_level)
-	current_level = new_level
+	var level_scene_path = levels[level_name]
+	if level_scene_path != "":
+		var level_scene = load(levels[level_name])
+		var new_level = level_scene.instance()
+		level_container.add_child(new_level)
+		current_level = new_level
 
 
 func hide_ui():

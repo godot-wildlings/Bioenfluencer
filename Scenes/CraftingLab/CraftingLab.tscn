@@ -42,6 +42,7 @@ weight = 20.0
 icon = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 margin_left = 420.399
