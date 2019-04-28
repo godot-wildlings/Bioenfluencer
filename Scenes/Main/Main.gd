@@ -106,3 +106,12 @@ func _on_story_completed():
 
 func _on_StreamStudioButton_pressed():
 	load_level("Stream")
+
+
+func _on_WTFButton_pressed():
+	$UI/MainUI/WTFHelp.show()
+
+
+
+func _on_HideHelpButton_pressed():
+	$UI/MainUI/WTFHelp.hide()

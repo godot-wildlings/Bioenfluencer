@@ -105,12 +105,19 @@ alignment = 1
 margin_left = 466.0
 margin_right = 600.0
 margin_bottom = 302.0
+custom_constants/separation = 25
 alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 63.0
+[node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 31.0
 margin_right = 134.0
-margin_bottom = 79.0
+margin_bottom = 51.0
+text = "WTF? Help!"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 76.0
+margin_right = 134.0
+margin_bottom = 92.0
 alignment = 2
 
 [node name="VolSlider" type="HSlider" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
@@ -132,9 +139,9 @@ margin_bottom = 15.0
 text = "Volume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 83.0
+margin_top = 117.0
 margin_right = 134.0
-margin_bottom = 147.0
+margin_bottom = 181.0
 alignment = 2
 
 [node name="FullScreenLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
@@ -170,9 +177,9 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 5 )
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 151.0
+margin_top = 206.0
 margin_right = 134.0
-margin_bottom = 215.0
+margin_bottom = 270.0
 alignment = 2
 
 [node name="QuitLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
@@ -188,22 +195,27 @@ margin_right = 134.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 5 )
 
-[node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 219.0
-margin_right = 134.0
-margin_bottom = 239.0
-text = "WTF? Help!"
-
-[node name="PopupDialog" type="PopupDialog" parent="UI/MainUI"]
-visible = true
+[node name="WTFHelp" type="PopupDialog" parent="UI/MainUI"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 620.0
 margin_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="UI/MainUI/PopupDialog"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MainUI/WTFHelp"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Label" type="Label" parent="UI/MainUI/WTFHelp/MarginContainer"]
+margin_left = 40.0
+margin_top = 68.0
+margin_right = 560.0
+margin_bottom = 252.0
 text = "Use your feed to identify current trends in the bio-engineering-fashion industry.
 
 Use your creature lab to assemble creature. 
@@ -216,6 +228,15 @@ Creatures that match current trends will be more popular.
 Unlock new body parts for crafting at Partz!
 "
 autowrap = true
+
+[node name="HideHelpButton" type="Button" parent="UI/MainUI/WTFHelp"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -54.0
+margin_top = -20.0
+text = "Return"
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
 anchor_right = 1.0
@@ -237,7 +258,9 @@ current = true
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/ChirperButton" to="." method="_on_ChirperButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/StoreButton" to="." method="_on_StoreButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/WTFButton" to="." method="_on_WTFButton_pressed"]
 [connection signal="value_changed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" to="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/ReturnButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_on_HideHelpButton_pressed"]
