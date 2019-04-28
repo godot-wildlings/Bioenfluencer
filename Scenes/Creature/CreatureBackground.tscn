@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30, 20 )
+
+[sub_resource type="CircleShape2D" id=4]
+
+[node name="CreatureBackground" type="Node2D"]
+position = Vector2( -0.340561, 0 )
+
+[node name="HeadPosition" type="Position2D" parent="."]
+position = Vector2( 42.8659, -12.3025 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="HeadPosition"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadPosition/Area2D"]
+shape = SubResource( 1 )
+
+[node name="LegsPosition" type="Position2D" parent="."]
+position = Vector2( 0, 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D2" type="Area2D" parent="LegsPosition"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegsPosition/Area2D2"]
+shape = SubResource( 2 )
+
+[node name="TorsoPosition" type="Position2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D3" type="Area2D" parent="TorsoPosition"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorsoPosition/Area2D3"]
+shape = SubResource( 3 )
+
+[node name="TailPosition" type="Position2D" parent="."]
+position = Vector2( -37.8939, 2.10851 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D4" type="Area2D" parent="TailPosition"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TailPosition/Area2D4"]
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+

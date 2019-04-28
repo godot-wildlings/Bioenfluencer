@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/UI/Themes/Fonts/ZCOOL_KuaiLe/ZCOOLKuaiLe-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/UI/Themes/Fonts/Lustria/Lustria-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+Panel/styles/panel = SubResource( 1 )
+Panel/styles/panelf = null
+Panel/styles/panelnc = null
+RichTextLabel/colors/default_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+RichTextLabel/colors/font_color_selected = Color( 0.490196, 0.490196, 0.490196, 1 )
+RichTextLabel/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+RichTextLabel/colors/selection_color = Color( 0.1, 0.1, 1, 0.8 )
+RichTextLabel/constants/line_separation = 1
+RichTextLabel/constants/shadow_as_outline = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/table_hseparation = 3
+RichTextLabel/constants/table_vseparation = 3
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/bold_italics_font = null
+RichTextLabel/fonts/italics_font = SubResource( 2 )
+RichTextLabel/fonts/mono_font = null
+RichTextLabel/fonts/normal_font = null
+RichTextLabel/styles/focus = null
+RichTextLabel/styles/normal = null
+
+[node name="SwipeInfluenceBox" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 4 )
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="InfluencerIcon" type="CenterContainer" parent="VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_top = 142.0
+margin_right = 600.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[i]Influencer[/i] was spotted at [i]Location[/i], leading her newest [i]Creation[/i]"
+text = "Influencer was spotted at Location, leading her newest Creation"
+
+[node name="ChooseStory" type="Button" parent="VBoxContainer"]
+margin_left = 200.0
+margin_top = 284.0
+margin_right = 400.0
+margin_bottom = 320.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "ReChirp this Story"
+
+[connection signal="pressed" from="VBoxContainer/ChooseStory" to="." method="_on_ChooseStory_pressed"]

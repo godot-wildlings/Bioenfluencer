@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.tscn" type="PackedScene" id=1]
+
+[node name="SwipeStories" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 50
+
+[node name="SwipeInfluenceBox" parent="HSplitContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 295.0
+margin_bottom = 360.0
+
+[node name="SwipeInfluenceBox2" parent="HSplitContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 345.0
+margin_right = 640.0
+margin_bottom = 360.0
+
