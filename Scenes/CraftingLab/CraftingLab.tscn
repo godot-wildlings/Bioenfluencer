@@ -88,7 +88,7 @@ text = "CRAFTING BUDGET LEFT: 100 / 100"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="CraftCreatureButton" type="Button" parent="CanvasLayer"]
 margin_left = 350.207
 margin_top = 320.38
 margin_right = 469.207
@@ -96,4 +96,5 @@ margin_bottom = 347.38
 text = "CRAFT CREATURE"
 
 [node name="CreaturePreviewContainer" type="Node2D" parent="."]
+position = Vector2( 110, 180 )
 
