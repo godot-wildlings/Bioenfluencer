@@ -2,8 +2,8 @@ extends Node
 
 onready var level_container = $Levels
 onready var main_gui = $UI/MainUI
-onready var story_container = $UI/IntroStory
-onready var story_tabs = $UI/IntroStory/TabContainer
+onready var story_container = $UI/IntroStoryPopup
+onready var story_tabs = $UI/IntroStoryPopup/IntroStoryTabs
 
 
 var current_level
@@ -94,9 +94,6 @@ func _on_StoreButton_pressed():
 	load_level("Store")
 
 
-func _on_NextTabButton_pressed():
-	print(story_tabs.get_tab_count())
-	if story_tabs.get_current_tab() < story_tabs.get_tab_count()-1:
-		story_tabs.set_current_tab(story_tabs.get_current_tab()+1)
-	else:
-		story_container.hide()
+func _on_story_completed():
+	story_container.hide()
+

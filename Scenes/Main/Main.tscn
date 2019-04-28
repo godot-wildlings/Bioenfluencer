@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
 [ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Story/Intro01.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=6]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -168,66 +167,12 @@ margin_right = 134.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 4 )
 
-[node name="IntroStory" type="PopupPanel" parent="UI"]
+[node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
 visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="TabContainer" type="TabContainer" parent="UI/IntroStory"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-tabs_visible = false
-
-[node name="Tab1" type="Tabs" parent="UI/IntroStory/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="StoryImage1" type="TextureRect" parent="UI/IntroStory/TabContainer/Tab1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-
-[node name="NextTabButton" type="Button" parent="UI/IntroStory/TabContainer/Tab1"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -20.0
-text = "Next"
-
-[node name="Tab2" type="Tabs" parent="UI/IntroStory/TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="StoryImage2" type="TextureRect" parent="UI/IntroStory/TabContainer/Tab2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 6
-
-[node name="NextTabButton2" type="Button" parent="UI/IntroStory/TabContainer/Tab2"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -20.0
-text = "Next"
+[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 5 )]
 
 [node name="Levels" type="CanvasLayer" parent="."]
 layer = -1
@@ -236,7 +181,7 @@ layer = -1
 anchor_mode = 0
 current = true
 
-[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 7 )]
+[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 6 )]
 
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
@@ -246,5 +191,3 @@ current = true
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer2/ReturnButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer4/QuitButton" to="." method="_on_QuitButton_pressed"]
-[connection signal="pressed" from="UI/IntroStory/TabContainer/Tab1/NextTabButton" to="." method="_on_NextTabButton_pressed"]
-[connection signal="pressed" from="UI/IntroStory/TabContainer/Tab2/NextTabButton2" to="." method="_on_NextTabButton_pressed"]

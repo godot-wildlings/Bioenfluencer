@@ -14,9 +14,14 @@ var followers : int = 100
 #warning-ignore:unused_class_variable
 var anxiety : float = 0.0
 
+#warning-ignore:unused_class_variable
+var player_name : String = "Sam Pejenkin"
 
 
-# Called when the node enters the scene tree for the first time.
+
+func _init():
+	Game.player = self
+
 func _ready():
 	pass # Replace with function body.
 
