@@ -7,7 +7,6 @@ export var max_crafting_budget : int = 100
 export var crafting_budget : int = max_crafting_budget setget _set_crafting_budget
 export var creature_background_tscn : PackedScene = preload("res://Scenes/Creature/CreatureBackground.tscn") as PackedScene
 export var draggable_body_part_tscn : PackedScene = preload("res://Scenes/BodyPart/DraggableBodyPart.tscn") as PackedScene
-export var disabled_items_color : Color = Color.red
 #warning-ignore:unused_class_variable
 onready var body_parts : ItemList = $Control/HBoxContainer/VBoxContainer/BodyParts
 #warning-ignore:unused_class_variable
