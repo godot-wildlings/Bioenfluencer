@@ -20,7 +20,7 @@ var player_name : String = "Sam Pejenkin"
 #warning-ignore:unused_class_variable
 var money : int  = 100 setget _set_money
 
-signal player_money_changed
+signal player_money_changed(money)
 
 func _init():
 	Game.player = self
@@ -42,4 +42,4 @@ func _input(event):
 func _set_money(new_val : int) -> void:
 	if new_val != money:
 		money = new_val
-		emit_signal("player_money_changed")
+		emit_signal("player_money_changed", money)

@@ -15,7 +15,7 @@ func _deferred_ready() -> void:
 	#warning-ignore:return_value_discarded
 	connect("item_selected", self, "_on_BodyParts_item_selected")
 	#warning-ignore:return_value_discarded
-	connect("selection_change", Game.store, "_on_BodyParts_selection_change")
+	connect("selection_change", Game.store, "on_BodyParts_selection_change")
 
 func _populate_item_list_body_parts() -> void:
 	for part in DataStore.body_parts.values():
@@ -33,7 +33,6 @@ func _on_BodyParts_item_selected(index : int) -> void:
 	if is_item_selectable(index) and not is_item_disabled(index):
 		var body_part : BodyPart = DataStore.get_body_part(get_item_text(index))
 		if is_instance_valid(body_part):
-			print("valid")
 			self.selected_body_part = body_part
 		else:
 			print("Error, invalid body_part instance in BodyParts.gd (Store) -> _on_BodyParts_item_selected")
