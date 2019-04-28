@@ -89,4 +89,5 @@ func _on_ChooseStory_pressed():
 		Tell DataStore that trends are changing.
 
 	"""
-	pass # Replace with function body.
+	print("chose a story")
+	Game.main.return_to_main()

@@ -140,4 +140,7 @@ func _on_Timer_timeout():
 
 func _on_AnalystButton_pressed():
 	var trending_gene_name = DataStore.get_trending_gene().name
-	$VBoxContainer/TrendingGene.set_text("Analyst says: " + trending_gene_name + " is trending.")
+	$TrendFeed1/VBoxContainer/TrendingGene.set_text("Analyst says: " + trending_gene_name + " is trending.")
+
+func _on_ReturnToMainButton_pressed():
+	Game.main.return_to_main()

@@ -2,7 +2,7 @@ extends ItemList
 
 """
 Render each BodyPart
-unlocked parts should be selectable from the list of available parts & 
+unlocked parts should be selectable from the list of available parts &
 be removed from the list upon selection & added to the \"staging\" list on the left
 (in case the weight of the body part does not exceed the players budget left)
 """

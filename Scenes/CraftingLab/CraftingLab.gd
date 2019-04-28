@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 class_name CraftingLab
 
@@ -9,14 +9,14 @@ export var creature_background_tscn : PackedScene = preload("res://Scenes/Creatu
 export var draggable_body_part_tscn : PackedScene = preload("res://Scenes/BodyPart/DraggableBodyPart.tscn") as PackedScene
 
 #warning-ignore:unused_class_variable
-onready var body_parts : ItemList = $CanvasLayer/Panel/BodyParts
+onready var body_parts : ItemList = $Control/HBoxContainer/VBoxContainer/BodyParts
 #warning-ignore:unused_class_variable
-onready var staged_body_parts : ItemList = $CanvasLayer/Panel2/StagedBodyParts
+onready var staged_body_parts : ItemList = $Control/HBoxContainer/VBoxContainer2/StagedBodyParts
 #warning-ignore:unused_class_variable
-onready var preview_container : Node2D = $CreaturePreviewContainer
+onready var preview_container : Node2D = $Control/HBoxContainer/MarginContainer/CreaturePreviewContainer
 #warning-ignore:unused_class_variable
-onready var budget_label : Label = $CanvasLayer/CraftingBudgetLabel
-onready var craft_creature_button : Button = $CanvasLayer/CraftCreatureButton
+onready var budget_label : Label = $Control/HBoxContainer/VBoxContainer/CraftingBudgetLabel
+onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/CraftCreatureButton
 
 signal on_crafting_budget_change
 signal crafting_completed
@@ -51,3 +51,6 @@ func _on_CraftCreatureButton_pressed() -> void:
 			creature_background.add_child(draggable_body_part)
 			draggable_body_part.sprite.texture = body_part.icon
 		emit_signal("crafting_completed")
+
+func _on_ReturnToMainButton_pressed():
+	Game.main.return_to_main()

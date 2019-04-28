@@ -44,24 +44,39 @@ position = Vector2( 14.5952, 11.9416 )
 [node name="BottomRight" type="Position2D" parent="TrendFeed1/Panel/WordGrid"]
 position = Vector2( 631.426, 284.587 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
+[node name="VBoxContainer" type="VBoxContainer" parent="TrendFeed1"]
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -42.5
-margin_top = -40.0
-margin_right = 42.5
+margin_top = -38.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="AnalystButton" type="Button" parent="VBoxContainer"]
-margin_right = 85.0
+[node name="TrendingGene" type="Label" parent="TrendFeed1/VBoxContainer"]
+margin_right = 640.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TrendFeed1/VBoxContainer"]
+margin_top = 18.0
+margin_right = 640.0
+margin_bottom = 38.0
+alignment = 1
+
+[node name="AnalystButton" type="Button" parent="TrendFeed1/VBoxContainer/HBoxContainer"]
+margin_left = 222.0
+margin_right = 307.0
 margin_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Pay Analyst"
 
-[node name="TrendingGene" type="Label" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 85.0
-margin_bottom = 38.0
+[node name="ReturnToMainButton" type="Button" parent="TrendFeed1/VBoxContainer/HBoxContainer"]
+margin_left = 311.0
+margin_right = 417.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Return to Main"
 
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
@@ -69,4 +84,5 @@ margin_bottom = 14.0
 text = "Watch this feed for names of trends. Faster words are trending. Or pay the analyst as a last resort."
 
 [connection signal="timeout" from="TrendFeed1/Panel/WordGrid/Timer" to="." method="_on_Timer_timeout"]
-[connection signal="pressed" from="VBoxContainer/AnalystButton" to="." method="_on_AnalystButton_pressed"]
+[connection signal="pressed" from="TrendFeed1/VBoxContainer/HBoxContainer/AnalystButton" to="." method="_on_AnalystButton_pressed"]
+[connection signal="pressed" from="TrendFeed1/VBoxContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

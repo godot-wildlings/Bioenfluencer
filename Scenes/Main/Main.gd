@@ -22,7 +22,7 @@ func load_level(level_name : String ) -> void:
 			"Feed" : "res://Scenes/TrendFeed/TrendFeed.tscn",
 			"Chirp" : "res://Scenes/TrendFeed/SwipeStories.tscn",
 			"Lab" : "res://Scenes/CraftingLab/CraftingLab.tscn",
-			"Store" : ""
+			"Store" : "res://Scenes/Store/Store.tscn"
 		}
 
 	hide_ui()
@@ -34,6 +34,11 @@ func load_level(level_name : String ) -> void:
 		var new_level = level_scene.instance()
 		level_container.add_child(new_level)
 		current_level = new_level
+
+
+func return_to_main():
+	remove_old_level()
+	show_ui()
 
 
 func hide_ui():

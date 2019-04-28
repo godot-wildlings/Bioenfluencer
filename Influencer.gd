@@ -15,7 +15,10 @@ var influencer_genders : Array = [
 	]
 
 var influencer_name : String = ""
+
+#warning-ignore:unused_class_variable
 var number_followers : int = 500
+
 var gender : String = ""
 
 
