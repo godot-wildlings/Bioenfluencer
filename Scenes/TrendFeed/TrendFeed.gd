@@ -12,11 +12,14 @@ Each trend needs a slope : float (x/y)
 extends Control
 
 # This will move to the resource Caevv set up
-var creature_colors = ["pink", "red", "brown", "blue"]
-var body_shapes = ["pudgy", "lean", "pear", "wobbly", "thin", "muscular" ]
-var creature_movement = [ "wobbly", "bouncy", "jittery", "calm" ]
+#var creature_colors = ["pink", "red", "brown", "blue"]
+#var body_shapes = ["pudgy", "lean", "pear", "wobbly", "thin", "muscular" ]
+#var creature_movement = [ "wobbly", "bouncy", "jittery", "calm" ]
 
-var trends = creature_colors + body_shapes + creature_movement
+var trends = DataStore.get_gene_list()
+
+
+#var trends = creature_colors + body_shapes + creature_movement
 onready var active_trends : Dictionary = {}
 
 onready var grid : TileMap = $TrendFeed1/Panel/WordGrid

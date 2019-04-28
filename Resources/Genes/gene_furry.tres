@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "pink"
+name = "furry"
 category = 2
-number_of_followers = 600
-trending_factor = 500.0
+number_of_followers = 100
+trending_factor = 0.0
 

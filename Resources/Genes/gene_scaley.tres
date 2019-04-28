@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "thin"
+name = "scaley"
 category = 0
-number_of_followers = 0
-trending_factor = -200.0
+number_of_followers = 100
+trending_factor = 0.0
 

@@ -10,7 +10,7 @@ be removed from the list upon selection & added to the \"staging\" list on the l
 
 func _ready() -> void:
 	call_deferred("_deferred_ready")
-	
+
 func _deferred_ready() -> void:
 	#warning-ignore:return_value_discarded
 	connect("item_selected", self, "_on_BodyParts_item_selected")

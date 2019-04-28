@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
-[ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=7]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -25,29 +26,41 @@ custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI"]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 620.0
 margin_bottom = 340.0
 
-[node name="Center" type="GridContainer" parent="UI/MainUI/HBoxContainer"]
-margin_top = 60.0
+[node name="TopHUD" parent="UI/MainUI/VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_right = 600.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer"]
+margin_top = 18.0
+margin_right = 600.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Center" type="GridContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer"]
+margin_top = 51.0
 margin_right = 229.0
-margin_bottom = 260.0
+margin_bottom = 251.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_constants/vseparation = 25
 custom_constants/hseparation = 25
 
-[node name="NewsFeedButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="NewsFeedButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/Center"]
 margin_right = 229.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Feed"
 
-[node name="CreatureLabButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="CreatureLabButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/Center"]
 margin_top = 45.0
 margin_right = 229.0
 margin_bottom = 65.0
@@ -55,7 +68,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Lab"
 
-[node name="StreamStudioButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="StreamStudioButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/Center"]
 margin_top = 90.0
 margin_right = 229.0
 margin_bottom = 110.0
@@ -63,7 +76,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Studio"
 
-[node name="ChirperButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="ChirperButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/Center"]
 margin_top = 135.0
 margin_right = 229.0
 margin_bottom = 155.0
@@ -71,7 +84,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Chirp"
 
-[node name="StoreButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="StoreButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/Center"]
 margin_top = 180.0
 margin_right = 229.0
 margin_bottom = 200.0
@@ -79,28 +92,28 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Partz!"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer"]
 margin_left = 233.0
 margin_right = 462.0
-margin_bottom = 320.0
+margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 25
 alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MainUI/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer"]
 margin_left = 466.0
 margin_right = 600.0
-margin_bottom = 320.0
+margin_bottom = 302.0
 alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MainUI/HBoxContainer/VBoxContainer2"]
-margin_top = 84.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 75.0
 margin_right = 134.0
-margin_bottom = 100.0
+margin_bottom = 91.0
 alignment = 2
 
-[node name="VolSlider" type="HSlider" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+[node name="VolSlider" type="HSlider" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
 margin_right = 81.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -109,77 +122,77 @@ max_value = 1.0
 step = 0.0
 value = 0.5
 ticks_on_borders = true
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
-[node name="VolLabel" type="Label" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+[node name="VolLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
 margin_left = 85.0
 margin_top = 1.0
 margin_right = 134.0
 margin_bottom = 15.0
 text = "Volume"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/HBoxContainer/VBoxContainer2"]
-margin_top = 104.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 95.0
 margin_right = 134.0
-margin_bottom = 168.0
+margin_bottom = 159.0
 alignment = 2
 
-[node name="FullScreenLabel" type="Label" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="FullScreenLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_top = 25.0
 margin_right = 66.0
 margin_bottom = 39.0
 text = "Fullscreen"
 
-[node name="FullScreenButton" type="TextureButton" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="FullScreenButton" type="TextureButton" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 70.0
 margin_right = 134.0
 margin_bottom = 64.0
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MainUI/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
 visible = false
 margin_top = 138.0
 margin_right = 134.0
 margin_bottom = 202.0
 alignment = 2
 
-[node name="ReturnLabel" type="Label" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="ReturnLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
 margin_left = 24.0
 margin_top = 25.0
 margin_right = 66.0
 margin_bottom = 39.0
 text = "Return"
 
-[node name="ReturnButton" type="TextureButton" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="ReturnButton" type="TextureButton" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
 margin_left = 70.0
 margin_right = 134.0
 margin_bottom = 64.0
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="UI/MainUI/HBoxContainer/VBoxContainer2"]
-margin_top = 172.0
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 163.0
 margin_right = 134.0
-margin_bottom = 236.0
+margin_bottom = 227.0
 alignment = 2
 
-[node name="QuitLabel" type="Label" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+[node name="QuitLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
 margin_left = 38.0
 margin_top = 25.0
 margin_right = 66.0
 margin_bottom = 39.0
 text = "Quit"
 
-[node name="QuitButton" type="TextureButton" parent="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer4"]
+[node name="QuitButton" type="TextureButton" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
 margin_left = 70.0
 margin_right = 134.0
 margin_bottom = 64.0
-texture_normal = ExtResource( 4 )
+texture_normal = ExtResource( 5 )
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 5 )]
+[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 6 )]
 
 [node name="Levels" type="CanvasLayer" parent="."]
 layer = -1
@@ -188,14 +201,14 @@ layer = -1
 anchor_mode = 0
 current = true
 
-[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 6 )]
+[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 7 )]
 
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/ChirperButton" to="." method="_on_ChirperButton_pressed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/StoreButton" to="." method="_on_StoreButton_pressed"]
-[connection signal="value_changed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" to="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" method="_on_HSlider_value_changed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer2/ReturnButton" to="." method="_on_TextureButton_pressed"]
-[connection signal="pressed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer4/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/ChirperButton" to="." method="_on_ChirperButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/Center/StoreButton" to="." method="_on_StoreButton_pressed"]
+[connection signal="value_changed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" to="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2/ReturnButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4/QuitButton" to="." method="_on_QuitButton_pressed"]

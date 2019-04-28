@@ -32,6 +32,12 @@ func _populate_genes_dict() -> void:
 	else:
 		print("An error occurred when trying to access the gene resources path.")
 
+func get_gene_list() -> Array:
+	var gene_list : Array = []
+	for gene in genes.values():
+		gene_list.push_back(gene.name)
+	return gene_list
+
 func get_gene(gene_name : String) -> Gene:
 	if genes.has(gene_name):
 		return genes.get(gene_name)

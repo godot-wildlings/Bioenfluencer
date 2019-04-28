@@ -6,6 +6,6 @@
 script = ExtResource( 1 )
 name = "red"
 category = 2
-number_of_followers = 425
-trending_factor = 250.0
+number_of_followers = 100
+trending_factor = 0.0
 

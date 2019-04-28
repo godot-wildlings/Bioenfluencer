@@ -1,23 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/TrendFeed/TrendFeed.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/TrendFeed/tv2.png" type="Texture" id=2]
-
-[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="TrendFeed" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="TrendFeed1" type="Panel" parent="."]
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Watch this feed for names of trends. Faster words are trending. Or pay the analyst as a last resort."
+
+[node name="TrendFeed1" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
 [node name="Panel" type="NinePatchRect" parent="TrendFeed1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 620.0
+margin_bottom = 340.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 3, 4.81, 765, 495 )
 patch_margin_left = 13
@@ -42,46 +50,40 @@ autostart = true
 position = Vector2( 14.5952, 11.9416 )
 
 [node name="BottomRight" type="Position2D" parent="TrendFeed1/Panel/WordGrid"]
-position = Vector2( 631.426, 284.587 )
+position = Vector2( 590.216, 245.509 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TrendFeed1"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -38.0
+margin_left = 222.0
+margin_top = 161.0
+margin_right = 417.0
+margin_bottom = 199.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="TrendingGene" type="Label" parent="TrendFeed1/VBoxContainer"]
-margin_right = 640.0
+margin_right = 195.0
 margin_bottom = 14.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TrendFeed1/VBoxContainer"]
 margin_top = 18.0
-margin_right = 640.0
+margin_right = 195.0
 margin_bottom = 38.0
 alignment = 1
 
 [node name="AnalystButton" type="Button" parent="TrendFeed1/VBoxContainer/HBoxContainer"]
-margin_left = 222.0
-margin_right = 307.0
+margin_right = 85.0
 margin_bottom = 20.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Pay Analyst"
 
 [node name="ReturnToMainButton" type="Button" parent="TrendFeed1/VBoxContainer/HBoxContainer"]
-margin_left = 311.0
-margin_right = 417.0
+margin_left = 89.0
+margin_right = 195.0
 margin_bottom = 20.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Return to Main"
-
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "Watch this feed for names of trends. Faster words are trending. Or pay the analyst as a last resort."
 
 [connection signal="timeout" from="TrendFeed1/Panel/WordGrid/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="TrendFeed1/VBoxContainer/HBoxContainer/AnalystButton" to="." method="_on_AnalystButton_pressed"]
