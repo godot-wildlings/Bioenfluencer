@@ -2,14 +2,20 @@ extends Node
 
 onready var level_container = $Levels
 onready var main_gui = $UI/MainUI
+onready var story_container = $UI/IntroStory
+onready var story_tabs = $UI/IntroStory/TabContainer
+
 
 var current_level
+
+
 
 func _init():
 	Game.main = self
 
 func _ready():
 	$AudioStreamPlayer.play()
+	story_container.popup()
 
 func load_level(level_name : String ) -> void:
 	var levels : Dictionary = {
@@ -84,3 +90,11 @@ func _on_CreatureLabButton_pressed():
 
 func _on_StoreButton_pressed():
 	load_level("Store")
+
+
+func _on_NextTabButton_pressed():
+	print(story_tabs.get_tab_count())
+	if story_tabs.get_current_tab() < story_tabs.get_tab_count()-1:
+		story_tabs.set_current_tab(story_tabs.get_current_tab()+1)
+	else:
+		story_container.hide()
