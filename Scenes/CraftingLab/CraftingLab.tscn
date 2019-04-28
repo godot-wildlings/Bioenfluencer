@@ -58,47 +58,52 @@ rect_min_size = Vector2( 280, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer"]
-margin_left = 87.0
+[node name="LineEdit" type="LineEdit" parent="Control/HBoxContainer/MarginContainer"]
+margin_right = 125.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 125, 25 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+max_length = 18
+expand_to_text_length = true
+placeholder_text = "CREATURE NAME"
+caret_blink = true
+
+[node name="LineEdit" type="LineEdit" parent="Control/HBoxContainer/MarginContainer"]
+margin_right = 125.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 125, 25 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+align = 1
+max_length = 18
+expand_to_text_length = true
+placeholder_text = "CREATURE NAME"
+caret_blink = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/MarginContainer"]
+margin_right = 280.0
+margin_bottom = 360.0
+alignment = 1
+
+[node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 38.0
 margin_top = 340.0
-margin_right = 193.0
+margin_right = 144.0
 margin_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Return to Main"
 
-[node name="OnToStudioButton2" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 145.0
+[node name="OnToStudioButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 148.0
 margin_top = 340.0
-margin_right = 237.0
+margin_right = 241.0
 margin_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "On to Studio"
-
-[node name="LineEdit" type="LineEdit" parent="Control/HBoxContainer/MarginContainer"]
-margin_right = 125.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 125, 25 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-align = 1
-max_length = 18
-expand_to_text_length = true
-placeholder_text = "CREATURE NAME"
-caret_blink = true
-
-[node name="LineEdit" type="LineEdit" parent="Control/HBoxContainer/MarginContainer"]
-margin_right = 125.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 125, 25 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-align = 1
-max_length = 18
-expand_to_text_length = true
-placeholder_text = "CREATURE NAME"
-caret_blink = true
+text = "Go To Studio"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 468.0
@@ -120,4 +125,4 @@ margin_bottom = 360.0
 text = "CRAFT CREATURE"
 
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
-[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/OnToStudioButton2" to="." method="_on_OnToStudioButton2_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/OnToStudioButton" to="." method="_on_OnToStudioButton_pressed"]

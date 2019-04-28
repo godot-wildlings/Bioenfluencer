@@ -8,7 +8,7 @@ var screen_area : Rect2
 
 enum states { STATIC, FALLING }
 var state = states.STATIC
-
+var is_in_trending_word : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

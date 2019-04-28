@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func _on_CraftingLab_crafting_completed() -> void:
 	_save_crafted_creature()
-	
+
 func on_LineEdit_text_changed(new_text : String) -> void:
 	creature_name = new_text
 
@@ -55,7 +55,7 @@ func _on_CraftCreatureButton_pressed() -> void:
 				var spawned_body_part : Sprite = Sprite.new()
 				creature.add_child(spawned_body_part)
 				spawned_body_part.texture = body_part.icon
-				body_parts.add_item(body_part.part_name, body_part.icon) 
+				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
 		emit_signal("crafting_completed")
 
@@ -64,7 +64,5 @@ func _on_ReturnToMainButton_pressed():
 
 
 
-
-func _on_OnToStudioButton2_pressed():
+func _on_OnToStudioButton_pressed():
 	Game.main.load_level("Stream")
-

@@ -122,6 +122,7 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 			var falling_letter = letters_container.get_node(node_name)
 			falling_letter.set_text(letter)
 			falling_letter.set_self_modulate(Color.white)
+			falling_letter.is_in_trending_word = true
 
 			var movement_speed = active_trends[word]
 			falling_letter.set_speed(movement_speed)
