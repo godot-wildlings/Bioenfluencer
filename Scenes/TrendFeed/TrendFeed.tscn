@@ -59,12 +59,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="TrendingGene" type="Label" parent="TrendFeed1/Panel/VBoxContainer"]
-margin_right = 195.0
+margin_right = 264.0
 margin_bottom = 14.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TrendFeed1/Panel/VBoxContainer"]
 margin_top = 18.0
-margin_right = 195.0
+margin_right = 264.0
 margin_bottom = 38.0
 alignment = 1
 

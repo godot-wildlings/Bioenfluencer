@@ -15,6 +15,7 @@ tabs_visible = false
 script = ExtResource( 1 )
 
 [node name="Tab0" type="Tabs" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -29,7 +30,7 @@ text = "It is the far future. Scientific advances in the genetics have reached t
 
 Today, the Biogenetical Sculpting Industry is one of the richest industries, providing billions of people across the world with living creations. These scientific and artistic creators are often referred to as Bioenfluencers.
 
-You are one such Bioenfluencer. In your prime, you were one of the most prolific designers pioneering the Genetical Sculpting Industry. But now you waste your life away, hammering about the glory days while your account approaches the brink of bankrupcy. This house isn't going to pay itself.
+You are one such Bioenfluencer. In your prime, you were one of the most prolific designers pioneering the Genetical Sculpting Industry. But now you waste your life away, hammering about the glory days while your account approaches the brink of bankrupcy. This house won't pay for itself.
 
 You turn on the television...
 
@@ -46,7 +47,6 @@ margin_top = -20.0
 text = "Next"
 
 [node name="Tab1" type="Tabs" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -92,11 +92,11 @@ text = "<playername>"
 margin_top = 28.0
 margin_right = 624.0
 margin_bottom = 144.0
-text = "\"What's happened to <playername>. ? They used to be such inspired designers.\"
+text = "\"What's happened to <playername>? They used to be such inspired designers.\"
 
 'What's happened to me?' You pondered. The power-packed smell of the pizza beside you instills a great sense of re-accomplishment. You will surge back into glory and reclaim your rightful fame!
 
-Okay, after you get over this hungover...
+Okay, after you get over this hangover...
 "
 autowrap = true
 

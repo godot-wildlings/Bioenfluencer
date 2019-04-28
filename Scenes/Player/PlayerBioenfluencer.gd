@@ -8,8 +8,6 @@ Player can also handle a keyboard input requests.
 
 extends Node2D
 
-#warning-ignore:unused_class_variable
-var followers : int = 100
 
 #warning-ignore:unused_class_variable
 var anxiety : float = 0.0
@@ -18,9 +16,9 @@ var anxiety : float = 0.0
 var player_name : String = "Sam Pejenkin"
 
 #warning-ignore:unused_class_variable
-var money : int  = 500 setget _set_money
+var followers : int  = 500 setget _set_followers
 
-signal player_money_changed(money)
+signal player_followers_changed(followers)
 
 func _init():
 	Game.player = self
@@ -39,7 +37,7 @@ func _input(event):
 
 		Game.main.show_ui()
 
-func _set_money(new_val : int) -> void:
-	if new_val != money:
-		money = new_val
-		emit_signal("player_money_changed", money)
+func _set_followers(new_val : int) -> void:
+	if new_val != followers:
+		followers = new_val
+		emit_signal("player_followers_changed", followers)
