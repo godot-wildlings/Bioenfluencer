@@ -54,7 +54,7 @@ func get_trending_gene() -> Gene:
 	return trending_genes[randi()%trending_genes.size()]
 
 func sort_genes_by_trending(a : Gene, b : Gene):
-	if a.trending_factor <+ b.trending_factor:
+	if a.trending_factor <= b.trending_factor:
 		return true
 	return false
 
