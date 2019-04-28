@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 [node name="Label" type="Label" parent="TrendFeed1"]
 margin_right = 640.0
 margin_bottom = 14.0
-text = "Watch this feed for names of trends. Faster words are trending. Or pay the analyst as a last resort."
+text = "Watch this feed for names of trends. Rising words are trending. Pay the analyst only as a last resort."
 
 [node name="Panel" type="NinePatchRect" parent="TrendFeed1"]
 margin_top = 18.0

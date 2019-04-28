@@ -58,6 +58,14 @@ func remove_old_level():
 	if current_level != null and is_instance_valid(current_level):
 		current_level.call_deferred("queue_free")
 
+func add_creature_to_storage(creature):
+	$CreatureStorageContainer.add_child(creature)
+
+func get_creature_from_storage(index):
+	var creature = $CreatureStorageContainer.get_child(index)
+	$CreatureStorageContainer.remove_child(creature)
+	return creature
+
 func _on_StartButton_pressed():
 
 	var load_level = preload("res://Scenes/Streaming/stream.tscn")

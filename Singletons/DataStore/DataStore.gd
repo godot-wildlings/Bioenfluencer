@@ -8,6 +8,8 @@ var unlocked_body_parts : Array
 var body_parts : Dictionary # populated by BodyPart.gd when BodyParts.tscn is instantiated
 var crafted_creatures : Array
 
+
+
 # Note: possible body parts are listed in BodyParts.tscn
 # unlocked_body_parts compares against part_name
 func _ready() -> void:

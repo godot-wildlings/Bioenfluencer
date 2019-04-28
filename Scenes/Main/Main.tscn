@@ -16,6 +16,7 @@ stream = ExtResource( 2 )
 volume_db = -20.0
 
 [node name="UI" type="CanvasLayer" parent="."]
+editor/display_folded = true
 layer = -1
 
 [node name="MainUI" type="TextureRect" parent="UI"]
@@ -220,6 +221,9 @@ anchor_mode = 0
 current = true
 
 [node name="PlayerBioenfluencer" parent="." instance=ExtResource( 7 )]
+
+[node name="CreatureStorageContainer" type="Node2D" parent="."]
+visible = false
 
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]

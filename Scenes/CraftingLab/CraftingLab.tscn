@@ -42,13 +42,14 @@ rect_min_size = Vector2( 100, 0 )
 
 [node name="BodyParts" type="ItemList" parent="Control/HBoxContainer/VBoxContainer"]
 margin_right = 180.0
-margin_bottom = 342.0
+margin_bottom = 360.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="PartsPerCategoryLabel" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+visible = false
 margin_left = 20.0
 margin_top = 346.0
 margin_right = 159.0
@@ -72,22 +73,22 @@ margin_bottom = 360.0
 alignment = 1
 
 [node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 38.0
+margin_left = 8.0
 margin_top = 340.0
-margin_right = 144.0
+margin_right = 114.0
 margin_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Return to Main"
 
 [node name="OnToStudioButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 148.0
+margin_left = 118.0
 margin_top = 340.0
-margin_right = 241.0
+margin_right = 271.0
 margin_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Go To Studio"
+text = "Save and Go To Studio"
 
 [node name="CreaturePreviewContainer" type="Position2D" parent="Control/HBoxContainer/MarginContainer"]
 position = Vector2( 138.895, 222.918 )

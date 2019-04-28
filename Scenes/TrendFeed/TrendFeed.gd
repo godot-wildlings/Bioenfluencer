@@ -63,7 +63,7 @@ func generate_trending_words(num_trends_active : int) -> void:
 		var word = get_random_trend()
 		#active_trends[word] = get_random_trending_rate()
 		active_trends[word] = DataStore.get_gene(word).trending_factor
-		print("trending rate for ", word, " == " , active_trends[word])
+
 
 func display_trends(num_trends_visible : int) -> void:
 	var columns = []
@@ -105,9 +105,9 @@ func populate_field(area : Rect2) -> void:
 		#warning-ignore:unused_variable
 		for col in range(area.size.x/grid_size.x):
 			var new_falling_letter = falling_letter.instance()
-
+			new_falling_letter.set_mouse_filter(MOUSE_FILTER_IGNORE)
 			new_falling_letter.set_text(letters.substr(randi()%letters.length(), 1))
-			new_falling_letter.set_self_modulate(Color.darkgray)
+			#new_falling_letter.set_self_modulate(Color.darkgreen)
 			#new_falling_letter.set_text(".")
 			letters_container.add_child(new_falling_letter)
 			new_falling_letter.set_position(caret.position)
@@ -121,7 +121,7 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 
 	caret.position = location
 	#warning-ignore:unused_variable
-	print(word)
+
 	for i in range(word.length()):
 		var node_name = str(int((caret.position.x)/grid_size.x)) + "x" + str(int(caret.position.y/grid_size.y))
 
@@ -130,7 +130,9 @@ func insert_word(word : String, location : Vector2, direction : Vector2):
 		if letters_container.has_node(node_name):
 			var falling_letter = letters_container.get_node(node_name)
 			falling_letter.set_text(letter)
-			falling_letter.set_self_modulate(Color.white)
+			falling_letter.set_mouse_filter(MOUSE_FILTER_STOP)
+			# make them the same colour until you mouseover the letters
+			#falling_letter.set_self_modulate(Color.darkgreen)
 			falling_letter.is_in_trending_word = true
 
 			var movement_speed = active_trends[word]

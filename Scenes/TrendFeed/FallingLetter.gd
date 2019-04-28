@@ -13,6 +13,8 @@ var is_in_trending_word : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	movement_speed = randf()*2.0
+	set_self_modulate("72792b")
+
 
 func _process(delta):
 	if state == states.FALLING:
@@ -26,9 +28,15 @@ func _process(delta):
 				rect_position.y = lower_margin
 
 
+
 func set_speed(speed):
 	if speed != null:
 		movement_speed = speed
 
 func drop():
 	state = states.FALLING
+
+func _on_FallingLetter_mouse_entered():
+	# light up the letter when they user mouses over it
+	if is_in_trending_word:
+		set_self_modulate(Color("bbd18a"))

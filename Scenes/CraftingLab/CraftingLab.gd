@@ -30,7 +30,9 @@ func _ready() -> void:
 		creature_name_input.connect("text_changed", self, "_on_CreatureNameInput_text_changed")
 
 func _on_CraftingLab_crafting_completed() -> void:
-	_save_crafted_creature()
+	pass
+	# relocated to Go to studio button
+	#_save_crafted_creature()
 
 func _craft_creature() -> void:
 	# clean up the leftovers from the previous creation
@@ -52,8 +54,8 @@ func _craft_creature() -> void:
 
 		creature_name_label.text = preview_container.get_child(0).name
 		emit_signal("crafting_completed")
-		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
-		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
+#		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
+#		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
 
 
 func _save_crafted_creature() -> void:
@@ -63,7 +65,15 @@ func _save_crafted_creature() -> void:
 		var creature : Creature = preview_container.get_child(0)
 		creature.creature_name = creature_name
 		DataStore.crafted_creatures.append(creature)
+
+		relocate_creature_to_storage(creature)
+
 		print(DataStore.crafted_creatures)
+
+func relocate_creature_to_storage(creature):
+	# prevent creature from queuing_free when the lab level is freed
+	creature.get_parent().remove_child(creature)
+	Game.main.add_creature_to_storage(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
 	_craft_creature()
@@ -72,11 +82,13 @@ func _on_CraftCreatureButton_pressed() -> void:
 
 
 func _on_ReturnToMainButton_pressed():
+	_save_crafted_creature()
 	Game.main.return_to_main()
 
 
 
 func _on_OnToStudioButton_pressed():
+	_save_crafted_creature()
 	Game.main.load_level("Stream")
 
 
