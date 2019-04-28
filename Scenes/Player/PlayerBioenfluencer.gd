@@ -25,3 +25,8 @@ func _process(delta):
 	var mouse_pos = get_local_mouse_position()
 	#var cursor_pos = get_position()
 	$Cursor.set_position(mouse_pos)
+
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+
+		Game.main.show_ui()

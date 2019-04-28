@@ -5,6 +5,9 @@ onready var main_gui = $UI/MainUI
 
 var current_level
 
+func _init():
+	Game.main = self
+
 func _ready():
 	$AudioStreamPlayer.play()
 
@@ -27,6 +30,13 @@ func load_level(level_name : String ) -> void:
 
 func hide_ui():
 	main_gui.hide()
+	if level_container.get_children().size()>0:
+		current_level.show()
+
+func show_ui():
+	main_gui.show()
+	if level_container.get_children().size() > 0:
+		current_level.hide()
 
 func remove_old_level():
 	if current_level != null and is_instance_valid(current_level):

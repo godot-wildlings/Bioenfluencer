@@ -34,7 +34,7 @@ format = 1
 [node name="Letters" type="Node2D" parent="TrendFeed1/Panel/WordGrid"]
 
 [node name="Timer" type="Timer" parent="TrendFeed1/Panel/WordGrid"]
-wait_time = 3.0
+wait_time = 0.5
 one_shot = true
 autostart = true
 
@@ -42,7 +42,7 @@ autostart = true
 position = Vector2( 14.5952, 11.9416 )
 
 [node name="BottomRight" type="Position2D" parent="TrendFeed1/Panel/WordGrid"]
-position = Vector2( 630.651, 295.629 )
+position = Vector2( 631.426, 284.587 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -62,6 +62,11 @@ text = "Pay Analyst"
 margin_top = 24.0
 margin_right = 85.0
 margin_bottom = 38.0
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Watch this feed for names of trends. Faster words are trending. Or pay the analyst as a last resort."
 
 [connection signal="timeout" from="TrendFeed1/Panel/WordGrid/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="VBoxContainer/AnalystButton" to="." method="_on_AnalystButton_pressed"]
