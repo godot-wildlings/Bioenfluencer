@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Story/IntroStoryTabs.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Story/Intro01.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Story/hungover-cropped.png" type="Texture" id=3]
 
 [node name="IntroStoryTabs" type="TabContainer"]
 anchor_right = 1.0
@@ -15,6 +15,7 @@ tabs_visible = false
 script = ExtResource( 1 )
 
 [node name="Tab0" type="Tabs" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -71,7 +72,6 @@ margin_top = -20.0
 text = "Next"
 
 [node name="Tab3" type="Tabs" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -91,7 +91,7 @@ text = "<playername>"
 [node name="IntroText2" type="Label" parent="Tab3/VBoxContainer"]
 margin_top = 28.0
 margin_right = 624.0
-margin_bottom = 59.0
+margin_bottom = 144.0
 text = "\"What's happened to <playername>. ? They used to be such inspired designers.\"
 
 'What's happened to me?' You pondered. The power-packed smell of the pizza beside you instills a great sense of re-accomplishment. You will surge back into glory and reclaim your rightful fame!
@@ -100,32 +100,17 @@ Okay, after you get over this hungover...
 "
 autowrap = true
 
-[node name="NextTabButton2" type="Button" parent="Tab3"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -20.0
-text = "Next"
-
-[node name="Tab4" type="Tabs" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 8.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="StoryImage2" type="TextureRect" parent="Tab4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TextureRect" type="TextureRect" parent="Tab3/VBoxContainer"]
+margin_top = 148.0
+margin_right = 624.0
+margin_bottom = 340.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
-[node name="NextTabButton2" type="Button" parent="Tab4"]
+[node name="NextTabButton2" type="Button" parent="Tab3"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -138,4 +123,3 @@ text = "Next"
 [connection signal="pressed" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_pressed"]
 [connection signal="text_entered" from="Tab3/VBoxContainer/PlayerNameEntry" to="." method="_on_PlayerNameEntry_text_entered"]
 [connection signal="pressed" from="Tab3/NextTabButton2" to="." method="_on_NextTabButton_pressed"]
-[connection signal="pressed" from="Tab4/NextTabButton2" to="." method="_on_NextTabButton_pressed"]
