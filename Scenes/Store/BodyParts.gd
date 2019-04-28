@@ -17,9 +17,9 @@ func _on_BodyParts_item_selected(index : int) -> void:
 	if Game.player.money > 0 and is_item_selectable(index) and not is_item_disabled(index):
 		var body_part : BodyPart = DataStore.get_body_part(get_item_text(index))
 		if is_instance_valid(body_part):
-			if Game.player.money - body_part.price > 0:
+			if Game.player.money - body_part.price >= 0:
 				Game.player.money -= body_part.price
 				remove_item(index)
-				Game.crafting_lab.staged_body_parts.add_item(body_part.part_name, body_part.icon, true)
+				DataStore.unlock_new_body_part(body_part)
 		else:
 			print("Error, invalid body_part instance in BodyParts.gd (Store) -> _on_BodyParts_item_selected")

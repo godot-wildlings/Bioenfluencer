@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/CraftingLab/CraftingLab.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/CraftingLab/BodyParts.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/CraftingLab/craftingtube.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/CraftingLab/BodyParts.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=4]
 
 [node name="CraftingLab" type="Control"]
 anchor_right = 1.0
@@ -15,25 +16,11 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="Control"]
-visible = false
+[node name="CraftingTube" type="TextureRect" parent="Control"]
 margin_right = 640.0
 margin_bottom = 360.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Panel2" type="Panel" parent="Control"]
-visible = false
-margin_right = 640.0
-margin_bottom = 360.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_group_": true
-}
+texture = ExtResource( 2 )
+expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 margin_right = 640.0
@@ -50,7 +37,7 @@ margin_bottom = 325.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="CraftingBudgetLabel" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
 margin_left = 27.0
@@ -80,7 +67,7 @@ size_flags_vertical = 8
 text = "Return to Main"
 
 [node name="CreaturePreviewContainer" type="Node2D" parent="Control/HBoxContainer/MarginContainer"]
-position = Vector2( 146.357, 167.139 )
+position = Vector2( 133.752, 233.316 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 460.0
@@ -93,7 +80,7 @@ margin_bottom = 336.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="CraftCreatureButton" type="Button" parent="Control/HBoxContainer/VBoxContainer2"]
 margin_top = 340.0

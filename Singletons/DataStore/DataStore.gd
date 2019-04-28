@@ -69,5 +69,5 @@ func get_body_part(body_part_name : String) -> BodyPart:
 		return null
 
 func unlock_new_body_part(body_part : BodyPart) -> void:
-	if is_instance_valid(body_part):
+	if is_instance_valid(body_part) and not unlocked_body_parts.has(body_part.name):
 		unlocked_body_parts.append(body_part.part_name)

@@ -17,7 +17,10 @@ var anxiety : float = 0.0
 #warning-ignore:unused_class_variable
 var player_name : String = "Sam Pejenkin"
 
+#warning-ignore:unused_class_variable
+var money : int  = 100 setget _set_money
 
+signal player_money_changed
 
 func _init():
 	Game.player = self
@@ -35,3 +38,8 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 
 		Game.main.show_ui()
+
+func _set_money(new_val : int) -> void:
+	if new_val != money:
+		money = new_val
+		emit_signal("player_money_changed")
