@@ -42,7 +42,6 @@ func get_gene(gene_name : String) -> Gene:
 func get_random_gene() -> Gene:
 	return genes[randi()%genes.size()]
 
-
 func get_trending_gene() -> Gene:
 	# walk the list and grab those with positive slopes
 	var trending_genes : Array = []
@@ -54,8 +53,7 @@ func get_trending_gene() -> Gene:
 
 	return trending_genes[randi()%trending_genes.size()]
 
-func sort_genes_by_trending(a, b):
-
+func sort_genes_by_trending(a : Gene, b : Gene):
 	if a.trending_factor <+ b.trending_factor:
 		return true
 	return false
@@ -69,3 +67,7 @@ func get_body_part(body_part_name : String) -> BodyPart:
 	else:
 		print("Gene " + body_part_name + " not in body part pool!")
 		return null
+
+func unlock_new_body_part(body_part : BodyPart) -> void:
+	if is_instance_valid(body_part):
+		unlocked_body_parts.append(body_part.part_name)
