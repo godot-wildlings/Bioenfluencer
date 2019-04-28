@@ -60,7 +60,8 @@ func sort_genes_by_trending(a, b):
 		return true
 	return false
 
-
+func is_body_part_unlocked(body_part_name : String) -> bool:
+	return unlocked_body_parts.has(body_part_name)
 
 func get_body_part(body_part_name : String) -> BodyPart:
 	if body_parts.has(body_part_name):

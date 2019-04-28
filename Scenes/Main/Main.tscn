@@ -32,9 +32,9 @@ margin_right = 620.0
 margin_bottom = 340.0
 
 [node name="Center" type="GridContainer" parent="UI/MainUI/HBoxContainer"]
-margin_top = 82.0
+margin_top = 60.0
 margin_right = 229.0
-margin_bottom = 237.0
+margin_bottom = 260.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_constants/vseparation = 25

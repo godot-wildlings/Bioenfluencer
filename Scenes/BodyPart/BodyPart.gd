@@ -15,5 +15,5 @@ export var icon : Texture = preload("res://icon.png") as Texture
 
 func _ready() -> void:
 	$Sprite.texture = icon
-	$Sprite.visible = DataStore.unlocked_body_parts.has(part_name)
+	$Sprite.visible = DataStore.is_body_part_unlocked(part_name)
 	DataStore.body_parts[part_name] = self
