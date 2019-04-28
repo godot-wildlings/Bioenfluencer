@@ -33,7 +33,7 @@ onready var falling_letter = preload("res://Scenes/TrendFeed/FallingLetter.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var gene : Gene = DataStore.get_gene(creature_colors[3])
+	#var gene : Gene = DataStore.get_gene(creature_colors[3])
 
 	randomize()
 

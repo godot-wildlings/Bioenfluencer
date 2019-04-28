@@ -8,7 +8,10 @@ Player can also handle a keyboard input requests.
 
 extends Node2D
 
+#warning-ignore:unused_class_variable
 var followers : int = 100
+
+#warning-ignore:unused_class_variable
 var anxiety : float = 0.0
 
 
@@ -17,8 +20,8 @@ var anxiety : float = 0.0
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _process(delta):
 	var mouse_pos = get_local_mouse_position()
-	var cursor_pos = get_position()
+	#var cursor_pos = get_position()
 	$Cursor.set_position(mouse_pos)
