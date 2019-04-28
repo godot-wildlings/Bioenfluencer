@@ -40,6 +40,7 @@ config/icon="res://icon.png"
 
 DataStore="*res://Singletons/DataStore/DataStore.tscn"
 Game="*res://Singletons/Game.gd"
+BodyParts="*res://Singletons/BodyParts/BodyParts.tscn"
 
 [display]
 
