@@ -49,6 +49,9 @@ margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Position2D" type="Position2D" parent="stream_UI/Control"]
+position = Vector2( 105, 180 )
+
 [node name="ReturnToMainButton" type="Button" parent="stream_UI/Control"]
 margin_left = 52.0
 margin_top = 340.0
