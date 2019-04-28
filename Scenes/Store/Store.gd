@@ -19,6 +19,10 @@ func _deferred_ready() -> void:
 func _on_ReturnToMainButton_pressed() -> void:
 	Game.main.return_to_main()
 
+func _process(delta : float) -> void:
+	if body_parts.selected_body_part == null or not is_instance_valid(body_parts.selected_body_part):
+		buy_button.disabled = true
+
 func on_BuyButton_pressed() -> void:
 	if Game.player.money - body_parts.selected_body_part.price >= 0:
 		if is_instance_valid(body_parts.selected_body_part):
