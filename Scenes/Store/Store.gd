@@ -3,7 +3,7 @@ extends Control
 onready var buy_button : Button = $HBoxContainer/PanelRight/BuyButton
 onready var money_label : Label = $HBoxContainer/PanelLeft/MoneyLabel
 onready var cost_label : Label = $HBoxContainer/PanelRight/CostLabel
-onready var body_parts : ItemList = $HBoxContainer/VBoxContainer/TabContainer/Tab1/BodyParts
+onready var body_parts : ItemList = $HBoxContainer/VBoxContainer/TabContainer/Store
 
 func _ready() -> void:
 	Game.store = self
@@ -12,6 +12,7 @@ func _ready() -> void:
 func _deferred_ready() -> void:
 	#warning-ignore:return_value_discarded
 	buy_button.connect("pressed", self, "on_BuyButton_pressed")
+	money_label.text = "Money : " + str(Game.player.money)
 	#warning-ignore:return_value_discarded
 	Game.player.connect("player_money_changed", self, "on_PlayerBioenfluencer_player_money_changed")
 

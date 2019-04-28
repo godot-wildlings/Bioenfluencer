@@ -46,31 +46,16 @@ margin_bottom = 336.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Tab1" type="Tabs" parent="HBoxContainer/VBoxContainer/TabContainer"]
+[node name="Store" type="ItemList" parent="HBoxContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
-
-[node name="BodyParts" type="ItemList" parent="HBoxContainer/VBoxContainer/TabContainer/Tab1"]
-margin_left = -0.773773
-margin_top = -3.09512
-margin_right = 205.226
-margin_bottom = 298.905
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 2 )
-
-[node name="Tab2" type="Tabs" parent="HBoxContainer/VBoxContainer/TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
 
 [node name="ReturnToMainButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 margin_top = 340.0
