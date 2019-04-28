@@ -37,4 +37,11 @@ func _on_CraftCreatureButton_pressed() -> void:
 		emit_signal("crafting_completed")
 
 func _on_ReturnToMainButton_pressed():
+	Game.main.return_to_main()
+
+
+
+
+func _on_OnToStudioButton2_pressed():
 	Game.main.load_level("Stream")
+

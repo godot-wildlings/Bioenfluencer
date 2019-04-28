@@ -56,17 +56,31 @@ margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer"]
-margin_left = 83.0
+[node name="CreaturePreviewContainer" type="Node2D" parent="Control/HBoxContainer/MarginContainer"]
+position = Vector2( 133.752, 233.316 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/MarginContainer"]
+margin_right = 272.0
+margin_bottom = 360.0
+alignment = 1
+
+[node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 35.0
 margin_top = 340.0
-margin_right = 189.0
+margin_right = 141.0
 margin_bottom = 360.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Return to Main"
 
-[node name="CreaturePreviewContainer" type="Node2D" parent="Control/HBoxContainer/MarginContainer"]
-position = Vector2( 133.752, 233.316 )
+[node name="OnToStudioButton2" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 145.0
+margin_top = 340.0
+margin_right = 237.0
+margin_bottom = 360.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "On to Studio"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 460.0
@@ -87,4 +101,5 @@ margin_right = 180.0
 margin_bottom = 360.0
 text = "CRAFT CREATURE"
 
-[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/OnToStudioButton2" to="." method="_on_OnToStudioButton2_pressed"]
