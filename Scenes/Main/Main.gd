@@ -22,6 +22,7 @@ func load_level(level_name : String ) -> void:
 			"Feed" : "res://Scenes/TrendFeed/TrendFeed.tscn",
 			"Chirp" : "res://Scenes/TrendFeed/SwipeStories.tscn",
 			"Lab" : "res://Scenes/CraftingLab/CraftingLab.tscn",
+			"Stream" : "res://Scenes/Streaming/stream.tscn",
 			"Store" : "res://Scenes/Store/Store.tscn"
 		}
 
@@ -102,3 +103,6 @@ func _on_StoreButton_pressed():
 func _on_story_completed():
 	story_container.hide()
 
+
+func _on_StreamStudioButton_pressed():
+	load_level("Stream")

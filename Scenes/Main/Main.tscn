@@ -55,18 +55,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Lab"
 
-[node name="ChirperButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="StreamStudioButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
 margin_top = 90.0
 margin_right = 229.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-text = "Chirp"
+text = "Studio"
 
-[node name="StoreButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+[node name="ChirperButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
 margin_top = 135.0
 margin_right = 229.0
 margin_bottom = 155.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Chirp"
+
+[node name="StoreButton" type="Button" parent="UI/MainUI/HBoxContainer/Center"]
+margin_top = 180.0
+margin_right = 229.0
+margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Partz!"
@@ -168,7 +176,6 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 4 )
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -185,6 +192,7 @@ current = true
 
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/ChirperButton" to="." method="_on_ChirperButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/HBoxContainer/Center/StoreButton" to="." method="_on_StoreButton_pressed"]
 [connection signal="value_changed" from="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" to="UI/MainUI/HBoxContainer/VBoxContainer2/HBoxContainer3/VolSlider" method="_on_HSlider_value_changed"]

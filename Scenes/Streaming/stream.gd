@@ -12,7 +12,8 @@ var trends
 signal pose_changed
 
 func _ready():
-	self.connect("pose_changed", get_node("stream_UI/Label2"), "_on_pose_changed")
+	var label = $stream_UI/LeftSide/Label2
+	self.connect("pose_changed", label, "_on_pose_changed")
 
 #func _process(delta):
 #	pass
@@ -41,3 +42,7 @@ func _take_Info_From_Creature():
 	var info
 
 	return info
+
+func _on_ReturnToMainButton_pressed():
+	Game.main.return_to_main()
+
