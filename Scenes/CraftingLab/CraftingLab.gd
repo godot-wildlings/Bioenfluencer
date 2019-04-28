@@ -2,9 +2,6 @@ extends Control
 
 class_name CraftingLab
 
-#warning-ignore:unused_class_variable
-export var max_crafting_budget : int = 500
-export var crafting_budget : int = max_crafting_budget setget _set_crafting_budget
 export var creature_background_tscn : PackedScene = preload("res://Scenes/Creature/CreatureBackground.tscn") as PackedScene
 #warning-ignore:unused_class_variable
 onready var body_parts : ItemList = $Control/HBoxContainer/VBoxContainer/BodyParts
@@ -13,26 +10,15 @@ onready var staged_body_parts : ItemList = $Control/HBoxContainer/VBoxContainer2
 #warning-ignore:unused_class_variable
 onready var preview_container : Node2D = $Control/HBoxContainer/MarginContainer/CreaturePreviewContainer
 #warning-ignore:unused_class_variable
-onready var budget_label : Label = $Control/HBoxContainer/VBoxContainer/CraftingBudgetLabel
 onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/CraftCreatureButton
 
-signal on_crafting_budget_change
 signal crafting_completed
 
 func _ready() -> void:
 	Game.crafting_lab = self
 	#warning-ignore:return_value_discarded
-	connect("on_crafting_budget_change", self, "_on_CraftingLab_crafting_budget_change")
-	#warning-ignore:return_value_discarded
 	craft_creature_button.connect("pressed", self, "_on_CraftCreatureButton_pressed")
 
-func _set_crafting_budget(new_val : int) -> void:
-	if new_val != crafting_budget:
-		crafting_budget = new_val
-		emit_signal("on_crafting_budget_change")
-
-func _on_CraftingLab_crafting_budget_change() -> void:
-	budget_label.text = "CRAFTING BUDGET LEFT\n%s / %s" % [str(crafting_budget), str(max_crafting_budget)]
 
 func _on_CraftCreatureButton_pressed() -> void:
 	# clean up the leftovers from the previous creation
@@ -51,4 +37,4 @@ func _on_CraftCreatureButton_pressed() -> void:
 		emit_signal("crafting_completed")
 
 func _on_ReturnToMainButton_pressed():
-	Game.main.return_to_main()
+	Game.main.load_level("Stream")

@@ -33,20 +33,19 @@ rect_min_size = Vector2( 100, 0 )
 
 [node name="BodyParts" type="ItemList" parent="Control/HBoxContainer/VBoxContainer"]
 margin_right = 180.0
-margin_bottom = 325.0
+margin_bottom = 342.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 3 )
 
-[node name="CraftingBudgetLabel" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
-margin_left = 27.0
-margin_top = 329.0
-margin_right = 152.0
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+margin_left = 20.0
+margin_top = 346.0
+margin_right = 159.0
 margin_bottom = 360.0
 size_flags_horizontal = 4
-text = "CRAFTING BUDGET 
-LEFT: 100 / 100"
+text = "One part per category"
 align = 1
 valign = 1
 
