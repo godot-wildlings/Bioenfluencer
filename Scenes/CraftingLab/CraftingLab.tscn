@@ -58,30 +58,6 @@ rect_min_size = Vector2( 280, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="LineEdit" type="LineEdit" parent="Control/HBoxContainer/MarginContainer"]
-margin_right = 125.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 125, 25 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-align = 1
-max_length = 18
-expand_to_text_length = true
-placeholder_text = "CREATURE NAME"
-caret_blink = true
-
-[node name="LineEdit" type="LineEdit" parent="Control/HBoxContainer/MarginContainer"]
-margin_right = 125.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 125, 25 )
-size_flags_horizontal = 2
-size_flags_vertical = 2
-align = 1
-max_length = 18
-expand_to_text_length = true
-placeholder_text = "CREATURE NAME"
-caret_blink = true
-
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/MarginContainer"]
 margin_right = 280.0
 margin_bottom = 360.0
@@ -115,17 +91,32 @@ margin_bottom = 360.0
 
 [node name="StagedBodyParts" type="ItemList" parent="Control/HBoxContainer/VBoxContainer2"]
 margin_right = 180.0
-margin_bottom = 336.0
+margin_bottom = 307.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 4 )
 
+[node name="CreatureNameInput" type="LineEdit" parent="Control/HBoxContainer/VBoxContainer2"]
+margin_top = 311.0
+margin_right = 180.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 125, 25 )
+size_flags_horizontal = 9
+size_flags_vertical = 4
+align = 1
+max_length = 18
+expand_to_text_length = true
+placeholder_text = "CREATURE NAME"
+caret_blink = true
+
 [node name="CraftCreatureButton" type="Button" parent="Control/HBoxContainer/VBoxContainer2"]
 margin_top = 340.0
 margin_right = 180.0
 margin_bottom = 360.0
+disabled = true
 text = "CRAFT CREATURE"
 
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/OnToStudioButton" to="." method="_on_OnToStudioButton_pressed"]
+[connection signal="text_changed" from="Control/HBoxContainer/VBoxContainer2/CreatureNameInput" to="." method="_on_CreatureNameInput_text_changed"]

@@ -11,7 +11,7 @@ onready var staged_body_parts : ItemList = $Control/HBoxContainer/VBoxContainer2
 onready var preview_container : Node2D = $Control/HBoxContainer/MarginContainer/CreaturePreviewContainer
 #warning-ignore:unused_class_variable
 onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/CraftCreatureButton
-onready var creature_name_input : LineEdit = $Control/HBoxContainer/MarginContainer/LineEdit
+onready var creature_name_input : LineEdit = $Control/HBoxContainer/VBoxContainer2/CreatureNameInput
 
 var creature_name : String = "CREATURE"
 
@@ -28,8 +28,7 @@ func _ready() -> void:
 func _on_CraftingLab_crafting_completed() -> void:
 	_save_crafted_creature()
 
-func on_LineEdit_text_changed(new_text : String) -> void:
-	creature_name = new_text
+
 
 func _save_crafted_creature() -> void:
 	if preview_container.get_child_count() < 1:
@@ -57,6 +56,8 @@ func _on_CraftCreatureButton_pressed() -> void:
 				spawned_body_part.texture = body_part.icon
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
+		creature_name_input.text = ""
+
 		emit_signal("crafting_completed")
 
 func _on_ReturnToMainButton_pressed():
@@ -66,3 +67,9 @@ func _on_ReturnToMainButton_pressed():
 
 func _on_OnToStudioButton_pressed():
 	Game.main.load_level("Stream")
+
+
+func _on_CreatureNameInput_text_changed(new_text):
+	creature_name = new_text
+	craft_creature_button.disabled = false
+
