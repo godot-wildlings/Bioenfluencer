@@ -105,6 +105,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Go To Studio"
 
+[node name="CreaturePreviewContainer" type="Position2D" parent="Control/HBoxContainer/MarginContainer"]
+position = Vector2( 138.895, 222.918 )
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 468.0
 margin_right = 648.0

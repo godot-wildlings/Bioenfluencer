@@ -26,6 +26,8 @@ onready var grid : TileMap = $TrendFeed1/Panel/WordGrid
 onready var grid_size : Vector2 = grid.get_cell_size()
 onready var caret : Position2D = $TrendFeed1/Panel/WordGrid/caret
 onready var letters_container = $TrendFeed1/Panel/WordGrid/Letters
+onready var trending_gene_label = $TrendFeed1/Panel/VBoxContainer/TrendingGene
+onready var analyst_button = $TrendFeed1/Panel/VBoxContainer/HBoxContainer/AnalystButton
 onready var grid_rows = 32
 onready var grid_cols = 32
 onready var grid_offset = $TrendFeed1/Panel/WordGrid/UpperLeft.position
@@ -48,6 +50,7 @@ func _ready() -> void:
 	generate_trending_words(5)
 	display_trends(5)
 
+	analyst_button.set_tooltip("Paying an analyst will cost you followers.")
 
 
 func generate_trending_words(num_trends_active : int) -> void:
@@ -144,7 +147,11 @@ func _on_Timer_timeout():
 
 func _on_AnalystButton_pressed():
 	var trending_gene_name = DataStore.get_trending_gene().name
-	$TrendFeed1/VBoxContainer/TrendingGene.set_text("Analyst says: " + trending_gene_name + " is trending.")
+	trending_gene_label.set_text("Analyst says: " + trending_gene_name + " is trending.")
+	Game.player.followers -= 50
+	if Game.player.followers < 0:
+		Game.player.followers = 0
+		analyst_button.set_disabled(true)
 
 func _on_ReturnToMainButton_pressed():
 	Game.main.return_to_main()

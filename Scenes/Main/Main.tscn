@@ -108,9 +108,9 @@ margin_bottom = 302.0
 alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 75.0
+margin_top = 63.0
 margin_right = 134.0
-margin_bottom = 91.0
+margin_bottom = 79.0
 alignment = 2
 
 [node name="VolSlider" type="HSlider" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
@@ -132,9 +132,9 @@ margin_bottom = 15.0
 text = "Volume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 95.0
+margin_top = 83.0
 margin_right = 134.0
-margin_bottom = 159.0
+margin_bottom = 147.0
 alignment = 2
 
 [node name="FullScreenLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
@@ -170,9 +170,9 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 5 )
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 163.0
+margin_top = 151.0
 margin_right = 134.0
-margin_bottom = 227.0
+margin_bottom = 215.0
 alignment = 2
 
 [node name="QuitLabel" type="Label" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4"]
@@ -187,6 +187,35 @@ margin_left = 70.0
 margin_right = 134.0
 margin_bottom = 64.0
 texture_normal = ExtResource( 5 )
+
+[node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 219.0
+margin_right = 134.0
+margin_bottom = 239.0
+text = "WTF? Help!"
+
+[node name="PopupDialog" type="PopupDialog" parent="UI/MainUI"]
+visible = true
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 620.0
+margin_bottom = 340.0
+
+[node name="Label" type="Label" parent="UI/MainUI/PopupDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "Use your feed to identify current trends in the bio-engineering-fashion industry.
+
+Use your creature lab to assemble creature. 
+
+
+Use the studio to show off your creatures to generate more followers.
+
+Creatures that match current trends will be more popular.
+
+Unlock new body parts for crafting at Partz!
+"
+autowrap = true
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
 anchor_right = 1.0
