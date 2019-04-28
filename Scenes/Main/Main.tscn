@@ -179,22 +179,22 @@ custom_constants/margin_top = 40
 custom_constants/margin_left = 40
 custom_constants/margin_bottom = 40
 
-[node name="Label" type="Label" parent="UI/MainUI/WTFHelp/MarginContainer"]
+[node name="HelpText" type="Label" parent="UI/MainUI/WTFHelp/MarginContainer"]
 margin_left = 40.0
-margin_top = 68.0
+margin_top = 59.0
 margin_right = 560.0
-margin_bottom = 252.0
+margin_bottom = 260.0
 text = "Use your feed to identify current trends in the bio-engineering-fashion industry.
 
-Use your creature lab to assemble creature. 
-
+Use your creature lab to assemble creatures. Make creatures that reflect the latest trends.
 
 Use the studio to show off your creatures to generate more followers.
 
 Creatures that match current trends will be more popular.
 
 Unlock new body parts for crafting at Partz!
-"
+
+Followers are Currency. Followers are Life. You need followers."
 autowrap = true
 
 [node name="HideHelpButton" type="Button" parent="UI/MainUI/WTFHelp"]

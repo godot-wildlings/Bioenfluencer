@@ -5,13 +5,16 @@ export var gene_resource_prefix : String = "gene_"
 
 var genes : Dictionary
 var unlocked_body_parts : Array
-var body_parts : Dictionary
+var body_parts : Dictionary # populated by BodyPart.gd when BodyParts.tscn is instantiated
 var crafted_creatures : Array
 
+# Note: possible body parts are listed in BodyParts.tscn
+# unlocked_body_parts compares against part_name
 func _ready() -> void:
 	unlocked_body_parts = [
 		"Lizard Head",
-		"Lizard Legs"
+		"Lizard Legs",
+		"Lizard Torso"
 	]
 	_populate_genes_dict()
 
