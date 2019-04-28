@@ -30,7 +30,7 @@ func _populate_genes_dict() -> void:
 				file_name = dir.get_next()
 		dir.list_dir_end()
 	else:
-		print("An error occurred when trying to access the path.")
+		print("An error occurred when trying to access the gene resources path.")
 
 func get_gene(gene_name : String) -> Gene:
 	if genes.has(gene_name):
@@ -65,7 +65,7 @@ func get_body_part(body_part_name : String) -> BodyPart:
 	if body_parts.has(body_part_name):
 		return body_parts.get(body_part_name)
 	else:
-		print("Gene " + body_part_name + " not in body part pool!")
+		print("BodyPart " + body_part_name + " not in body part pool!")
 		return null
 
 func unlock_new_body_part(body_part : BodyPart) -> void:

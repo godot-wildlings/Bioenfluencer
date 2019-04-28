@@ -21,14 +21,8 @@ func _populate_item_list_body_parts() -> void:
 		if part is BodyPart:
 			if DataStore.is_body_part_unlocked(part.part_name):
 				add_item(part.part_name, part.icon, true)
-			else:
-				add_item(part.part_name, part.icon, false)
 
 	for i in range(get_item_count()):
-		var disabled : bool = not DataStore.is_body_part_unlocked(get_item_text(i))
-		set_item_disabled(i, disabled)
-		if disabled:
-			set_item_custom_bg_color(i, Game.crafting_lab.disabled_items_color)
 		var body_part : BodyPart = DataStore.get_body_part(get_item_text(i))
 		if is_instance_valid(body_part):
 			set_item_tooltip(i, str(body_part.weight))

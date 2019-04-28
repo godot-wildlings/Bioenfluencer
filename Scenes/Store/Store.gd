@@ -1,17 +1,18 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+onready var buy_button : Button = $HBoxContainer/PanelRight/BuyButton
+onready var money_label : Label = $HBoxContainer/PanelLeft/MoneyLabel
+onready var cost_label : Label = $HBoxContainer/PanelRight/CostLabel
+onready var body_parts : ItemList = $HBoxContainer/VBoxContainer/TabContainer/Tab1/BodyParts
 
 
-func _on_ReturnToMainButton_pressed():
+func _ready() -> void:
+	Game.store = self
+
+
+func _on_ReturnToMainButton_pressed() -> void:
 	Game.main.return_to_main()
+
+func _on_BodyParts_selection_change(selection : BodyPart) -> void:
+	if is_instance_valid(selection):
+		cost_label.text = "Cost: " + str(selection.price)

@@ -22,125 +22,125 @@
 
 [node name="LizardHead" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 2 )
 part_name = "Lizard Head"
 weight = 25
 price = 25
+icon = ExtResource( 2 )
 
 [node name="LizardTorso" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 3 )
 part_name = "Lizard Torso"
 category = 1
 weight = 25
 price = 25
+icon = ExtResource( 3 )
 
 [node name="LizardTail" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 4 )
 part_name = "Lizard Tail"
 category = 3
 weight = 25
 price = 25
+icon = ExtResource( 4 )
 
 [node name="LizardLegs" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 5 )
 part_name = "Lizard Legs"
 category = 2
 weight = 25
 price = 25
+icon = ExtResource( 5 )
 
 [node name="OctopusHead" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 6 )
 part_name = "Octopus Head"
 weight = 25
 price = 25
+icon = ExtResource( 6 )
 
 [node name="OctopusTorso" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 7 )
 part_name = "Octopus Torso"
 category = 1
 weight = 25
 price = 25
+icon = ExtResource( 7 )
 
 [node name="OctopusLegs" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 8 )
 part_name = "Octopus Legs"
 category = 2
 weight = 25
 price = 25
+icon = ExtResource( 8 )
 
 [node name="OctopusTail" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 9 )
 part_name = "Octopus Tail"
 category = 3
 weight = 25
 price = 25
+icon = ExtResource( 9 )
 
 [node name="BirdHead" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 10 )
 part_name = "Bird Head"
 weight = 25
 price = 25
+icon = ExtResource( 10 )
 
 [node name="BirdTorso" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 11 )
 part_name = "Bird Torso"
 category = 1
 weight = 25
 price = 25
+icon = ExtResource( 11 )
 
 [node name="BirdLegs" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 12 )
 part_name = "Bird Legs"
 category = 2
 weight = 25
 price = 25
+icon = ExtResource( 12 )
 
 [node name="BirdTail" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 13 )
 part_name = "Bird Tail"
 category = 3
 weight = 25
 price = 25
+icon = ExtResource( 13 )
 
 [node name="SheepHead" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 14 )
 part_name = "Sheep Head"
 weight = 25
 price = 25
+icon = ExtResource( 14 )
 
 [node name="SheepTorso" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 15 )
 part_name = "Sheep Torso"
 category = 1
 weight = 25
 price = 25
+icon = ExtResource( 15 )
 
 [node name="SheepLegs" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 16 )
 part_name = "Sheep Legs"
 category = 2
 weight = 25
 price = 25
+icon = ExtResource( 16 )
 
 [node name="SheepTail" parent="." instance=ExtResource( 1 )]
 visible = false
-icon = ExtResource( 17 )
 part_name = "Sheep Tail"
 category = 3
 weight = 25
 price = 25
+icon = ExtResource( 17 )
 
