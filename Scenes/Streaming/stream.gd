@@ -3,39 +3,25 @@ extends Node
 #EVERYTHING HERE
 #is just a draft
 
-
-var followers : int
-var followers_gained : int
+onready var creatures_display = $stream_UI/RightSide/ItemList
 
 var trends
 
-signal pose_changed
-
 func _ready():
-	var label = $stream_UI/LeftSide/Label2
-	self.connect("pose_changed", label, "_on_pose_changed")
+	
+	for i in DataStore.crafted_creatures:
+		
+		if i is Creature and is_instance_valid(i):
+			creatures_display.add_item(i.creature_name,null,true)
 
 #func _process(delta):
 #	pass
 
 func _on_Button2_pressed():
 
-	print("You gained " + str(10) + " followers!")
 
 	_take_Info_From_Creature()
-
-	followers_gained = followers_gained + 10 #+ some randomizing rng unfortunate misfortune #add depression to Bioenfluencer
-
-	_calc_Followers(followers_gained)
-
-
-func _on_Button_pressed():
-	print("Subscribe to PewDiePie")
-	emit_signal("pose_changed")
-
-func _calc_Followers(num : int):
-
-	followers = followers + num
+	print("You earned " + str(10) + " cash!")
 
 func _take_Info_From_Creature():
 
