@@ -6,6 +6,7 @@ export var gene_resource_prefix : String = "gene_"
 var genes : Dictionary
 var unlocked_body_parts : Array
 var body_parts : Dictionary
+var crafted_creatures : Array
 
 func _ready() -> void:
 	unlocked_body_parts = [

@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Creature/Creature.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
@@ -10,8 +12,9 @@ extents = Vector2( 30, 20 )
 
 [sub_resource type="CircleShape2D" id=4]
 
-[node name="CreatureBackground" type="Node2D"]
+[node name="Creature" type="Node2D"]
 position = Vector2( -0.340561, 0 )
+script = ExtResource( 1 )
 
 [node name="HeadPosition" type="Position2D" parent="."]
 position = Vector2( 47.9024, -28.1869 )
