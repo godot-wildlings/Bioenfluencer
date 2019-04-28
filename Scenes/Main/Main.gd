@@ -16,6 +16,8 @@ func _init():
 func _ready():
 	$AudioStreamPlayer.play()
 	story_container.popup()
+	if has_node("UI/BGImage"):
+		$UI/BGImage.show()
 
 func load_level(level_name : String ) -> void:
 	var levels : Dictionary = {
