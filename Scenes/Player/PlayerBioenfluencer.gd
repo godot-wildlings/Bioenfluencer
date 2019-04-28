@@ -18,7 +18,7 @@ var anxiety : float = 0.0
 var player_name : String = "Sam Pejenkin"
 
 #warning-ignore:unused_class_variable
-var money : int  = 100 setget _set_money
+var money : int  = 500 setget _set_money
 
 signal player_money_changed(money)
 

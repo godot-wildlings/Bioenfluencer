@@ -14,7 +14,7 @@ extents = Vector2( 30, 20 )
 position = Vector2( -0.340561, 0 )
 
 [node name="HeadPosition" type="Position2D" parent="."]
-position = Vector2( 42.8659, -12.3025 )
+position = Vector2( 47.9024, -28.1869 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -25,7 +25,7 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="LegsPosition" type="Position2D" parent="."]
-position = Vector2( 0, 20 )
+position = Vector2( 0.193718, 30.2667 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -46,7 +46,7 @@ __meta__ = {
 shape = SubResource( 3 )
 
 [node name="TailPosition" type="Position2D" parent="."]
-position = Vector2( -37.8939, 2.10851 )
+position = Vector2( -40.0247, -0.0223188 )
 __meta__ = {
 "_edit_group_": true
 }

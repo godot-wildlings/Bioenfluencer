@@ -31,9 +31,10 @@ func _on_BodyParts_item_selected(index : int) -> void:
 	if Game.crafting_lab.crafting_budget > 0 and is_item_selectable(index) and not is_item_disabled(index):
 		var body_part : BodyPart = DataStore.get_body_part(get_item_text(index))
 		if is_instance_valid(body_part):
-			if Game.crafting_lab.crafting_budget - body_part.weight >= 0:
-				Game.crafting_lab.crafting_budget -= body_part.weight
-				remove_item(index)
-				Game.crafting_lab.staged_body_parts.add_item(body_part.part_name, body_part.icon, true)
+			if Game.crafting_lab.staged_body_parts.can_body_part_be_added(body_part):
+				if Game.crafting_lab.crafting_budget - body_part.weight >= 0:
+					Game.crafting_lab.crafting_budget -= body_part.weight
+					remove_item(index)
+					Game.crafting_lab.staged_body_parts.add_item(body_part.part_name, body_part.icon, true)
 		else:
 			print("Error, invalid body_part instance in BodyParts.gd (Crafting Lab) -> _on_BodyParts_item_selected")

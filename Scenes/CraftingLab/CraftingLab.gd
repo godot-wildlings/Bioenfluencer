@@ -3,10 +3,9 @@ extends Control
 class_name CraftingLab
 
 #warning-ignore:unused_class_variable
-export var max_crafting_budget : int = 100
+export var max_crafting_budget : int = 500
 export var crafting_budget : int = max_crafting_budget setget _set_crafting_budget
 export var creature_background_tscn : PackedScene = preload("res://Scenes/Creature/CreatureBackground.tscn") as PackedScene
-export var draggable_body_part_tscn : PackedScene = preload("res://Scenes/BodyPart/DraggableBodyPart.tscn") as PackedScene
 #warning-ignore:unused_class_variable
 onready var body_parts : ItemList = $Control/HBoxContainer/VBoxContainer/BodyParts
 #warning-ignore:unused_class_variable
@@ -46,9 +45,9 @@ func _on_CraftCreatureButton_pressed() -> void:
 		preview_container.add_child(creature_background)
 		for i in range(amount_of_staged_body_parts):
 			var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
-			var draggable_body_part : Sprite = draggable_body_part_tscn.instance()
-			creature_background.add_child(draggable_body_part)
-			draggable_body_part.sprite.texture = body_part.icon
+			var spawned_body_part : Sprite = Sprite.new()
+			creature_background.add_child(spawned_body_part)
+			spawned_body_part.texture = body_part.icon
 		emit_signal("crafting_completed")
 
 func _on_ReturnToMainButton_pressed():
