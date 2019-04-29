@@ -50,11 +50,11 @@ func _on_SellButton_pressed():
 	remove the creature from the stage (it's not currently in storage)
 	add followers
 	"""
+	if creature_on_display != null and is_instance_valid(creature_on_display):
+		var income = creature_on_display.get_value()
+		Game.player.add_income(income)
 
-	var income = creature_on_display.get_value()
-	Game.player.add_income(income)
 
-
-	creature_on_display.die()
+		creature_on_display.die()
 
 
