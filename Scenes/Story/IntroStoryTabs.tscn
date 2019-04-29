@@ -110,7 +110,7 @@ alignment = 1
 [node name="IntroText2" type="Label" parent="Tab3/VBoxContainer"]
 margin_right = 592.0
 margin_bottom = 35.0
-text = "\"What's happened to <playername>? They used to be such inspired designers.\"
+text = "\"What's happened to Sam Pejenkin? They used to be such inspired designers.\"
 "
 autowrap = true
 
@@ -130,7 +130,7 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 572.0
-margin_bottom = 181.0
+margin_bottom = 232.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Response" type="Label" parent="Tab3/VBoxContainer/Panel/Panel"]
