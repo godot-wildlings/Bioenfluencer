@@ -35,7 +35,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TopHUD" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_left = 0.0
 anchor_right = 0.0
+margin_left = 0.0
 margin_right = 640.0
 margin_bottom = 14.0
 

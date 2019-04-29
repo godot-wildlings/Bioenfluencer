@@ -10,7 +10,7 @@ script = ExtResource( 1 )
 [node name="TrendsContainer" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 4.00002, 185 )
+position = Vector2( 291.001, 191 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 anchor_right = 1.0

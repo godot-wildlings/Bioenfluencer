@@ -15,7 +15,10 @@ func die():
 func get_value() -> float:
 
 	var value = 0.0
-	for live_body_part in $BodyParts.get_children():
-		value += live_body_part.get_value()
+	var num_parts = $BodyParts.get_child_count()
+	if num_parts > 0:
+		for live_body_part in $BodyParts.get_children():
+			value += live_body_part.get_value()
+		value /= num_parts # average, not total
 	return value
 

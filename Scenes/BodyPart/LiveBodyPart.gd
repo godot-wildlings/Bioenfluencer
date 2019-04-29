@@ -18,7 +18,9 @@ func add_gene(gene):
 
 func get_value() -> float:
 	value = 0.0
-	for gene in genes:
-		value += gene.get_value()
+	if genes.size() > 0:
+		for gene in genes:
+			value += gene.get_value()
+		value /= genes.size() # average, not total
 	return value
 

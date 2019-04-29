@@ -10,13 +10,14 @@ func _ready():
 
 func populate_chart():
 	var trends_list = DataStore.get_gene_list()
-	print(self.name, ": ", trends_list)
+
 	for trend_name in trends_list:
 		var trend_line_scene = load("res://Scenes/TrendFeed/SingleTrendLine.tscn")
 		var new_trend_line = trend_line_scene.instance()
-
-		new_trend_line.start(trend_name)
+		var viewing_area = $ReferenceRect.get_rect()
+		# order is important. Can't call start before add_child
 		$TrendsContainer.add_child(new_trend_line)
+		new_trend_line.start(trend_name, viewing_area)
 
 
 

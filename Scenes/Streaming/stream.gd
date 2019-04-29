@@ -63,4 +63,4 @@ func _on_SellButton_pressed():
 
 func _on_AppraiseButton_pressed():
 	if creature_on_display != null and is_instance_valid(creature_on_display):
-		appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(creature_on_display.get_value()) + " followers.")
+		appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")

@@ -30,9 +30,13 @@ func pass_time(weeks):
 	"""
 	every x amount of time (week), followers will go up or down based on trending_factor.
 	"""
-	follower_history.push_front(number_of_followers)
+	follower_history.push_back(number_of_followers)
 	number_of_followers += weeks * int(float(number_of_followers) * trending_factor) # can be negative.
 	trending_factor += rand_range(-0.1, 0.1)
+
+
+	print(name, ": followers: ", number_of_followers)
+	print(name, ": trending_factor: ", trending_factor)
 
 func get_value() -> float:
 	"""
