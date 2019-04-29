@@ -29,8 +29,6 @@ func _ready() -> void:
 func set_genes():
 	var gene_names_arr : Array = gene_list.split(",")
 
-	print("gene_list" , gene_list)
-	print("gene_names_arr", gene_names_arr)
 	for gene_name in gene_names_arr:
 
 		gene_name = gene_name.strip_edges() # remove whitespace

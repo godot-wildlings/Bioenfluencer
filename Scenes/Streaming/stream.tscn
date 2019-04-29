@@ -115,7 +115,6 @@ margin_right = 212.0
 margin_bottom = 342.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton" to="." method="_on_AppraiseButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2" to="." method="_on_SellButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

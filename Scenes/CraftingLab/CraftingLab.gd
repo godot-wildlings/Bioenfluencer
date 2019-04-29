@@ -65,7 +65,7 @@ func _craft_creature(crafted_creature_name) -> void:
 		staged_body_parts.clear()
 
 		# HAX adding this here to override other stuff.
-		creature.name = crafted_creature_name
+		# creature.name = crafted_creature_name
 		# ^^^ HAX. Find the other places this gets set.
 
 		creature_name_label.text = crafted_creature_name
@@ -91,7 +91,7 @@ func _save_crafted_creature() -> void:
 	else:
 		var creature : Creature = preview_container.get_child(0)
 		creature.creature_name = creature_name
-		print("what's in the preview container? ", preview_container.get_children(), ", ", preview_container.get_child(0).creature_name)
+		#print("what's in the preview container? ", preview_container.get_children(), ", ", preview_container.get_child(0).creature_name)
 
 		#DataStore.crafted_creatures.append(creature)
 
@@ -143,9 +143,11 @@ func _process(delta):
 	ticks += 1
 	if ticks % 30 == 0: # around 1/2 second
 		if staged_body_parts.get_item_count() == 0:
+			creature_name_input.editable = false
 			craft_creature_button.disabled = true
 			craft_creature_button.modulate = Color(0.5, 0.5, 0.5, 1)
 		else:
+			creature_name_input.editable = true
 			craft_creature_button.disabled = false
 			craft_creature_button.modulate = Color(1, 1, 1, 1)
 

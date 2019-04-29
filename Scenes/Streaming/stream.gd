@@ -38,8 +38,7 @@ func check_sweat_equity():
 func populate_creature_list():
 	creatures_list.clear()
 	for creature in Game.main.get_stored_creatures():
-		print("Why are these all the same?")
-		print(creature.creature_name)
+
 		creatures_list.add_item(creature.creature_name, null, true)
 
 

@@ -91,5 +91,4 @@ margin_top = -160.0
 margin_right = 19.0
 margin_bottom = -140.0
 text = "BUY"
-
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
