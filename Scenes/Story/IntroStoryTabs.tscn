@@ -107,24 +107,15 @@ size_flags_vertical = 3
 custom_constants/separation = 25
 alignment = 1
 
-[node name="PlayerNameEntry" type="LineEdit" parent="Tab3/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 200, 0 )
-size_flags_horizontal = 0
-size_flags_vertical = 4
-text = "<playername>"
-
 [node name="IntroText2" type="Label" parent="Tab3/VBoxContainer"]
-margin_top = 51.0
 margin_right = 592.0
-margin_bottom = 86.0
+margin_bottom = 35.0
 text = "\"What's happened to <playername>? They used to be such inspired designers.\"
 "
 autowrap = true
 
 [node name="Panel" type="MarginContainer" parent="Tab3/VBoxContainer"]
-margin_top = 111.0
+margin_top = 60.0
 margin_right = 592.0
 margin_bottom = 312.0
 size_flags_horizontal = 3
@@ -170,6 +161,5 @@ text = "Next"
 [connection signal="pressed" from="Tab0/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
 [connection signal="mouse_entered" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_pressed"]
-[connection signal="text_entered" from="Tab3/VBoxContainer/PlayerNameEntry" to="." method="_on_PlayerNameEntry_text_entered"]
 [connection signal="mouse_entered" from="Tab3/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab3/NextTabButton" to="." method="_on_NextTabButton_pressed"]

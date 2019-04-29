@@ -24,20 +24,6 @@ func _on_NextTabButton_pressed():
 	else:
 		emit_signal("story_completed")
 
-
-
-
-
-
-
-
-func _on_PlayerNameEntry_text_entered(new_text):
-	Game.player.player_name = new_text
-	var IntroText2 = $Tab3/VBoxContainer/IntroText2
-	IntroText2.set_text(IntroText2.get_text().replace("<playername>", Game.player.player_name))
-
-
-
 func _on_NextTabButton_mouse_entered():
 		Game.main._on_AnyButton_hovered()
 
