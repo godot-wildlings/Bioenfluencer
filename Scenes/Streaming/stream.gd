@@ -89,12 +89,19 @@ func _on_SellButton_pressed():
 
 
 func _on_AppraiseButton_pressed():
-	Game.main._on_AnyButton_pressed()
+	if appraise_button.disabled == false:
 
-	if creature_on_display != null and is_instance_valid(creature_on_display):
-		Game.player.sweat -= 10
-		appraise_button.set_disabled(true)
-		appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
+		Game.main._on_AnyButton_pressed()
+
+		if creature_on_display != null and is_instance_valid(creature_on_display):
+			Game.player.sweat -= 10
+			if Game.player.sweat <= 0:
+				Game.player.sweat = 0
+				Game.main.return_to_main()
+				# should probably pass time to get sweat back..
+
+			appraise_button.set_disabled(true)
+			appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
 
 #warning-ignore:unused_argument
 func _process(delta):

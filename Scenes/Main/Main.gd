@@ -20,6 +20,19 @@ func _ready():
 	if has_node("UI/BGImage"):
 		$UI/BGImage.show()
 
+func reset_player_stats():
+	Game.player.reset()
+
+func clear_stored_creatures():
+	for creature in creature_storage_container.get_children():
+		creature.call_deferred("queue_free")
+
+func reset_trends():
+	for trend in DataStore.get_genes_array():
+		trend.reset()
+
+
+
 func load_level(level_name : String ) -> void:
 	var levels : Dictionary = {
 			"Feed" : "res://Scenes/TrendFeed/TrendFeed.tscn",
@@ -178,3 +191,13 @@ func _on_AnyButton_hovered():
 
 func _onAnyButton_hovered():
 	pass # Replace with function body.
+
+
+
+
+func _on_RestartButton_pressed():
+	reset_player_stats()
+	clear_stored_creatures()
+	reset_trends()
+	return_to_main()
+

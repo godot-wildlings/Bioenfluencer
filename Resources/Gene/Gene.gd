@@ -20,8 +20,12 @@ var value : float = 0.0
 var follower_history : Array = []
 
 func _init():
+	reset()
+
+func reset():
 	trending_factor = rand_range(-1.0, 1.0)
 	number_of_followers = int(rand_range(100, 100000))
+
 
 func _set_name(new_name : String) -> void:
 	name = new_name

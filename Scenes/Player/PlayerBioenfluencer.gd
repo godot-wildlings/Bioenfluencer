@@ -16,14 +16,14 @@ var anxiety : float = 0.0
 var player_name : String = "Sam Pejenkin"
 
 #warning-ignore:unused_class_variable
-var followers : int  = 100 setget _set_followers
+var followers : int setget _set_followers
 
 #warning-ignore:unused_class_variable
-var blood : int = 3
+var blood : int
 #warning-ignore:unused_class_variable
-var sweat : int = 100
+var sweat : int
 #warning-ignore:unused_class_variable
-var tears : int = 0
+var tears : int
 
 signal player_followers_changed(followers)
 
@@ -31,7 +31,13 @@ func _init():
 	Game.player = self
 
 func _ready():
-	pass # Replace with function body.
+	reset()
+
+func reset():
+	followers = 100
+	blood = 3
+	sweat = 100
+	tears = 0
 
 #warning-ignore:unused_argument
 func _process(delta):

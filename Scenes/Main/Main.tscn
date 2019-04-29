@@ -219,8 +219,10 @@ anchor_bottom = 1.0
 [node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 7 )]
 
 [node name="LoseStoryPopup" type="PopupPanel" parent="UI"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/LoseStoryPopup"]
 margin_left = 4.0
@@ -237,35 +239,36 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 612.0
 margin_bottom = 332.0
+custom_constants/separation = 50
 alignment = 1
 
 [node name="Label" type="Label" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer"]
-margin_top = 137.0
+margin_top = 113.0
 margin_right = 592.0
-margin_bottom = 151.0
+margin_bottom = 128.0
 text = "Followers are love. Followers are life. You need followers."
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer"]
-margin_top = 155.0
+margin_top = 178.0
 margin_right = 592.0
-margin_bottom = 175.0
+margin_bottom = 198.0
+custom_constants/separation = 50
 alignment = 1
 
 [node name="QuitButton2" type="Button" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 294.0
+margin_right = 271.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Quit"
 
 [node name="RestartButton" type="Button" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 298.0
+margin_left = 321.0
 margin_right = 592.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-disabled = true
 text = "Restart"
 
 [node name="Levels" type="CanvasLayer" parent="."]
@@ -321,4 +324,4 @@ stream = ExtResource( 10 )
 [connection signal="pressed" from="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer/QuitButton2" to="." method="_on_QuitButton_pressed"]
 [connection signal="mouse_entered" from="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_AnyButton_pressed"]
-[connection signal="pressed" from="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
