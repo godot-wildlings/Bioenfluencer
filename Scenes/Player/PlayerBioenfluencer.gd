@@ -21,7 +21,7 @@ var followers : int  = 500 setget _set_followers
 #warning-ignore:unused_class_variable
 var blood : int = 3
 #warning-ignore:unused_class_variable
-var sweat : int = 12
+var sweat : int = 100
 #warning-ignore:unused_class_variable
 var tears : int = 0
 

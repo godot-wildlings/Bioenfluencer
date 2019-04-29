@@ -156,10 +156,17 @@ func _on_Timer_timeout():
 func _on_AnalystButton_pressed():
 	var trending_gene_name = DataStore.get_trending_gene().name
 	trending_gene_label.set_text("Analyst says: " + trending_gene_name + " is trending.")
-	Game.player.followers -= 50
-	if Game.player.followers <= 0:
-		Game.player.followers = 0
+	Game.player.blood -= 1
+	if Game.player.blood <= 0:
+		Game.main.return_to_main()
 		analyst_button.set_disabled(true)
 
 func _on_ReturnToMainButton_pressed():
 	Game.main.return_to_main()
+
+
+func _on_SweatTimer_timeout():
+	Game.player.sweat -= 1
+	if Game.player.sweat <= 0:
+		Game.main.return_to_main()
+

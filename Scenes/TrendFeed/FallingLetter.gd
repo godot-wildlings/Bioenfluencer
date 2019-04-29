@@ -39,4 +39,9 @@ func drop():
 func _on_FallingLetter_mouse_entered():
 	# light up the letter when they user mouses over it
 	if is_in_trending_word:
-		set_self_modulate(Color("bbd18a"))
+
+		# trying various colors from the palette
+		set_self_modulate(Color("aed7b9"))
+
+		#set_self_modulate(Color("efdc76"))
+		#set_self_modulate(Color("bbd18a"))
