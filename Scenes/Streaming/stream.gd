@@ -36,6 +36,7 @@ func check_sweat_equity():
 
 
 func populate_creature_list():
+	creatures_list.clear()
 	for creature in Game.main.get_stored_creatures():
 		creatures_list.add_item(creature.creature_name, null, true)
 
@@ -49,6 +50,9 @@ func _on_ReturnToMainButton_pressed():
 
 
 func _on_CreatureList_item_selected(index):
+	if creature_on_display != null and is_instance_valid(creature_on_display):
+		Game.main.store_creature(creature_on_display)
+
 	if creatures_list.is_item_selectable(index) and not creatures_list.is_item_disabled(index):
 		var creature = Game.main.get_creature_from_storage(index)
 
@@ -61,7 +65,7 @@ func _on_CreatureList_item_selected(index):
 
 		creature_on_display = creature
 		display_position.add_child(creature)
-		creatures_list.clear()
+		#creatures_list.clear()
 		populate_creature_list()
 
 
