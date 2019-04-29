@@ -117,7 +117,7 @@ func _on_ReturnToMainButton_pressed():
 
 func _on_OnToStudioButton_pressed():
 	Game.main._on_AnyButton_pressed()
-
+	Game.player.sweat -= 10
 	_save_crafted_creature()
 	Game.main.load_level("Stream")
 
