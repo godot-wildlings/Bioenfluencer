@@ -16,7 +16,7 @@ var anxiety : float = 0.0
 var player_name : String = "Sam Pejenkin"
 
 #warning-ignore:unused_class_variable
-var followers : int  = 500 setget _set_followers
+var followers : int  = 100 setget _set_followers
 
 #warning-ignore:unused_class_variable
 var blood : int = 3
