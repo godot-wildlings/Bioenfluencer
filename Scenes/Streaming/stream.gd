@@ -15,6 +15,7 @@ onready var creatures_list = $VBoxContainer/stream_UI/RightSide/CreatureList
 onready var display_position = $VBoxContainer/stream_UI/LeftSide/DisplayPosition
 onready var appraise_label = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/AppraisedValueLabel
 onready var appraise_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton
+onready var sell_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2
 
 var creature_on_display
 
@@ -25,6 +26,7 @@ func _ready():
 	populate_creature_list()
 
 	check_sweat_equity()
+
 
 func check_sweat_equity():
 	if Game.player.sweat <= 0:
@@ -79,3 +81,23 @@ func _on_AppraiseButton_pressed():
 		Game.player.sweat -= 10
 		appraise_button.set_disabled(true)
 		appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
+
+func _process(delta):
+	
+	if creature_on_display == null:
+		
+		appraise_button.disabled = true
+		appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
+		
+		sell_button.disabled = true
+		sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
+		
+	else:
+		
+		appraise_button.disabled = false
+		appraise_button.modulate = Color(1, 1, 1, 1)
+		
+		sell_button.disabled = false
+		sell_button.modulate = Color(1, 1, 1, 1)
+	
+	pass
