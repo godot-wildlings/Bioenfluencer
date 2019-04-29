@@ -17,6 +17,7 @@ onready var creature_name_label : Label = $CraftingTube/CreatureNameLabel
 var ticks : int = 0
 
 var creature_name : String = "CREATURE"
+var proposed_name : String = ""
 
 signal crafting_completed
 
@@ -85,7 +86,9 @@ func _save_crafted_creature() -> void:
 		print("Could not get creature node from CreaturePreviewContainer")
 	else:
 		var creature : Creature = preview_container.get_child(0)
-		creature.creature_name = creature_name
+		#creature.creature_name = creature_name
+		print("creature's proposed name is : ", proposed_name)
+		creature.creature_name = proposed_name
 		print("what's in the preview container? ", preview_container.get_children(), ", ", preview_container.get_child(0).creature_name)
 
 		#DataStore.crafted_creatures.append(creature)
@@ -99,6 +102,7 @@ func relocate_creature_to_storage(creature):
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
+	_save_crafted_creature()
 
 
 	Game.main._on_AnyButton_pressed()
@@ -108,7 +112,7 @@ func _on_CraftCreatureButton_pressed() -> void:
 		Game.player.sweat = 0
 		Game.player.tears += 50
 	_craft_creature(creature_name_input.get_text())
-	#_save_crafted_creature()
+
 
 
 
@@ -128,8 +132,9 @@ func _on_OnToStudioButton_pressed():
 
 
 func _on_CreatureNameInput_text_changed(new_text):
-	if new_text != "" and new_text != null and preview_container.get_child_count() > 0:
-		creature_name = new_text
+	#if new_text != "" and new_text != null and preview_container.get_child_count() > 0:
+	if new_text != "" and new_text != null:
+		proposed_name = new_text
 		craft_creature_button.disabled = false
 
 #warning-ignore:unused_argument

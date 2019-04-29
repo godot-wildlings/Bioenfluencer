@@ -136,7 +136,6 @@ margin_right = 180.0
 margin_bottom = 342.0
 disabled = true
 text = "PREVIEW CREATURE"
-
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/OnToStudioButton" to="." method="_on_OnToStudioButton_pressed"]
 [connection signal="text_changed" from="Control/HBoxContainer/VBoxContainer2/CreatureNameInput" to="." method="_on_CreatureNameInput_text_changed"]

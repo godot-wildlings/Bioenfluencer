@@ -61,6 +61,5 @@ anchor_bottom = 1.0
 margin_left = -106.0
 margin_top = -20.0
 text = "Return to Main"
-
 [connection signal="pressed" from="InfoPopup/MarginContainer/Label/ReturnButton2" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
