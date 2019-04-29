@@ -6,9 +6,18 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	call_deferred("populate_chart")
+	if Game.week > 1:
+		call_deferred("populate_chart")
+	else:
+		show_info_popup()
+
+
+func show_info_popup():
+	$InfoPopup.show()
+
 
 func populate_chart():
+
 	var trends_list = DataStore.get_gene_list()
 
 	for trend_name in trends_list:

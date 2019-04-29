@@ -27,6 +27,5 @@ text = "trend"
 [node name="NextPointTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-autostart = true
 
 [connection signal="timeout" from="NextPointTimer" to="." method="_on_NextPointTimer_timeout"]
