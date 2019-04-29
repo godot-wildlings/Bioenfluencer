@@ -45,6 +45,7 @@ func _craft_creature(crafted_creature_name) -> void:
 		# instantiate a creature background and put proper body parts in place
 		var creature : Object = creature_tscn.instance()
 		preview_container.add_child(creature)
+
 		for i in range(amount_of_staged_body_parts):
 			var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
 			if is_instance_valid(body_part):
@@ -62,7 +63,14 @@ func _craft_creature(crafted_creature_name) -> void:
 
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
+
+		# HAX adding this here to override other stuff.
+		creature.name = crafted_creature_name
+		# ^^^ HAX. Find the other places this gets set.
+
 		creature_name_label.text = crafted_creature_name
+		creature_name_input.text = ""
+
 		#creature_name_label.text = preview_container.get_child(0).name
 		emit_signal("crafting_completed")
 #		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
@@ -83,6 +91,8 @@ func _save_crafted_creature() -> void:
 	else:
 		var creature : Creature = preview_container.get_child(0)
 		creature.creature_name = creature_name
+		print("what's in the preview container? ", preview_container.get_children(), ", ", preview_container.get_child(0).creature_name)
+
 		#DataStore.crafted_creatures.append(creature)
 
 		relocate_creature_to_storage(creature)
@@ -95,7 +105,7 @@ func relocate_creature_to_storage(creature):
 
 func _on_CraftCreatureButton_pressed() -> void:
 
-	_save_crafted_creature()
+
 	Game.main._on_AnyButton_pressed()
 
 	Game.player.sweat -= 5
@@ -103,7 +113,7 @@ func _on_CraftCreatureButton_pressed() -> void:
 		Game.player.sweat = 0
 		Game.player.tears += 50
 	_craft_creature(creature_name_input.get_text())
-
+	#_save_crafted_creature()
 
 
 
