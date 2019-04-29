@@ -11,7 +11,7 @@ var ticks : int = 0
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#warning-ignore:unused_argument
 func _process(delta):
 	ticks += 1
 	if ticks % 30 == 0: # about twice a second

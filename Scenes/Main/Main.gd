@@ -63,7 +63,7 @@ func store_creature(creature):
 	creature_storage_container.add_child(creature)
 
 func get_creature_from_storage(index):
-	var creature = $CreatureStorageContainer.get_child(index)
+	var creature = creature_storage_container.get_child(index)
 	creature_storage_container.remove_child(creature)
 	return creature
 
