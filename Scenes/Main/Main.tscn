@@ -285,6 +285,7 @@ stream = ExtResource( 9 )
 
 [node name="ClickNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_PassTimeButton_pressed"]

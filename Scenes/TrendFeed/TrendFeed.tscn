@@ -99,6 +99,7 @@ align = 1
 
 [node name="SweatTimer" type="Timer" parent="."]
 autostart = true
+
 [connection signal="timeout" from="TrendFeed1/Panel/WordGrid/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="TrendFeed1/Panel/VBoxContainer/HBoxContainer/AnalystButton" to="." method="_on_AnalystButton_pressed"]
 [connection signal="pressed" from="TrendFeed1/Panel/VBoxContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

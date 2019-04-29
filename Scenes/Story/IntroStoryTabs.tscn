@@ -155,6 +155,7 @@ margin_left = -42.0
 margin_top = -20.0
 margin_bottom = 2.0
 text = "Next"
+
 [connection signal="mouse_entered" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_pressed"]
 [connection signal="pressed" from="Tab0/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
