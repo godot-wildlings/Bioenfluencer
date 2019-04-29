@@ -93,6 +93,8 @@ func relocate_creature_to_storage(creature):
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
+	
+	_save_crafted_creature()
 	Game.main._on_AnyButton_pressed()
 
 	Game.player.sweat -= 5
