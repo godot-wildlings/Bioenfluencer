@@ -15,6 +15,7 @@ func _ready():
 func add_gene(gene):
 	genes.push_back(gene)
 
+
 func get_value() -> float:
 	value = 0.0
 	for gene in genes:

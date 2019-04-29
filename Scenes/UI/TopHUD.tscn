@@ -1,18 +1,64 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Player/NumFollowers.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/TopHUD.gd" type="Script" id=1]
 
 [node name="TopHUD" type="HBoxContainer"]
 anchor_right = 1.0
+custom_constants/separation = 5
+script = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="."]
+[node name="FollowersLabel" type="Label" parent="."]
+margin_top = 8.0
 margin_right = 61.0
-margin_bottom = 14.0
+margin_bottom = 22.0
 text = "Followers"
 
 [node name="NumFollowers" type="Label" parent="."]
-margin_left = 65.0
-margin_right = 65.0
-margin_bottom = 14.0
-script = ExtResource( 1 )
+margin_left = 66.0
+margin_top = 8.0
+margin_right = 166.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="BloodLabel" type="Label" parent="."]
+margin_left = 171.0
+margin_top = 8.0
+margin_right = 208.0
+margin_bottom = 22.0
+text = "Blood"
+
+[node name="NumBlood" type="Label" parent="."]
+margin_left = 213.0
+margin_top = 8.0
+margin_right = 313.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="SweatLabel" type="Label" parent="."]
+margin_left = 318.0
+margin_top = 8.0
+margin_right = 355.0
+margin_bottom = 22.0
+text = "Sweat"
+
+[node name="NumSweat" type="Label" parent="."]
+margin_left = 360.0
+margin_top = 8.0
+margin_right = 460.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="TearsLabel" type="Label" parent="."]
+margin_left = 465.0
+margin_top = 8.0
+margin_right = 499.0
+margin_bottom = 22.0
+text = "Tears"
+
+[node name="NumTears" type="Label" parent="."]
+margin_left = 504.0
+margin_top = 8.0
+margin_right = 604.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
 

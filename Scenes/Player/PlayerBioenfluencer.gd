@@ -18,6 +18,13 @@ var player_name : String = "Sam Pejenkin"
 #warning-ignore:unused_class_variable
 var followers : int  = 500 setget _set_followers
 
+#warning-ignore:unused_class_variable
+var blood : int = 3
+#warning-ignore:unused_class_variable
+var sweat : int = 12
+#warning-ignore:unused_class_variable
+var tears : int = 0
+
 signal player_followers_changed(followers)
 
 func _init():

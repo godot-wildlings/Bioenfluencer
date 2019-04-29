@@ -13,10 +13,9 @@ func die():
 	call_deferred("queue_free")
 
 func get_value() -> float:
+	print(self.name, " ", $BodyParts.get_children())
 	var value = 0.0
 	for live_body_part in $BodyParts.get_children():
 		value += live_body_part.get_value()
-		print(self.name, " value == ", value)
-	print(self.name, " total gene list == ", DataStore.get_gene_list())
 	return value
 

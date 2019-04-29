@@ -25,7 +25,14 @@ func _ready() -> void:
 	$Sprite.visible = DataStore.is_body_part_unlocked(part_name)
 	DataStore.body_parts[part_name] = self
 
-	for gene_name in gene_list.split(","):
+
+func set_genes():
+	var gene_names_arr : Array = gene_list.split(",")
+
+	print("gene_list" , gene_list)
+	print("gene_names_arr", gene_names_arr)
+	for gene_name in gene_names_arr:
+
 		gene_name = gene_name.strip_edges() # remove whitespace
 		var gene = DataStore.get_gene(gene_name)
 		if gene != null:

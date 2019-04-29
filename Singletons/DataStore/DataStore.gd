@@ -38,7 +38,7 @@ func _populate_genes_dict() -> void:
 				file_name = dir.get_next()
 		dir.list_dir_end()
 	else:
-		print("An error occurred when trying to access the gene resources path.")
+		push_warning("An error occurred when trying to access the gene resources path.")
 
 func get_gene_list() -> Array:
 	var gene_list : Array = []
@@ -50,11 +50,11 @@ func get_gene(gene_name : String) -> Gene:
 	if genes.has(gene_name):
 		return genes.get(gene_name)
 	else:
-		print("Gene " + gene_name + " not in gene pool!")
+		push_warning("Gene " + gene_name + " not in gene pool!")
 		return null
 
 func get_random_gene() -> Gene:
-	return genes[randi()%genes.size()]
+	return genes.values()[randi()%genes.size()]
 
 func get_trending_gene() -> Gene:
 	# walk the list and grab those with positive slopes

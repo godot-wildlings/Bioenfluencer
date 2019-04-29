@@ -35,7 +35,7 @@ func _on_CraftingLab_crafting_completed() -> void:
 	# relocated to Go to studio button
 	#_save_crafted_creature()
 
-func _craft_creature() -> void:
+func _craft_creature(crafted_creature_name) -> void:
 	# clean up the leftovers from the previous creation
 	for children in preview_container.get_children():
 		preview_container.remove_child(children)
@@ -61,16 +61,20 @@ func _craft_creature() -> void:
 
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
-
-		creature_name_label.text = preview_container.get_child(0).name
+		creature_name_label.text = crafted_creature_name
+		#creature_name_label.text = preview_container.get_child(0).name
 		emit_signal("crafting_completed")
 #		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
 #		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
 
 
 func copy_genes(from_body_part, to_body_part):
+	from_body_part.set_genes()
+	#print("from_body_part has : ", from_body_part.get_genes().size(), " genes")
 	for gene in from_body_part.get_genes():
+		#print("Copying gene: " + gene.name + " from " + from_body_part.name + " to " + to_body_part.name  )
 		to_body_part.add_gene(gene)
+
 
 func _save_crafted_creature() -> void:
 	if preview_container.get_child_count() < 1:
@@ -89,7 +93,7 @@ func relocate_creature_to_storage(creature):
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
-	_craft_creature()
+	_craft_creature(creature_name_input.get_text())
 
 
 

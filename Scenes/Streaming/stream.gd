@@ -58,3 +58,8 @@ func _on_SellButton_pressed():
 		creature_on_display.die()
 
 
+
+
+func _on_AppraiseButton_pressed():
+	var appraise_label = $stream_UI/LeftSide/VBoxContainer/AppraisedValueLabel
+	appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(creature_on_display.get_value()) + " followers.")

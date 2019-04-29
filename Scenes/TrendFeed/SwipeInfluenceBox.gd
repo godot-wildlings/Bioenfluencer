@@ -41,8 +41,8 @@ func get_random_story():
 	# can we create an event with two influencers together?
 
 	var stories = [
-		"<influencer> was spotted at <location>, with <gender> newest creature.\n<trends> are <trend_performance>",
-		"Here at <location>, <influencer> likes to show off <gender> <trends>."
+		"<influencer> was spotted at <location>, with <gender> newest creature.\n<trends> <trend_performance>",
+		"Here at <location>, <influencer> likes to show off <gender> <trends> creatures."
 	]
 
 	return stories[randi()%stories.size()]
@@ -67,7 +67,12 @@ func get_trend_performance(influencer):
 func get_trends():
 	# **** TBD
 	# get three random trends from the DataStore, or grab trends with specific performance characteristics based on the influencer
-	return "red, furry, spikey"
+	var trends : String = ""
+	for i in range(3):
+		trends += DataStore.get_random_gene().name
+		if i < 2:
+			trends += ", "
+	return trends
 
 func update_text(influencer_node):
 	var influencer_name = influencer_node.influencer_name
