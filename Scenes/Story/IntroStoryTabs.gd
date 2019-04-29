@@ -34,7 +34,7 @@ func _on_NextTabButton_pressed():
 func _on_PlayerNameEntry_text_entered(new_text):
 	Game.player.player_name = new_text
 	var IntroText2 = $Tab3/VBoxContainer/IntroText2
-	IntroText2.set_text(IntroText2.get_text().replace("<playername>", "<"+Game.player.player_name)+">")
+	IntroText2.set_text(IntroText2.get_text().replace("<playername>", Game.player.player_name))
 
 
 

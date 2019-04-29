@@ -1,20 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/CraftingLab/CraftingLab.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/CraftingLab/craftingtube.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/CraftingLab/BodyParts.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/CraftingLab/CraftingLab.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/CraftingLab/craftingtube.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/CraftingLab/BodyParts.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=6]
 
 [node name="CraftingLab" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="CraftingTube" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 
 [node name="CreatureNameLabel" type="Label" parent="CraftingTube"]
@@ -30,16 +32,17 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TopHUD" parent="Control" instance=ExtResource( 3 )]
+[node name="TopHUD" parent="Control" instance=ExtResource( 4 )]
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
-margin_right = 648.0
+margin_right = 640.0
 margin_bottom = 14.0
+size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 margin_top = 18.0
-margin_right = 648.0
+margin_right = 640.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -55,7 +58,7 @@ margin_bottom = 342.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="PartsPerCategoryLabel" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
 visible = false
@@ -70,55 +73,54 @@ valign = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer"]
 margin_left = 184.0
-margin_right = 464.0
+margin_right = 456.0
 margin_bottom = 342.0
-rect_min_size = Vector2( 280, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/MarginContainer"]
-margin_right = 280.0
+margin_right = 272.0
 margin_bottom = 342.0
 alignment = 1
 
 [node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 8.0
-margin_top = 322.0
-margin_right = 114.0
+margin_left = 15.0
+margin_top = 321.0
+margin_right = 133.0
 margin_bottom = 342.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Return to Main"
 
 [node name="OnToStudioButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 118.0
-margin_top = 322.0
-margin_right = 271.0
+margin_left = 137.0
+margin_top = 321.0
+margin_right = 256.0
 margin_bottom = 342.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Save and Go To Studio"
+text = "Take To Studio"
 
 [node name="CreaturePreviewContainer" type="Position2D" parent="Control/HBoxContainer/MarginContainer"]
 position = Vector2( 138.895, 222.918 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
-margin_left = 468.0
-margin_right = 648.0
+margin_left = 460.0
+margin_right = 640.0
 margin_bottom = 342.0
 
 [node name="StagedBodyParts" type="ItemList" parent="Control/HBoxContainer/VBoxContainer2"]
 margin_right = 180.0
-margin_bottom = 289.0
+margin_bottom = 288.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CreatureNameInput" type="LineEdit" parent="Control/HBoxContainer/VBoxContainer2"]
-margin_top = 293.0
+margin_top = 292.0
 margin_right = 180.0
-margin_bottom = 318.0
+margin_bottom = 317.0
 rect_min_size = Vector2( 125, 25 )
 size_flags_horizontal = 9
 size_flags_vertical = 4
@@ -129,7 +131,7 @@ placeholder_text = "CREATURE NAME"
 caret_blink = true
 
 [node name="CraftCreatureButton" type="Button" parent="Control/HBoxContainer/VBoxContainer2"]
-margin_top = 322.0
+margin_top = 321.0
 margin_right = 180.0
 margin_bottom = 342.0
 disabled = true

@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=8]
-[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=10]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -23,14 +24,15 @@ layer = -1
 [node name="MainUI" type="TextureRect" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
+theme = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MainUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="TopHUD" parent="UI/MainUI/VBoxContainer" instance=ExtResource( 4 )]
+[node name="TopHUD" parent="UI/MainUI/VBoxContainer" instance=ExtResource( 5 )]
 anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 0.0
@@ -40,7 +42,7 @@ margin_bottom = 14.0
 [node name="CenterContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer"]
 margin_top = 18.0
 margin_right = 640.0
-margin_bottom = 336.0
+margin_bottom = 335.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -53,56 +55,56 @@ size_flags_vertical = 3
 
 [node name="Right" type="GridContainer" parent="UI/MainUI/VBoxContainer/CenterContainer"]
 margin_right = 640.0
-margin_bottom = 318.0
+margin_bottom = 317.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
 [node name="PassTimeButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
 margin_top = 7.0
-margin_right = 227.0
-margin_bottom = 27.0
+margin_right = 244.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Pass the time. Relax, Drink, Sleep"
 
 [node name="QuitButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 231.0
+margin_left = 248.0
 margin_top = 7.0
-margin_right = 330.0
-margin_bottom = 27.0
+margin_right = 343.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Quit"
 
 [node name="FullScreenButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 334.0
+margin_left = 347.0
 margin_top = 7.0
-margin_right = 433.0
-margin_bottom = 27.0
+margin_right = 442.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Fullscreen"
 
 [node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 437.0
+margin_left = 446.0
 margin_top = 7.0
-margin_right = 536.0
-margin_bottom = 27.0
+margin_right = 541.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "WTF? Help!"
 
 [node name="HBoxContainer3" type="VBoxContainer" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 540.0
-margin_right = 639.0
-margin_bottom = 34.0
+margin_left = 545.0
+margin_right = 640.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 alignment = 2
 
 [node name="VolSlider" type="HSlider" parent="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3"]
-margin_right = 99.0
+margin_right = 95.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -110,16 +112,16 @@ max_value = 1.0
 step = 0.0
 value = 0.5
 ticks_on_borders = true
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="VolLabel" type="Label" parent="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3"]
 margin_top = 20.0
-margin_right = 99.0
-margin_bottom = 34.0
+margin_right = 95.0
+margin_bottom = 35.0
 text = "Volume"
 
 [node name="ButtonBar" type="GridContainer" parent="UI/MainUI/VBoxContainer"]
-margin_top = 340.0
+margin_top = 339.0
 margin_right = 640.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
@@ -130,7 +132,7 @@ columns = 5
 
 [node name="NewsFeedButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_right = 108.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Feed"
@@ -138,7 +140,7 @@ text = "Feed"
 [node name="CreatureLabButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 133.0
 margin_right = 241.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Lab"
@@ -146,7 +148,7 @@ text = "Lab"
 [node name="StreamStudioButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 266.0
 margin_right = 374.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Studio"
@@ -154,7 +156,7 @@ text = "Studio"
 [node name="ChirperButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 399.0
 margin_right = 507.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Chirp"
@@ -162,7 +164,7 @@ text = "Chirp"
 [node name="StoreButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 532.0
 margin_right = 640.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Partz!"
@@ -185,9 +187,9 @@ custom_constants/margin_bottom = 40
 
 [node name="HelpText" type="Label" parent="UI/MainUI/WTFHelp/MarginContainer"]
 margin_left = 40.0
-margin_top = 59.0
+margin_top = 44.0
 margin_right = 560.0
-margin_bottom = 260.0
+margin_bottom = 275.0
 text = "Use your feed to identify current trends in the bio-engineering-fashion industry.
 
 Use your creature lab to assemble creatures. Make creatures that reflect the latest trends.
@@ -211,10 +213,11 @@ margin_top = -20.0
 text = "Return"
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 6 )]
+[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 7 )]
 
 [node name="Levels" type="CanvasLayer" parent="."]
 layer = -1
@@ -223,45 +226,45 @@ layer = -1
 anchor_mode = 0
 current = true
 
-[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 7 )]
+[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 8 )]
 
 [node name="CreatureStorageContainer" type="Node2D" parent="."]
 visible = false
 
 [node name="HoverNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-
-[node name="ClickNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 
+[node name="ClickNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_PassTimeButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_PassTimeButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_WTFButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_WTFButton_pressed"]
 [connection signal="value_changed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3/VolSlider" to="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3/VolSlider" method="_on_HSlider_value_changed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_ChirperButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_ChirperButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_AnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_StoreButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_StoreButton_pressed"]
 [connection signal="mouse_entered" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_onAnyButton_hovered"]
-[connection signal="pressed" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_on_HideHelpButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_on_HideHelpButton_pressed"]
