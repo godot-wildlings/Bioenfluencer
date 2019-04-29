@@ -2,7 +2,7 @@ extends TabContainer
 
 var story_tabs = self
 signal story_completed
-
+var player_name : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,9 +24,16 @@ func _on_NextTabButton_pressed():
 		emit_signal("story_completed")
 
 
+
+
+
+func _on_PlayerNameEntry_text_changed(new_text):
+	# this would be better, but you'd need to record the position of the cursor and do string management
+	pass
+
+
 func _on_PlayerNameEntry_text_entered(new_text):
 	Game.player.player_name = new_text
 	var IntroText2 = $Tab3/VBoxContainer/IntroText2
-	IntroText2.set_text(IntroText2.get_text().replace("<playername>", Game.player.player_name))
-
+	IntroText2.set_text(IntroText2.get_text().replace("<playername>", "<"+Game.player.player_name)+">")
 

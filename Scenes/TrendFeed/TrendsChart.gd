@@ -9,11 +9,13 @@ func _ready():
 	call_deferred("populate_chart")
 
 func populate_chart():
-	for trend in DataStore.get_genes_array():
+	var trends_list = DataStore.get_gene_list()
+	print(self.name, ": ", trends_list)
+	for trend_name in trends_list:
 		var trend_line_scene = load("res://Scenes/TrendFeed/SingleTrendLine.tscn")
 		var new_trend_line = trend_line_scene.instance()
 
-		new_trend_line.start(trend)
+		new_trend_line.start(trend_name)
 		$TrendsContainer.add_child(new_trend_line)
 
 

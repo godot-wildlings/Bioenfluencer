@@ -41,6 +41,7 @@ func _populate_genes_dict() -> void:
 		push_warning("An error occurred when trying to access the gene resources path.")
 
 func get_genes_array() -> Array: # array of gene objects
+	push_warning("it seems like you're grabbing a lot of genes. careful not to instance them")
 	return genes.values()
 
 func get_gene_list() -> Array: # array of strings

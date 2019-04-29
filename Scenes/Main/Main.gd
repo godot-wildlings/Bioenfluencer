@@ -80,9 +80,9 @@ func pass_time(weeks):
 	Game.player.tears = max(Game.player.tears - 50, 0)
 	Game.player.blood = min(Game.player.blood + 1, 3)
 
-	var trends = DataStore.get_genes_array()
-	for trend in trends:
-		trend.pass_time(weeks) # for gene.gd to figure out
+	var trend_list = DataStore.get_gene_list()
+	for trend_name in trend_list:
+		DataStore.get_gene(trend_name).pass_time(weeks) # for gene.gd to figure out
 
 	load_level("Chart")
 

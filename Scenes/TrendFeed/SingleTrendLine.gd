@@ -17,13 +17,19 @@ var color : Color
 
 func _ready():
 	#set_temporal_position(0)
-	call_deferred("start")
+	pass
 
-func start(gene_node):
+func start(gene_name):
+	initialize_curve()
+
 	set_random_color()
-	trend = gene_node
-	trend_name = gene_node.name
+	trend = DataStore.get_gene(gene_name)
+	trend_name = trend.name
 	populate_curve(Game.week)
+	set_temporal_position(Game.week)
+
+func initialize_curve():
+	curve = Curve2D.new()
 
 func set_random_color():
 	var colors : Array = [
@@ -41,8 +47,10 @@ func set_random_color():
 
 func populate_curve(weeks):
 	for week in range(weeks):
-		var horizontal_spacing : int = 100
+		var horizontal_spacing : int = 15
 		curve.add_point(Vector2(week * horizontal_spacing, trend.get_temporal_value(week)))
+	print(self.name, " points: ", curve.get_point_count())
+	update()
 
 func set_temporal_position(week):
 	# set the offset of the path follower
@@ -54,7 +62,7 @@ func set_temporal_position(week):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	update()
+	pass
 
 
 
