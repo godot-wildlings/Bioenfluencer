@@ -42,16 +42,19 @@ func _ready() -> void:
 
 	randomize()
 	setup_grid()
-
 	populate_field(visible_area)
-
-	#warning-ignore:unused_return_value
-	#self.connect("give_trend_letter", letters_container, "_on_give_trend_letter")
-
 	generate_trending_words(5)
 	display_trends(5)
 
+	setup_buttons()
+
+func setup_buttons() -> void:
 	analyst_button.set_tooltip("Paying an analyst will cost you followers.")
+	if Game.player.blood <= 0:
+			#Game.main.return_to_main()
+			analyst_button.set_disabled(true)
+
+
 
 func setup_grid():
 	grid_rows = int(visible_area.size.y / grid_size.y)
@@ -158,7 +161,7 @@ func _on_AnalystButton_pressed():
 	trending_gene_label.set_text("Analyst says: " + trending_gene_name + " is trending.")
 	Game.player.blood -= 1
 	if Game.player.blood <= 0:
-		Game.main.return_to_main()
+		#Game.main.return_to_main()
 		analyst_button.set_disabled(true)
 
 func _on_ReturnToMainButton_pressed():

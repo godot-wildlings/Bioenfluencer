@@ -12,7 +12,7 @@ onready var preview_container : Node2D = $Control/HBoxContainer/MarginContainer/
 #warning-ignore:unused_class_variable
 onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/CraftCreatureButton
 onready var creature_name_input : LineEdit = $Control/HBoxContainer/VBoxContainer2/CreatureNameInput
-onready var creature_name_label : Label = $Control/CraftingTube/CreatureNameLabel
+onready var creature_name_label : Label = $CraftingTube/CreatureNameLabel
 
 
 var creature_name : String = "CREATURE"
@@ -93,6 +93,10 @@ func relocate_creature_to_storage(creature):
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
+	Game.player.sweat -= 5
+	if Game.player.sweat <= 0:
+		Game.player.sweat = 0
+		Game.player.tears += 50
 	_craft_creature(creature_name_input.get_text())
 
 

@@ -40,7 +40,10 @@ func _populate_genes_dict() -> void:
 	else:
 		push_warning("An error occurred when trying to access the gene resources path.")
 
-func get_gene_list() -> Array:
+func get_genes_array() -> Array: # array of gene objects
+	return genes.values()
+
+func get_gene_list() -> Array: # array of strings
 	var gene_list : Array = []
 	for gene in genes.values():
 		gene_list.push_back(gene.name)

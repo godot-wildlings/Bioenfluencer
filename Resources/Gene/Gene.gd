@@ -17,6 +17,7 @@ export var trending_factor : float # rise over run (followers per week)
 export var icon : Texture = preload("res://icon.png") as Texture
 
 var value : float = 0.0
+var follower_history : Array = []
 
 func _init():
 	trending_factor = rand_range(-1.0, 1.0)
@@ -25,12 +26,13 @@ func _init():
 func _set_name(new_name : String) -> void:
 	name = new_name
 
-func increase_followers():
+func pass_time(weeks):
 	"""
 	every x amount of time (week), followers will go up or down based on trending_factor.
 	"""
-	number_of_followers += int(float(number_of_followers) * trending_factor) # can be negative.
-
+	follower_history.push_front(number_of_followers)
+	number_of_followers += weeks * int(float(number_of_followers) * trending_factor) # can be negative.
+	trending_factor += rand_range(-0.1, 0.1)
 
 func get_value() -> float:
 	"""
@@ -38,3 +40,6 @@ func get_value() -> float:
 	"""
 
 	return float(number_of_followers) * 0.1
+
+func get_temporal_value(week) -> int:
+	return follower_history[week]

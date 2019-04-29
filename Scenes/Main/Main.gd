@@ -25,7 +25,8 @@ func load_level(level_name : String ) -> void:
 			"Chirp" : "res://Scenes/TrendFeed/SwipeStories.tscn",
 			"Lab" : "res://Scenes/CraftingLab/CraftingLab.tscn",
 			"Stream" : "res://Scenes/Streaming/stream.tscn",
-			"Store" : "res://Scenes/Store/Store.tscn"
+			"Store" : "res://Scenes/Store/Store.tscn",
+			"Chart" : "res://Scenes/TrendFeed/TrendsChart.tscn"
 		}
 
 	hide_ui()
@@ -69,6 +70,21 @@ func get_creature_from_storage(index):
 
 func get_stored_creatures():
 	return creature_storage_container.get_children()
+
+func pass_time(weeks):
+	"""
+	each trend will increase number of followers
+	"""
+	Game.week += 1
+	# reduce tears, increase blood
+	Game.player.tears = max(Game.player.tears - 50, 0)
+	Game.player.blood = min(Game.player.blood + 1, 3)
+
+	var trends = DataStore.get_genes_array()
+	for trend in trends:
+		trend.pass_time(weeks) # for gene.gd to figure out
+
+	load_level("Chart")
 
 func _on_StartButton_pressed():
 
@@ -129,3 +145,8 @@ func _on_WTFButton_pressed():
 
 func _on_HideHelpButton_pressed():
 	$UI/MainUI/WTFHelp.hide()
+
+
+func _on_PassTimeButton_pressed():
+
+	pass_time(1)
