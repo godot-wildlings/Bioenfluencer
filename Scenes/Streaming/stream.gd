@@ -38,6 +38,8 @@ func populate_creature_list():
 
 
 func _on_ReturnToMainButton_pressed():
+	Game.main._on_AnyButton_pressed()
+
 	if creature_on_display != null and is_instance_valid(creature_on_display):
 		Game.main.store_creature(creature_on_display)
 	Game.main.return_to_main()
@@ -58,6 +60,8 @@ func _on_SellButton_pressed():
 	remove the creature from the stage (it's not currently in storage)
 	add followers
 	"""
+	Game.main._on_AnyButton_pressed()
+
 	if creature_on_display != null and is_instance_valid(creature_on_display):
 		var income = creature_on_display.get_value()
 		Game.player.add_income(income)
@@ -69,6 +73,8 @@ func _on_SellButton_pressed():
 
 
 func _on_AppraiseButton_pressed():
+	Game.main._on_AnyButton_pressed()
+
 	if creature_on_display != null and is_instance_valid(creature_on_display):
 		Game.player.sweat -= 10
 		appraise_button.set_disabled(true)

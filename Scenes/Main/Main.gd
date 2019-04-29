@@ -150,3 +150,15 @@ func _on_HideHelpButton_pressed():
 func _on_PassTimeButton_pressed():
 
 	pass_time(1)
+
+
+func _on_AnyButton_pressed():
+	$ClickNoise.play()
+
+
+func _on_AnyButton_hovered():
+	$HoverNoise.play()
+
+
+func _onAnyButton_hovered():
+	pass # Replace with function body.

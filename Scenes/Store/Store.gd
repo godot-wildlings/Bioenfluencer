@@ -17,6 +17,7 @@ func _deferred_ready() -> void:
 	Game.player.connect("player_followers_changed", self, "on_PlayerBioenfluencer_player_followers_changed")
 
 func _on_ReturnToMainButton_pressed() -> void:
+	Game.main._on_AnyButton_pressed()
 	Game.main.return_to_main()
 
 #warning-ignore:unused_argument
@@ -27,6 +28,8 @@ func _process(delta : float) -> void:
 func on_BuyButton_pressed() -> void:
 	if Game.player.followers - body_parts.selected_body_part.price >= 0:
 		if is_instance_valid(body_parts.selected_body_part):
+			Game.main._on_AnyButton_pressed()
+
 			Game.player.followers -= body_parts.selected_body_part.price
 			DataStore.unlock_new_body_part(body_parts.selected_body_part)
 			var selected_items : PoolIntArray = body_parts.get_selected_items()

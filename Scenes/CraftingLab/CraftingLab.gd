@@ -93,6 +93,8 @@ func relocate_creature_to_storage(creature):
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
+	Game.main._on_AnyButton_pressed()
+
 	Game.player.sweat -= 5
 	if Game.player.sweat <= 0:
 		Game.player.sweat = 0
@@ -103,12 +105,16 @@ func _on_CraftCreatureButton_pressed() -> void:
 
 
 func _on_ReturnToMainButton_pressed():
+	Game.main._on_AnyButton_pressed()
+
 	_save_crafted_creature()
 	Game.main.return_to_main()
 
 
 
 func _on_OnToStudioButton_pressed():
+	Game.main._on_AnyButton_pressed()
+
 	_save_crafted_creature()
 	Game.main.load_level("Stream")
 

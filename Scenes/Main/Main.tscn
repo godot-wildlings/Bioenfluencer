@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scenes/Main/HSlider.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=9]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -226,14 +228,40 @@ current = true
 [node name="CreatureStorageContainer" type="Node2D" parent="."]
 visible = false
 
+[node name="HoverNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="ClickNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_PassTimeButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/QuitButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_FullScreenButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/FullScreenButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_WTFButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/WTFButton" to="." method="_on_AnyButton_pressed"]
 [connection signal="value_changed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3/VolSlider" to="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3/VolSlider" method="_on_HSlider_value_changed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_NewsFeedButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/NewsFeedButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_CreatureLabButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/CreatureLabButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_StreamStudioButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StreamStudioButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_ChirperButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/ChirperButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_StoreButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/VBoxContainer/ButtonBar/StoreButton" to="." method="_on_AnyButton_pressed"]
+[connection signal="mouse_entered" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_onAnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_on_HideHelpButton_pressed"]
+[connection signal="pressed" from="UI/MainUI/WTFHelp/HideHelpButton" to="." method="_on_AnyButton_pressed"]

@@ -119,7 +119,7 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
-[node name="NextTabButton2" type="Button" parent="Tab3"]
+[node name="NextTabButton" type="Button" parent="Tab3"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -128,7 +128,10 @@ margin_left = -42.0
 margin_top = -20.0
 text = "Next"
 
+[connection signal="mouse_entered" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_pressed"]
+[connection signal="mouse_entered" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_pressed"]
 [connection signal="text_entered" from="Tab3/VBoxContainer/PlayerNameEntry" to="." method="_on_PlayerNameEntry_text_entered"]
-[connection signal="pressed" from="Tab3/NextTabButton2" to="." method="_on_NextTabButton_pressed"]
+[connection signal="mouse_entered" from="Tab3/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
+[connection signal="pressed" from="Tab3/NextTabButton" to="." method="_on_NextTabButton_pressed"]
