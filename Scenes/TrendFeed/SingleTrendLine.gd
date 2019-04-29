@@ -28,8 +28,8 @@ func start(gene_name : String, area : Rect2):
 	trend = DataStore.get_gene(gene_name)
 	trend_name = trend.name
 	name_label.set_text(trend_name)
-	populate_curve(Game.week)
-	set_temporal_position(float(Game.week))
+	#populate_curve()
+	#set_temporal_position(float(Game.week))
 
 func initialize_curve():
 	curve = Curve2D.new()
@@ -48,31 +48,17 @@ func set_random_color():
 	color = colors[randi()%colors.size()]
 
 
-func populate_curve(weeks):
+#func populate_curve():
+#	update()
 
-#	var x_spacing = viewing_area.size.x / weeks
-#	var y_spacing = viewing_area.size.y / 100
-
-	#for week in range(weeks):
-		#curve.add_point(Vector2(week * x_spacing, trend.get_temporal_value(week) * y_spacing))
-	#print(self.name, " points: ", curve.get_point_count())
-	update()
-
-func set_temporal_position(week : float):
-	# set the offset of the path follower
-	pass
-
-
-
-
-
-
-
+#func set_temporal_position(week : float):
+#	# set the offset of the path follower
+#	pass
 
 
 
 func advance():
-	current_week = min(int(current_week)+1, int(Game.week))
+	current_week = int(min(int(current_week)+1, int(Game.week)))
 
 func _draw():
 	if curve.get_point_count() < 2:
@@ -87,9 +73,6 @@ func _draw():
 			last_point = curve.get_point_position(point_num-1)
 		draw_line(last_point, point, color, 1, true)
 		last_point = point
-
-
-
 
 
 

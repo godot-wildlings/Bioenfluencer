@@ -14,6 +14,7 @@ onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContaine
 onready var creature_name_input : LineEdit = $Control/HBoxContainer/VBoxContainer2/CreatureNameInput
 onready var creature_name_label : Label = $CraftingTube/CreatureNameLabel
 
+var ticks : int = 0
 
 var creature_name : String = "CREATURE"
 
@@ -93,7 +94,7 @@ func relocate_creature_to_storage(creature):
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
-	
+
 	_save_crafted_creature()
 	Game.main._on_AnyButton_pressed()
 
@@ -126,13 +127,16 @@ func _on_CreatureNameInput_text_changed(new_text):
 		creature_name = new_text
 		craft_creature_button.disabled = false
 
+#warning-ignore:unused_argument
 func _process(delta):
-	
-	if staged_body_parts.get_item_count() == 0:
-		craft_creature_button.disabled = true
-		craft_creature_button.modulate = Color(0.5, 0.5, 0.5, 1)
-	else:
-		craft_creature_button.disabled = false
-		craft_creature_button.modulate = Color(1, 1, 1, 1)
-	
-	pass
+	# probably don't need this every frame.
+	ticks += 1
+	if ticks % 30 == 0: # around 1/2 second
+		if staged_body_parts.get_item_count() == 0:
+			craft_creature_button.disabled = true
+			craft_creature_button.modulate = Color(0.5, 0.5, 0.5, 1)
+		else:
+			craft_creature_button.disabled = false
+			craft_creature_button.modulate = Color(1, 1, 1, 1)
+
+		pass

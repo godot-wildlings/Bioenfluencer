@@ -18,6 +18,7 @@ onready var appraise_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HB
 onready var sell_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2
 
 var creature_on_display
+var ticks : int = 0
 
 #var trends
 
@@ -50,14 +51,14 @@ func _on_ReturnToMainButton_pressed():
 func _on_CreatureList_item_selected(index):
 	if creatures_list.is_item_selectable(index) and not creatures_list.is_item_disabled(index):
 		var creature = Game.main.get_creature_from_storage(index)
-		
+
 		if display_position.get_child_count() > 0:
 			for child in display_position.get_children():
-				
+
 #				Game.main.creature_storage_container.add_child(child)
-				
+
 				display_position.remove_child(child)
-		
+
 		creature_on_display = creature
 		display_position.add_child(creature)
 		creatures_list.clear()
@@ -90,22 +91,24 @@ func _on_AppraiseButton_pressed():
 		appraise_button.set_disabled(true)
 		appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
 
+#warning-ignore:unused_argument
 func _process(delta):
-	
-	if creature_on_display == null:
-		
-		appraise_button.disabled = true
-		appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
-		
-		sell_button.disabled = true
-		sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
-		
-	else:
-		
-		appraise_button.disabled = false
-		appraise_button.modulate = Color(1, 1, 1, 1)
-		
-		sell_button.disabled = false
-		sell_button.modulate = Color(1, 1, 1, 1)
-	
-	pass
+	ticks += 1
+	if ticks % 30 == 0: # around every 1/2second
+		if creature_on_display == null:
+
+			appraise_button.disabled = true
+			appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
+
+			sell_button.disabled = true
+			sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
+
+		else:
+
+			appraise_button.disabled = false
+			appraise_button.modulate = Color(1, 1, 1, 1)
+
+			sell_button.disabled = false
+			sell_button.modulate = Color(1, 1, 1, 1)
+
+		pass
