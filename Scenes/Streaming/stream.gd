@@ -14,6 +14,7 @@ extends Control
 onready var creatures_list = $VBoxContainer/stream_UI/RightSide/CreatureList
 onready var display_position = $VBoxContainer/stream_UI/LeftSide/DisplayPosition
 onready var appraise_label = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/AppraisedValueLabel
+onready var appraise_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton
 
 var creature_on_display
 
@@ -23,6 +24,12 @@ func _ready():
 
 	populate_creature_list()
 
+	check_sweat_equity()
+
+func check_sweat_equity():
+	if Game.player.sweat <= 0:
+		Game.player.sweat = 0
+		appraise_button.set_disabled(true)
 
 
 func populate_creature_list():
@@ -63,4 +70,6 @@ func _on_SellButton_pressed():
 
 func _on_AppraiseButton_pressed():
 	if creature_on_display != null and is_instance_valid(creature_on_display):
+		Game.player.sweat -= 10
+		appraise_button.set_disabled(true)
 		appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")

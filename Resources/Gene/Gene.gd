@@ -47,3 +47,7 @@ func get_value() -> float:
 
 func get_temporal_value(week) -> int:
 	return follower_history[week]
+
+func increase_followers(num_new_followers: int):
+	number_of_followers += num_new_followers
+	trending_factor += float(num_new_followers)/1000
