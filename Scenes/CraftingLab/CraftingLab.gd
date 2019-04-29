@@ -47,7 +47,13 @@ func _craft_creature() -> void:
 		for i in range(amount_of_staged_body_parts):
 			var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
 			if is_instance_valid(body_part):
-				var spawned_body_part : Sprite = Sprite.new()
+
+				var live_body_part_scene : PackedScene = load("res://Scenes/BodyPart/LiveBodyPart.tscn")
+				var spawned_body_part = live_body_part_scene.instance()
+
+				#var spawned_body_part : Sprite = Sprite.new()
+
+
 				creature.add_child(spawned_body_part)
 				spawned_body_part.texture = body_part.icon
 				body_parts.add_item(body_part.part_name, body_part.icon)
