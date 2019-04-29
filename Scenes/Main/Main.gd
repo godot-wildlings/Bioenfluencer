@@ -99,6 +99,7 @@ func pass_time(weeks):
 	Game.player.tears = max(Game.player.tears - 50, 0)
 	Game.player.blood = min(Game.player.blood + 1, 3)
 	Game.player.followers -= int(rand_range(25, 100))
+	Game.players.sweat = min(Game.player.sweat + 50, 100)
 	if Game.player.followers <= 0:
 		lose()
 	else:

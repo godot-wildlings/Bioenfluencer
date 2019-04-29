@@ -59,6 +59,7 @@ margin_top = -20.0
 text = "Next"
 
 [node name="FullscreenButton" type="Button" parent="Tab0"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -22.0
