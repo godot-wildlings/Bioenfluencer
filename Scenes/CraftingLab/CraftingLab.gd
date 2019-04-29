@@ -54,8 +54,11 @@ func _craft_creature() -> void:
 				#var spawned_body_part : Sprite = Sprite.new()
 
 
-				creature.add_child(spawned_body_part)
+				creature.get_node("BodyParts").add_child(spawned_body_part)
 				spawned_body_part.texture = body_part.icon
+
+				copy_genes(body_part, spawned_body_part)
+
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
 
@@ -64,6 +67,10 @@ func _craft_creature() -> void:
 #		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
 #		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
 
+
+func copy_genes(from_body_part, to_body_part):
+	for gene in from_body_part.get_genes():
+		to_body_part.add_gene(gene)
 
 func _save_crafted_creature() -> void:
 	if preview_container.get_child_count() < 1:

@@ -23,12 +23,14 @@
 [node name="LizardHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Lizard Head"
+gene_list = "terrorific,green,muscular"
 price = 25
 icon = ExtResource( 2 )
 
 [node name="LizardTorso" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Lizard Torso"
+gene_list = "athletic,lovecraftian,muscular,scaley"
 category = 1
 price = 25
 icon = ExtResource( 3 )
@@ -36,6 +38,7 @@ icon = ExtResource( 3 )
 [node name="LizardTail" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Lizard Tail"
+gene_list = "athletic,lovecraftian,muscular,scaley"
 category = 3
 price = 25
 icon = ExtResource( 4 )
@@ -43,6 +46,7 @@ icon = ExtResource( 4 )
 [node name="LizardLegs" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Lizard Legs"
+gene_list = "athletic,lovecraftian,muscular,scaley"
 category = 2
 price = 25
 icon = ExtResource( 5 )
@@ -50,12 +54,14 @@ icon = ExtResource( 5 )
 [node name="OctopusHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Octopus Head"
+gene_list = "muscular,kawaii,lovecraftian,terrorific"
 price = 25
 icon = ExtResource( 6 )
 
 [node name="OctopusTorso" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Octopus Torso"
+gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 1
 price = 25
 icon = ExtResource( 7 )
@@ -63,6 +69,7 @@ icon = ExtResource( 7 )
 [node name="OctopusLegs" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Octopus Legs"
+gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 2
 price = 25
 icon = ExtResource( 8 )
@@ -70,6 +77,7 @@ icon = ExtResource( 8 )
 [node name="OctopusTail" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Octopus Tail"
+gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 3
 price = 25
 icon = ExtResource( 9 )
@@ -77,12 +85,14 @@ icon = ExtResource( 9 )
 [node name="BirdHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Bird Head"
+gene_list = "feathery,kawaii,terrorific"
 price = 25
 icon = ExtResource( 10 )
 
 [node name="BirdTorso" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Bird Torso"
+gene_list = "feathery,kawaii,terrorific"
 category = 1
 price = 25
 icon = ExtResource( 11 )
@@ -90,6 +100,7 @@ icon = ExtResource( 11 )
 [node name="BirdLegs" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Bird Legs"
+gene_list = "feathery,kawaii,terrorific"
 category = 2
 price = 25
 icon = ExtResource( 12 )
@@ -97,6 +108,7 @@ icon = ExtResource( 12 )
 [node name="BirdTail" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Bird Tail"
+gene_list = "feathery,kawaii,terrorific"
 category = 3
 price = 25
 icon = ExtResource( 13 )
@@ -104,12 +116,14 @@ icon = ExtResource( 13 )
 [node name="SheepHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Sheep Head"
+gene_list = "furry,kawaii,zombi"
 price = 25
 icon = ExtResource( 14 )
 
 [node name="SheepTorso" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Sheep Torso"
+gene_list = "furry,kawaii,zombi"
 category = 1
 price = 25
 icon = ExtResource( 15 )
@@ -117,6 +131,7 @@ icon = ExtResource( 15 )
 [node name="SheepLegs" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Sheep Legs"
+gene_list = "furry,kawaii,zombi"
 category = 2
 price = 25
 icon = ExtResource( 16 )
@@ -124,6 +139,7 @@ icon = ExtResource( 16 )
 [node name="SheepTail" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Sheep Tail"
+gene_list = "furry,kawaii,zombi"
 category = 3
 price = 25
 icon = ExtResource( 17 )

@@ -42,3 +42,6 @@ func _set_followers(new_val : int) -> void:
 	if new_val != followers:
 		followers = new_val
 		emit_signal("player_followers_changed", followers)
+
+func add_income(income : int) -> void:
+	followers += income
