@@ -126,3 +126,13 @@ func _on_CreatureNameInput_text_changed(new_text):
 		creature_name = new_text
 		craft_creature_button.disabled = false
 
+func _process(delta):
+	
+	if staged_body_parts.get_item_count() == 0:
+		craft_creature_button.disabled = true
+		craft_creature_button.modulate = Color(0.5, 0.5, 0.5, 1)
+	else:
+		craft_creature_button.disabled = false
+		craft_creature_button.modulate = Color(1, 1, 1, 1)
+	
+	pass

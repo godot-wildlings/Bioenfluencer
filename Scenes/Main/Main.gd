@@ -65,6 +65,11 @@ func store_creature(creature):
 
 func get_creature_from_storage(index):
 	var creature = creature_storage_container.get_child(index)
+	
+#	var copy_creature = creature.instance()
+#	creature_storage_container.add_child(copy_creature)
+#
+#	creature_storage_container.remove_child(copy_creature)
 	creature_storage_container.remove_child(creature)
 	return creature
 

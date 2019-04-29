@@ -50,6 +50,14 @@ func _on_ReturnToMainButton_pressed():
 func _on_CreatureList_item_selected(index):
 	if creatures_list.is_item_selectable(index) and not creatures_list.is_item_disabled(index):
 		var creature = Game.main.get_creature_from_storage(index)
+		
+		if display_position.get_child_count() > 0:
+			for child in display_position.get_children():
+				
+#				Game.main.creature_storage_container.add_child(child)
+				
+				display_position.remove_child(child)
+		
 		creature_on_display = creature
 		display_position.add_child(creature)
 		creatures_list.clear()
