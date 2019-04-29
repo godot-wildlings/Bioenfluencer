@@ -16,7 +16,7 @@ onready var display_position = $stream_UI/LeftSide/Position2D
 
 var creature_on_display
 
-var trends
+#var trends
 
 func _ready():
 

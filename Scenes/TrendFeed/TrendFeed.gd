@@ -54,8 +54,8 @@ func _ready() -> void:
 	analyst_button.set_tooltip("Paying an analyst will cost you followers.")
 
 func setup_grid():
-	grid_rows = visible_area.size.y / grid_size.y
-	grid_cols = visible_area.size.x / grid_size.x
+	grid_rows = int(visible_area.size.y / grid_size.y)
+	grid_cols = int(visible_area.size.x / grid_size.x)
 
 func generate_trending_words(num_trends_active : int) -> void:
 	#warning-ignore:unused_variable

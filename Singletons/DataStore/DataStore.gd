@@ -6,7 +6,9 @@ export var gene_resource_prefix : String = "gene_"
 var genes : Dictionary
 var unlocked_body_parts : Array
 var body_parts : Dictionary # populated by BodyPart.gd when BodyParts.tscn is instantiated
-var crafted_creatures : Array
+
+# moved to Main.tscn
+#var crafted_creatures : Array
 
 
 

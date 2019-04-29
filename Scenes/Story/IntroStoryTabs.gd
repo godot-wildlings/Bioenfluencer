@@ -6,6 +6,7 @@ signal story_completed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#warning-ignore:return_value_discarded
 	connect("story_completed", Game.main, "_on_story_completed")
 
 	initialize_fields()

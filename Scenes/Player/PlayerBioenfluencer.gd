@@ -32,6 +32,7 @@ func _process(delta):
 	#var cursor_pos = get_position()
 	$Cursor.set_position(mouse_pos)
 
+#warning-ignore:unused_argument
 func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 

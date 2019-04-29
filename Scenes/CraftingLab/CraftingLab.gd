@@ -27,7 +27,7 @@ func _ready() -> void:
 	connect("crafting_completed", self, "_on_CraftingLab_crafting_completed")
 
 	if not creature_name_input.is_connected("text_changed", self, "_on_CreatureNameInput_text_changed"):
-		#warning-ignore:unused_return_value
+		#warning-ignore:return_value_discarded
 		creature_name_input.connect("text_changed", self, "_on_CreatureNameInput_text_changed")
 
 func _on_CraftingLab_crafting_completed() -> void:

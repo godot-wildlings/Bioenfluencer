@@ -3,7 +3,7 @@ extends Node
 onready var level_container = $Levels
 onready var main_gui = $UI/MainUI
 onready var story_container = $UI/IntroStoryPopup
-onready var story_tabs = $UI/IntroStoryPopup/IntroStoryTabs
+#onready var story_tabs = $UI/IntroStoryPopup/IntroStoryTabs
 onready var creature_storage_container = $CreatureStorageContainer
 
 var current_level
