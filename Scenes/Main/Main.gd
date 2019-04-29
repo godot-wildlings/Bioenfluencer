@@ -3,6 +3,7 @@ extends Node
 onready var level_container = $Levels
 onready var main_gui = $UI/MainUI
 onready var story_container = $UI/IntroStoryPopup
+onready var lose_screen = $UI/LoseStoryPopup
 #onready var story_tabs = $UI/IntroStoryPopup/IntroStoryTabs
 onready var creature_storage_container = $CreatureStorageContainer
 
@@ -84,12 +85,22 @@ func pass_time(weeks):
 	# reduce tears, increase blood
 	Game.player.tears = max(Game.player.tears - 50, 0)
 	Game.player.blood = min(Game.player.blood + 1, 3)
+	Game.player.followers -= 100
+	if Game.player.followers <= 0:
+		lose()
+	else:
+		var trend_list = DataStore.get_gene_list()
+		for trend_name in trend_list:
+			DataStore.get_gene(trend_name).pass_time(weeks) # for gene.gd to figure out
 
-	var trend_list = DataStore.get_gene_list()
-	for trend_name in trend_list:
-		DataStore.get_gene(trend_name).pass_time(weeks) # for gene.gd to figure out
+		load_level("Chart")
 
-	load_level("Chart")
+
+
+func lose():
+	return_to_main()
+	lose_screen.show()
+
 
 func _on_StartButton_pressed():
 
