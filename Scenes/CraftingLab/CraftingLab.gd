@@ -21,20 +21,14 @@ var creature_name : String = "CREATURE"
 signal crafting_completed
 
 func _ready() -> void:
+
 	Game.crafting_lab = self
 	#warning-ignore:return_value_discarded
 	craft_creature_button.connect("pressed", self, "_on_CraftCreatureButton_pressed")
-	#warning-ignore:return_value_discarded
-	connect("crafting_completed", self, "_on_CraftingLab_crafting_completed")
 
 	if not creature_name_input.is_connected("text_changed", self, "_on_CreatureNameInput_text_changed"):
 		#warning-ignore:return_value_discarded
 		creature_name_input.connect("text_changed", self, "_on_CreatureNameInput_text_changed")
-
-func _on_CraftingLab_crafting_completed() -> void:
-	pass
-	# relocated to Go to studio button
-	#_save_crafted_creature()
 
 func _craft_creature(crafted_creature_name) -> void:
 	# clean up the leftovers from the previous creation
@@ -89,13 +83,12 @@ func _save_crafted_creature() -> void:
 
 		#print(DataStore.crafted_creatures)
 
-func relocate_creature_to_storage(creature):
+func relocate_creature_to_storage(creature : Creature) -> void:
 	# prevent creature from queuing_free when the lab level is freed
 	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
 
-	_save_crafted_creature()
 	Game.main._on_AnyButton_pressed()
 
 	Game.player.sweat -= 5
@@ -103,8 +96,7 @@ func _on_CraftCreatureButton_pressed() -> void:
 		Game.player.sweat = 0
 		Game.player.tears += 50
 	_craft_creature(creature_name_input.get_text())
-
-
+	_save_crafted_creature()
 
 
 func _on_ReturnToMainButton_pressed():
