@@ -64,9 +64,14 @@ func _craft_creature(crafted_creature_name) -> void:
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
 
-		creature_name_label.text = crafted_creature_name
-		creature_name_input.clear()
+		# HAX adding this here to override other stuff.
+		creature.name = crafted_creature_name
+		# ^^^ HAX. Find the other places this gets set.
 
+		creature_name_label.text = crafted_creature_name
+		creature_name_input.text = ""
+
+		#creature_name_label.text = preview_container.get_child(0).name
 		emit_signal("crafting_completed")
 #		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
 #		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
@@ -128,7 +133,7 @@ func _on_OnToStudioButton_pressed():
 
 
 func _on_CreatureNameInput_text_changed(new_text):
-	if new_text != "" and new_text != null and preview_container.get_child_count() > 0:
+	if new_text != "" and new_text != null:
 		creature_name = new_text
 		craft_creature_button.disabled = false
 
