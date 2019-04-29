@@ -199,5 +199,6 @@ func _on_RestartButton_pressed():
 	reset_player_stats()
 	clear_stored_creatures()
 	reset_trends()
+	lose_screen.hide()
 	return_to_main()
 

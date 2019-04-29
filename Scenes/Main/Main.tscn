@@ -252,13 +252,13 @@ align = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer"]
 margin_top = 178.0
 margin_right = 592.0
-margin_bottom = 198.0
+margin_bottom = 199.0
 custom_constants/separation = 50
 alignment = 1
 
 [node name="QuitButton2" type="Button" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 271.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Quit"
@@ -266,7 +266,7 @@ text = "Quit"
 [node name="RestartButton" type="Button" parent="UI/LoseStoryPopup/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 321.0
 margin_right = 592.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Restart"

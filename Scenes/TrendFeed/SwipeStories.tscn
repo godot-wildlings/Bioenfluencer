@@ -1,25 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/TrendFeed/SwipeStories.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/Themes/LuxuryTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/TrendFeed/SwipeStories.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.tscn" type="PackedScene" id=3]
 
 [node name="SwipeStories" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 50
 
-[node name="SwipeInfluenceBox" parent="HSplitContainer" instance=ExtResource( 2 )]
+[node name="SwipeInfluenceBox" parent="HSplitContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 295.0
 margin_bottom = 360.0
 
-[node name="SwipeInfluenceBox2" parent="HSplitContainer" instance=ExtResource( 2 )]
+[node name="SwipeInfluenceBox2" parent="HSplitContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 345.0
@@ -35,5 +37,4 @@ margin_left = -53.0
 margin_top = -20.0
 margin_right = 53.0
 text = "Return to Main"
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
