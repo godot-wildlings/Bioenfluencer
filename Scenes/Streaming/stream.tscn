@@ -73,6 +73,6 @@ margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="pressed" from="stream_UI/LeftSide/HBoxContainer/SellButton" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="stream_UI/LeftSide/HBoxContainer/SellButton" to="." method="_on_SellButton_pressed"]
 [connection signal="pressed" from="stream_UI/LeftSide/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
-[connection signal="item_activated" from="stream_UI/RightSide/CreatureList" to="." method="_on_CreatureList_item_activated"]
+[connection signal="item_selected" from="stream_UI/RightSide/CreatureList" to="." method="_on_CreatureList_item_selected"]

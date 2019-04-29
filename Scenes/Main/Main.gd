@@ -4,7 +4,7 @@ onready var level_container = $Levels
 onready var main_gui = $UI/MainUI
 onready var story_container = $UI/IntroStoryPopup
 onready var story_tabs = $UI/IntroStoryPopup/IntroStoryTabs
-
+onready var creature_storage_container = $CreatureStorageContainer
 
 var current_level
 
@@ -58,13 +58,17 @@ func remove_old_level():
 	if current_level != null and is_instance_valid(current_level):
 		current_level.call_deferred("queue_free")
 
-func add_creature_to_storage(creature):
-	$CreatureStorageContainer.add_child(creature)
+func store_creature(creature):
+	creature.get_parent().remove_child(creature)
+	creature_storage_container.add_child(creature)
 
 func get_creature_from_storage(index):
 	var creature = $CreatureStorageContainer.get_child(index)
-	$CreatureStorageContainer.remove_child(creature)
+	creature_storage_container.remove_child(creature)
 	return creature
+
+func get_stored_creatures():
+	return creature_storage_container.get_children()
 
 func _on_StartButton_pressed():
 

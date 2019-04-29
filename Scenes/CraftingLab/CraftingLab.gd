@@ -27,6 +27,7 @@ func _ready() -> void:
 	connect("crafting_completed", self, "_on_CraftingLab_crafting_completed")
 
 	if not creature_name_input.is_connected("text_changed", self, "_on_CreatureNameInput_text_changed"):
+		#warning-ignore:unused_return_value
 		creature_name_input.connect("text_changed", self, "_on_CreatureNameInput_text_changed")
 
 func _on_CraftingLab_crafting_completed() -> void:
@@ -64,16 +65,15 @@ func _save_crafted_creature() -> void:
 	else:
 		var creature : Creature = preview_container.get_child(0)
 		creature.creature_name = creature_name
-		DataStore.crafted_creatures.append(creature)
+		#DataStore.crafted_creatures.append(creature)
 
 		relocate_creature_to_storage(creature)
 
-		print(DataStore.crafted_creatures)
+		#print(DataStore.crafted_creatures)
 
 func relocate_creature_to_storage(creature):
 	# prevent creature from queuing_free when the lab level is freed
-	creature.get_parent().remove_child(creature)
-	Game.main.add_creature_to_storage(creature)
+	Game.main.store_creature(creature)
 
 func _on_CraftCreatureButton_pressed() -> void:
 	_craft_creature()
