@@ -41,3 +41,10 @@ func _on_PlayerNameEntry_text_entered(new_text):
 func _on_NextTabButton_mouse_entered():
 		Game.main._on_AnyButton_hovered()
 
+
+
+func _on_FullscreenButton_pressed():
+	if OS.window_fullscreen == false:
+		OS.window_fullscreen = true
+	else:
+		OS.window_fullscreen = false
