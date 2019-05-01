@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/UI/TopHUD.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/UI/TopHUD.gd" type="Script" id=2]
 
 [node name="TopHUD" type="Panel"]
 anchor_left = 0.5
@@ -8,67 +9,72 @@ anchor_right = 0.5
 margin_left = -320.0
 margin_right = 320.0
 rect_min_size = Vector2( 0, 14 )
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 14.0
+margin_left = 5.30737
+margin_top = -7.29762
+margin_right = 5.30737
+margin_bottom = 12.7024
 
 [node name="FollowersLabel" type="Label" parent="HBoxContainer"]
-margin_right = 61.0
-margin_bottom = 14.0
+margin_right = 66.0
+margin_bottom = 20.0
 text = "Followers"
 
 [node name="NumFollowers" type="Label" parent="HBoxContainer"]
-margin_left = 65.0
-margin_right = 144.0
-margin_bottom = 14.0
+margin_left = 70.0
+margin_right = 147.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 
 [node name="BloodLabel" type="Label" parent="HBoxContainer"]
-margin_left = 148.0
-margin_right = 185.0
-margin_bottom = 14.0
+margin_left = 151.0
+margin_right = 188.0
+margin_bottom = 20.0
 text = "Blood"
 
 [node name="NumBlood" type="Label" parent="HBoxContainer"]
-margin_left = 189.0
-margin_right = 268.0
-margin_bottom = 14.0
+margin_left = 192.0
+margin_right = 269.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 
 [node name="SweatLabel" type="Label" parent="HBoxContainer"]
-margin_left = 272.0
-margin_right = 309.0
-margin_bottom = 14.0
+margin_left = 273.0
+margin_right = 313.0
+margin_bottom = 20.0
 text = "Sweat"
 
 [node name="NumSweat" type="Label" parent="HBoxContainer"]
-margin_left = 313.0
-margin_right = 392.0
-margin_bottom = 14.0
+margin_left = 317.0
+margin_right = 394.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 
 [node name="TearsLabel" type="Label" parent="HBoxContainer"]
-margin_left = 396.0
-margin_right = 430.0
-margin_bottom = 14.0
+margin_left = 398.0
+margin_right = 436.0
+margin_bottom = 20.0
 text = "Tears"
 
 [node name="NumTears" type="Label" parent="HBoxContainer"]
-margin_left = 434.0
-margin_right = 513.0
-margin_bottom = 14.0
+margin_left = 440.0
+margin_right = 517.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 
 [node name="WeekLabel" type="Label" parent="HBoxContainer"]
-margin_left = 517.0
-margin_right = 553.0
-margin_bottom = 14.0
+margin_left = 521.0
+margin_right = 555.0
+margin_bottom = 20.0
 text = "Week"
 
 [node name="NumWeek" type="Label" parent="HBoxContainer"]
-margin_left = 557.0
+margin_left = 559.0
 margin_right = 640.0
-margin_bottom = 14.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
+

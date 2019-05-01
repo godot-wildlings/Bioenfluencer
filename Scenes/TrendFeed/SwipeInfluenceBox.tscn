@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.gd" type="Script" id=2]
 
 [node name="SwipeInfluenceBox" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -19,14 +21,14 @@ margin_bottom = -20.0
 
 [node name="InfluencerIcon" type="CenterContainer" parent="VBoxContainer"]
 margin_right = 600.0
-margin_bottom = 138.0
+margin_bottom = 141.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
-margin_top = 142.0
+margin_top = 145.0
 margin_right = 600.0
-margin_bottom = 280.0
+margin_bottom = 286.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
@@ -34,9 +36,9 @@ bbcode_text = "[i]Influencer[/i] was spotted at [i]Location[/i], leading her new
 text = "Influencer was spotted at Location, leading her newest Creation"
 
 [node name="ChooseStory" type="Button" parent="VBoxContainer"]
-margin_left = 200.0
-margin_top = 284.0
-margin_right = 400.0
+margin_left = 227.0
+margin_top = 290.0
+margin_right = 373.0
 margin_bottom = 320.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -63,15 +65,16 @@ margin_bottom = 340.0
 
 [node name="ChirpOutcomeText" type="Label" parent="PopupDialog/MarginContainer/VBoxContainer"]
 margin_right = 600.0
-margin_bottom = 280.0
+margin_bottom = 286.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 autowrap = true
 
 [node name="ReturnToMainButton" type="Button" parent="PopupDialog/MarginContainer/VBoxContainer"]
-margin_top = 284.0
+margin_top = 290.0
 margin_right = 600.0
 margin_bottom = 320.0
 text = "Return to Main"
+
 [connection signal="pressed" from="VBoxContainer/ChooseStory" to="." method="_on_ChooseStory_pressed"]
 [connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=3]
 [ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Main/HSlider.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=9]
-[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=8]
+[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=10]
+[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=11]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -42,69 +43,69 @@ margin_bottom = 14.0
 [node name="CenterContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer"]
 margin_top = 18.0
 margin_right = 640.0
-margin_bottom = 335.0
+margin_bottom = 326.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Left" type="VBoxContainer" parent="UI/MainUI/VBoxContainer/CenterContainer"]
 visible = false
-margin_right = 230.0
-margin_bottom = 318.0
+margin_right = 89.0
+margin_bottom = 308.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Right" type="GridContainer" parent="UI/MainUI/VBoxContainer/CenterContainer"]
 margin_right = 640.0
-margin_bottom = 317.0
+margin_bottom = 308.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
 [node name="PassTimeButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_top = 7.0
-margin_right = 244.0
-margin_bottom = 28.0
+margin_top = 5.0
+margin_right = 257.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Pass the time. Relax, Drink, Sleep"
 
 [node name="QuitButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 248.0
-margin_top = 7.0
-margin_right = 343.0
-margin_bottom = 28.0
+margin_left = 261.0
+margin_top = 5.0
+margin_right = 352.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Quit"
 
 [node name="FullScreenButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 347.0
-margin_top = 7.0
-margin_right = 442.0
-margin_bottom = 28.0
+margin_left = 356.0
+margin_top = 5.0
+margin_right = 447.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Fullscreen"
 
 [node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 446.0
-margin_top = 7.0
-margin_right = 541.0
-margin_bottom = 28.0
+margin_left = 451.0
+margin_top = 5.0
+margin_right = 543.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "WTF? Help!"
 
 [node name="HBoxContainer3" type="VBoxContainer" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
-margin_left = 545.0
-margin_right = 640.0
-margin_bottom = 35.0
+margin_left = 547.0
+margin_right = 638.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 alignment = 2
 
 [node name="VolSlider" type="HSlider" parent="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3"]
-margin_right = 95.0
+margin_right = 91.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -115,13 +116,16 @@ ticks_on_borders = true
 script = ExtResource( 6 )
 
 [node name="VolLabel" type="Label" parent="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3"]
-margin_top = 20.0
-margin_right = 95.0
-margin_bottom = 35.0
+margin_top = 4.0
+margin_right = 91.0
+margin_bottom = 40.0
 text = "Volume"
+align = 1
+valign = 1
 
 [node name="ButtonBar" type="GridContainer" parent="UI/MainUI/VBoxContainer"]
-margin_top = 339.0
+editor/display_folded = true
+margin_top = 330.0
 margin_right = 640.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
@@ -132,7 +136,7 @@ columns = 5
 
 [node name="NewsFeedButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_right = 108.0
-margin_bottom = 21.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Feed"
@@ -140,7 +144,7 @@ text = "Feed"
 [node name="CreatureLabButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 133.0
 margin_right = 241.0
-margin_bottom = 21.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Lab"
@@ -148,7 +152,7 @@ text = "Lab"
 [node name="StreamStudioButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 266.0
 margin_right = 374.0
-margin_bottom = 21.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Studio"
@@ -156,7 +160,7 @@ text = "Studio"
 [node name="ChirperButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 399.0
 margin_right = 507.0
-margin_bottom = 21.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Chirp"
@@ -164,12 +168,13 @@ text = "Chirp"
 [node name="StoreButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 532.0
 margin_right = 640.0
-margin_bottom = 21.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Partz!"
 
 [node name="WTFHelp" type="PopupDialog" parent="UI/MainUI"]
+editor/display_folded = true
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 620.0
@@ -187,9 +192,9 @@ custom_constants/margin_bottom = 40
 
 [node name="HelpText" type="Label" parent="UI/MainUI/WTFHelp/MarginContainer"]
 margin_left = 40.0
-margin_top = 44.0
+margin_top = 40.0
 margin_right = 560.0
-margin_bottom = 275.0
+margin_bottom = 336.0
 text = "Use your feed to identify current trends in the bio-engineering-fashion industry.
 
 Use your creature lab to assemble creatures. Make creatures that reflect the latest trends.
@@ -213,16 +218,21 @@ margin_top = -20.0
 text = "Return"
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]
-visible = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 7 )]
-
-[node name="LoseStoryPopup" type="PopupPanel" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
+
+[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 7 )]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+
+[node name="LoseStoryPopup" type="PopupPanel" parent="UI"]
+editor/display_folded = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/LoseStoryPopup"]
 margin_left = 4.0
@@ -278,16 +288,17 @@ layer = -1
 anchor_mode = 0
 current = true
 
-[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 8 )]
+[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 9 )]
 
 [node name="CreatureStorageContainer" type="Node2D" parent="."]
 visible = false
 
 [node name="HoverNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
 
 [node name="ClickNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
+
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_PassTimeButton_pressed"]

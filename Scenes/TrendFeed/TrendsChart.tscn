@@ -1,11 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/TrendFeed/TrendsChart.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/TrendFeed/TrendsChart.gd" type="Script" id=2]
 
 [node name="TrendsChart" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="TrendsContainer" type="Node2D" parent="."]
 
@@ -35,9 +37,9 @@ custom_constants/margin_bottom = 20
 
 [node name="Label" type="Label" parent="InfoPopup/MarginContainer"]
 margin_left = 20.0
-margin_top = 160.0
+margin_top = 154.0
 margin_right = 612.0
-margin_bottom = 191.0
+margin_bottom = 197.0
 text = "You take the time to relax, drink, enjoy some vidz and tunez. Drink some more. It'll probably cost you a few followers, but you gotta live your life, right?"
 align = 1
 autowrap = true
@@ -47,10 +49,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -82.0
-margin_top = 145.0
-margin_right = 24.0
-margin_bottom = 165.0
+margin_left = -363.54
+margin_top = 58.2592
+margin_right = -240.54
+margin_bottom = 88.2592
 text = "Return to Main"
 
 [node name="ReturnButton" type="Button" parent="."]
@@ -58,8 +60,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -106.0
-margin_top = -20.0
+margin_left = -134.669
+margin_top = -40.5826
+margin_right = -11.6686
+margin_bottom = -10.5826
 text = "Return to Main"
+
 [connection signal="pressed" from="InfoPopup/MarginContainer/Label/ReturnButton2" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

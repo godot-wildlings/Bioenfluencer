@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/UI/Themes/LuxuryTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Story/IntroStoryTabs.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Story/Intro01.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 20.0
@@ -28,16 +27,19 @@ tabs_visible = false
 script = ExtResource( 2 )
 
 [node name="Tab0" type="Tabs" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="IntroText" type="Label" parent="Tab0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -27.0
+margin_bottom = 104.0
 text = "It is the far future. Scientific advances in the genetics have reached the point of mass-consumable products and vanities.
 
 Today, the Biogenetical Sculpting Industry is one of the richest industries, providing billions of people across the world with living creations. These scientific and artistic creators are often referred to as Bioenfluencers.
@@ -48,14 +50,17 @@ You turn on the television...
 
 \"Join us at this gala opening event, where Mix Clickei shows off her newest creation, inspired by latest trends in terrorific and yet kawaii animals, the pink-gator-terrier!\""
 autowrap = true
+clip_text = true
 
 [node name="NextTabButton" type="Button" parent="Tab0"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -20.0
+margin_left = -52.0
+margin_top = -28.0
+margin_right = -2.0
+margin_bottom = 2.0
 text = "Next"
 
 [node name="FullscreenButton" type="Button" parent="Tab0"]
@@ -70,10 +75,10 @@ text = "Fullscreen"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="StoryImage1" type="TextureRect" parent="Tab1"]
 anchor_right = 1.0
@@ -87,18 +92,19 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -20.0
+margin_left = -51.0249
+margin_top = -29.025
+margin_right = -1.0249
+margin_bottom = 0.974976
 text = "Next"
 
 [node name="Tab3" type="Tabs" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = -20.0
-margin_bottom = -20.0
+margin_left = 4.0
+margin_top = 8.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Tab3"]
 anchor_right = 1.0
@@ -109,19 +115,19 @@ custom_constants/separation = 25
 alignment = 1
 
 [node name="IntroText2" type="Label" parent="Tab3/VBoxContainer"]
-margin_right = 592.0
-margin_bottom = 35.0
+margin_right = 624.0
+margin_bottom = 43.0
 text = "\"What's happened to Sam Pejenkin? They used to be such inspired designers.\"
 "
 autowrap = true
 
 [node name="Panel" type="MarginContainer" parent="Tab3/VBoxContainer"]
-margin_top = 60.0
-margin_right = 592.0
-margin_bottom = 312.0
+margin_top = 68.0
+margin_right = 624.0
+margin_bottom = 340.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 4 )
+theme = ExtResource( 1 )
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -130,8 +136,8 @@ custom_constants/margin_bottom = 20
 [node name="Panel" type="Panel" parent="Tab3/VBoxContainer/Panel"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 572.0
-margin_bottom = 232.0
+margin_right = 604.0
+margin_bottom = 252.0
 custom_styles/panel = SubResource( 1 )
 
 [node name="Response" type="Label" parent="Tab3/VBoxContainer/Panel/Panel"]
@@ -152,10 +158,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -42.0
-margin_top = -20.0
-margin_bottom = 2.0
+margin_left = -80.5818
+margin_top = -60.2966
+margin_right = -30.5818
+margin_bottom = -30.2966
 text = "Next"
+
 [connection signal="mouse_entered" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_pressed"]
 [connection signal="pressed" from="Tab0/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]

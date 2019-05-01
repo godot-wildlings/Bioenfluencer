@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/CraftingLab/CraftingLab.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/CraftingLab/craftingtube.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=4]
@@ -84,8 +84,8 @@ margin_bottom = 342.0
 alignment = 1
 
 [node name="ReturnToMainButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
-margin_left = 15.0
-margin_top = 321.0
+margin_left = 10.0
+margin_top = 312.0
 margin_right = 133.0
 margin_bottom = 342.0
 size_flags_horizontal = 4
@@ -94,8 +94,8 @@ text = "Return to Main"
 
 [node name="OnToStudioButton" type="Button" parent="Control/HBoxContainer/MarginContainer/HBoxContainer"]
 margin_left = 137.0
-margin_top = 321.0
-margin_right = 256.0
+margin_top = 312.0
+margin_right = 262.0
 margin_bottom = 342.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -111,16 +111,16 @@ margin_bottom = 342.0
 
 [node name="StagedBodyParts" type="ItemList" parent="Control/HBoxContainer/VBoxContainer2"]
 margin_right = 180.0
-margin_bottom = 288.0
+margin_bottom = 274.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 6 )
 
 [node name="CreatureNameInput" type="LineEdit" parent="Control/HBoxContainer/VBoxContainer2"]
-margin_top = 292.0
+margin_top = 278.0
 margin_right = 180.0
-margin_bottom = 317.0
+margin_bottom = 308.0
 rect_min_size = Vector2( 125, 25 )
 size_flags_horizontal = 9
 size_flags_vertical = 4
@@ -131,11 +131,12 @@ placeholder_text = "CREATURE NAME"
 caret_blink = true
 
 [node name="CraftCreatureButton" type="Button" parent="Control/HBoxContainer/VBoxContainer2"]
-margin_top = 321.0
+margin_top = 312.0
 margin_right = 180.0
 margin_bottom = 342.0
 disabled = true
 text = "PREVIEW CREATURE"
+
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/HBoxContainer/OnToStudioButton" to="." method="_on_OnToStudioButton_pressed"]
 [connection signal="text_changed" from="Control/HBoxContainer/VBoxContainer2/CreatureNameInput" to="." method="_on_CreatureNameInput_text_changed"]
