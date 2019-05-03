@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/BodyPart/BodyPart.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/BodyPart/Head03.png" type="Texture" id=2]
@@ -17,6 +17,22 @@
 [ext_resource path="res://Scenes/BodyPart/Body04.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/BodyPart/Legs03.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/BodyPart/Tail02.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/BodyPart/Head06.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/BodyPart/Body06.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/BodyPart/Legs06.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/BodyPart/Tail06.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/BodyPart/Head05.png" type="Texture" id=22]
+[ext_resource path="res://Scenes/BodyPart/Body05.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/BodyPart/Legs05.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/BodyPart/Tail05.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/BodyPart/Head08.png" type="Texture" id=26]
+[ext_resource path="res://Scenes/BodyPart/Body08.png" type="Texture" id=27]
+[ext_resource path="res://Scenes/BodyPart/Legs08.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/BodyPart/Tail08.png" type="Texture" id=29]
+[ext_resource path="res://Scenes/BodyPart/Head07.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/BodyPart/Body07.png" type="Texture" id=31]
+[ext_resource path="res://Scenes/BodyPart/Legs07.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/BodyPart/Tail07.png" type="Texture" id=33]
 
 [node name="BodyParts" type="Node"]
 
@@ -143,3 +159,128 @@ gene_list = "furry,kawaii,zombi"
 category = 3
 price = 25
 icon = ExtResource( 17 )
+
+[node name="GhostHead" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Ghost Head"
+gene_list = "terrorific"
+category = 3
+price = 100
+icon = ExtResource( 18 )
+
+[node name="GhostTorso" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Sheep Torso"
+gene_list = "terrorific"
+category = 1
+price = 100
+icon = ExtResource( 19 )
+
+[node name="GhostLegs" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Sheep Legs"
+gene_list = "terrorific"
+category = 2
+price = 50
+icon = ExtResource( 20 )
+
+[node name="GhostTail" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Sheep Tail"
+gene_list = "terrorific"
+category = 3
+price = 50
+icon = ExtResource( 21 )
+
+[node name="ZombieHead" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Zombie Head"
+gene_list = "terrorific, zombi"
+price = 100
+icon = ExtResource( 22 )
+
+[node name="ZombieTorso" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Zombie Torso"
+gene_list = "zombi,terrorific"
+category = 1
+price = 200
+icon = ExtResource( 23 )
+
+[node name="ZombieLegs" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Zombie Legs"
+gene_list = "zombi,terrorific"
+category = 2
+price = 100
+icon = ExtResource( 24 )
+
+[node name="ZombieTail" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Zombie Tail"
+gene_list = "zombi,terrorific"
+category = 3
+price = 25
+icon = ExtResource( 25 )
+
+[node name="BroHead" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Bro Head"
+gene_list = "muscular"
+price = 200
+icon = ExtResource( 26 )
+
+[node name="BroTorso" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Bro Torso"
+gene_list = "muscular"
+category = 1
+price = 50
+icon = ExtResource( 27 )
+
+[node name="BroLegs" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Bro Legs"
+gene_list = "muscular"
+category = 2
+price = 100
+icon = ExtResource( 28 )
+
+[node name="BroTail" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Bro Tail"
+gene_list = "muscular"
+category = 3
+price = 50
+icon = ExtResource( 29 )
+
+[node name="MatroidHead" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Matroid Head"
+gene_list = "lovecraftian"
+price = 500
+icon = ExtResource( 30 )
+
+[node name="MatroidTorso" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Matroid Torso"
+gene_list = "lovecraftian"
+category = 1
+price = 500
+icon = ExtResource( 31 )
+
+[node name="MatroidLegs" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Matroid Legs"
+gene_list = "lovecraftian"
+category = 2
+price = 300
+icon = ExtResource( 32 )
+
+[node name="MatroidTail" parent="." instance=ExtResource( 1 )]
+visible = false
+part_name = "Matroid Tail"
+gene_list = "lovecraftian"
+category = 3
+price = 200
+icon = ExtResource( 33 )

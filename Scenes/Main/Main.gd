@@ -108,7 +108,11 @@ func pass_time(weeks):
 	# reduce tears, increase blood
 	Game.player.tears = max(Game.player.tears - 50, 0)
 	Game.player.blood = min(Game.player.blood + 1, 3)
-	Game.player.followers -= int(rand_range(25, 100))
+
+	#Disabled temporarily, for graph debugging
+	#Game.player.followers -= int(rand_range(25, 100))
+
+
 	Game.player.sweat = min(Game.player.sweat + 50, 100)
 	if Game.player.followers <= 0:
 		lose()

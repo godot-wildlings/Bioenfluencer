@@ -85,7 +85,8 @@ func _on_NextPointTimer_timeout():
 	draw_week += 1
 	if draw_week < Game.week: # at Game.week 1, genes will have 1 entry in their followers_history, at index 0.
 		var x_spacing = viewing_area.size.x / Game.week
-		var y_spacing = viewing_area.size.y / 100
+		var y_spacing = viewing_area.size.y / 6
+		var y = log(trend.get_temporal_value(draw_week))/log(10)
 		curve.add_point(Vector2(draw_week * x_spacing, trend.get_temporal_value(draw_week) * y_spacing))
 		$PathFollow2D.set_unit_offset(1)
 		update()
