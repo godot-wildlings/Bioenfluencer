@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=3]
-[ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Story/Intro02noposter.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Main/HSlider.gd" type="Script" id=7]
@@ -198,11 +198,8 @@ margin_bottom = 360.0
 rect_min_size = Vector2( 0, 12 )
 
 [node name="WTFHelp" type="PopupDialog" parent="UI/MainUI"]
-editor/display_folded = true
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 620.0
-margin_bottom = 340.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -217,7 +214,7 @@ custom_constants/margin_bottom = 40
 [node name="HelpText" type="Label" parent="UI/MainUI/WTFHelp/MarginContainer"]
 margin_left = 40.0
 margin_top = 40.0
-margin_right = 560.0
+margin_right = 600.0
 margin_bottom = 336.0
 text = "Use your feed to identify current trends in the bio-engineering-fashion industry.
 
@@ -237,8 +234,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -54.0
-margin_top = -20.0
+margin_left = -64.0
+margin_top = -30.0
 text = "Return"
 
 [node name="IntroStoryPopup" type="PopupPanel" parent="UI"]

@@ -27,6 +27,7 @@ tabs_visible = false
 script = ExtResource( 2 )
 
 [node name="Tab0" type="Tabs" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -108,7 +109,6 @@ margin_bottom = 0.974976
 text = "Next"
 
 [node name="Tab3" type="Tabs" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -168,10 +168,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -80.5818
-margin_top = -60.2966
-margin_right = -30.5818
-margin_bottom = -30.2966
+margin_left = -50.0
+margin_top = -30.0
 text = "Next"
 [connection signal="mouse_entered" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/UI/TopHUD.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/TopHUDItem.gd" type="Script" id=3]
 
 [node name="TopHUD" type="Panel"]
 anchor_left = 0.5
@@ -23,58 +24,72 @@ margin_bottom = 12.7024
 margin_right = 66.0
 margin_bottom = 20.0
 text = "Followers"
+script = ExtResource( 3 )
+tool_tip = "Followers are Love. Followers are Life. You ned followers."
 
 [node name="NumFollowers" type="Label" parent="HBoxContainer"]
 margin_left = 70.0
 margin_right = 147.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+script = ExtResource( 3 )
 
 [node name="BloodLabel" type="Label" parent="HBoxContainer"]
 margin_left = 151.0
 margin_right = 188.0
 margin_bottom = 20.0
 text = "Blood"
+script = ExtResource( 3 )
+tool_tip = "Use Blood to pay analyst and appraiser"
 
 [node name="NumBlood" type="Label" parent="HBoxContainer"]
 margin_left = 192.0
 margin_right = 269.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+script = ExtResource( 3 )
 
 [node name="SweatLabel" type="Label" parent="HBoxContainer"]
 margin_left = 273.0
 margin_right = 313.0
 margin_bottom = 20.0
 text = "Sweat"
+script = ExtResource( 3 )
+tool_tip = "Represents available work effort (motivation)"
 
 [node name="NumSweat" type="Label" parent="HBoxContainer"]
 margin_left = 317.0
 margin_right = 394.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+script = ExtResource( 3 )
 
 [node name="TearsLabel" type="Label" parent="HBoxContainer"]
 margin_left = 398.0
 margin_right = 436.0
 margin_bottom = 20.0
 text = "Tears"
+script = ExtResource( 3 )
+tool_tip = "As tears goes up, your self-respect goes down."
 
 [node name="NumTears" type="Label" parent="HBoxContainer"]
 margin_left = 440.0
 margin_right = 517.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
+script = ExtResource( 3 )
 
 [node name="WeekLabel" type="Label" parent="HBoxContainer"]
 margin_left = 521.0
 margin_right = 555.0
 margin_bottom = 20.0
 text = "Week"
+script = ExtResource( 3 )
+tool_tip = "Can you survive 52 weeks?"
 
 [node name="NumWeek" type="Label" parent="HBoxContainer"]
 margin_left = 559.0
 margin_right = 640.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
-
+script = ExtResource( 3 )

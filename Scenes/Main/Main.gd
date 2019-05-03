@@ -78,6 +78,11 @@ func remove_old_level():
 	if current_level != null and is_instance_valid(current_level):
 		current_level.call_deferred("queue_free")
 
+func remove_unlocked_parts():
+	# typically when you restart the game
+	DataStore.reset_locked_parts()
+
+
 func store_creature(creature):
 	creature.get_parent().remove_child(creature)
 	creature_storage_container.add_child(creature)
@@ -204,6 +209,7 @@ func _onAnyButton_hovered():
 func _on_RestartButton_pressed():
 	reset_player_stats()
 	clear_stored_creatures()
+	remove_unlocked_parts()
 	reset_trends()
 	Game.week = 0
 	lose_screen.hide()

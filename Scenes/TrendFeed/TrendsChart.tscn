@@ -20,6 +20,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 
 [node name="InfoPopup" type="PopupPanel" parent="."]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -35,24 +36,25 @@ custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="InfoPopup/MarginContainer"]
+[node name="WarningLabel" type="Label" parent="InfoPopup/MarginContainer"]
 margin_left = 20.0
-margin_top = 156.0
+margin_top = 145.0
 margin_right = 616.0
-margin_bottom = 199.0
-text = "You take the time to relax, drink, enjoy some vidz and tunez. Drink some more. It'll probably cost you a few followers, but you gotta live your life, right?"
+margin_bottom = 211.0
+text = "You take the time to relax, drink, enjoy some vidz and tunez. Drink some more. It'll probably cost you a few followers, but you gotta live your life, right?
+(Warning. If you lose all your followers, you'll fail to make rent.)"
 align = 1
 autowrap = true
 
-[node name="ReturnButton2" type="Button" parent="InfoPopup/MarginContainer/Label"]
+[node name="ReturnButton2" type="Button" parent="InfoPopup/MarginContainer/WarningLabel"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -363.54
-margin_top = 58.2592
-margin_right = -240.54
-margin_bottom = 88.2592
+margin_left = -113.159
+margin_top = 104.938
+margin_right = 9.84082
+margin_bottom = 134.938
 text = "Return to Main"
 
 [node name="ReturnButton" type="Button" parent="."]
@@ -65,5 +67,5 @@ margin_top = -40.5826
 margin_right = -11.6686
 margin_bottom = -10.5826
 text = "Return to Main"
-[connection signal="pressed" from="InfoPopup/MarginContainer/Label/ReturnButton2" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="InfoPopup/MarginContainer/WarningLabel/ReturnButton2" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

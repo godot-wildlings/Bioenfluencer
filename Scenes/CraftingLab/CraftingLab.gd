@@ -1,3 +1,15 @@
+"""
+Moved unlocked parts onto stage
+Move staged parts onto preview container
+Name Creature
+Take creature to studio
+
+
+"""
+
+# Can we skip the staging area altogether and just put parts on display?
+
+
 extends Control
 
 class_name CraftingLab
@@ -9,23 +21,28 @@ onready var body_parts : ItemList = $Control/HBoxContainer/VBoxContainer/BodyPar
 onready var staged_body_parts : ItemList = $Control/HBoxContainer/VBoxContainer2/StagedBodyParts
 #warning-ignore:unused_class_variable
 onready var preview_container : Node2D = $Control/HBoxContainer/MarginContainer/CreaturePreviewContainer
+var creature_on_display : Creature
+
 #warning-ignore:unused_class_variable
 onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/CraftCreatureButton
-onready var creature_name_input : LineEdit = $Control/HBoxContainer/VBoxContainer2/CreatureNameInput
-onready var creature_name_label : Label = $CraftingTube/CreatureNameLabel
+onready var onto_studio_button : Button = $Control/HBoxContainer/MarginContainer/VBoxContainer/OnToStudioButton
+onready var creature_name_input : LineEdit = $Control/HBoxContainer/MarginContainer/VBoxContainer/CreatureNameInput
+#onready var creature_name_label : Label = $CraftingTube/CreatureNameLabel
 
 var ticks : int = 0
 
-var creature_name : String = "CREATURE"
+#var creature_name : String = "CREATURE"
 
-signal crafting_completed
+#signal crafting_completed
 
 func _ready() -> void:
 	Game.crafting_lab = self
 	#warning-ignore:return_value_discarded
 	craft_creature_button.connect("pressed", self, "_on_CraftCreatureButton_pressed")
 	#warning-ignore:return_value_discarded
-	connect("crafting_completed", self, "_on_CraftingLab_crafting_completed")
+
+	# **** if it's going to self, why use a signal instead of a method call?
+	#connect("crafting_completed", self, "_on_CraftingLab_crafting_completed")
 
 	if not creature_name_input.is_connected("text_changed", self, "_on_CreatureNameInput_text_changed"):
 		#warning-ignore:return_value_discarded
@@ -36,15 +53,19 @@ func _on_CraftingLab_crafting_completed() -> void:
 	# relocated to Go to studio button
 	#_save_crafted_creature()
 
-func _craft_creature(crafted_creature_name) -> void:
+func _craft_creature() -> void:
+	"""
+	put a fully assembled creature in the preview container
+	"""
 	# clean up the leftovers from the previous creation
-	for children in preview_container.get_children():
-		preview_container.remove_child(children)
+	empty_preview_container()
+
 	var amount_of_staged_body_parts : int = staged_body_parts.get_item_count()
 	if amount_of_staged_body_parts > 0:
 		# instantiate a creature background and put proper body parts in place
 		var creature : Object = creature_tscn.instance()
 		preview_container.add_child(creature)
+		creature_on_display = creature
 
 		for i in range(amount_of_staged_body_parts):
 			var body_part : BodyPart = DataStore.get_body_part(staged_body_parts.get_item_text(i))
@@ -64,17 +85,20 @@ func _craft_creature(crafted_creature_name) -> void:
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
 
-		# HAX adding this here to override other stuff.
-		# creature.name = crafted_creature_name
-		# ^^^ HAX. Find the other places this gets set.
-
-		creature_name_label.text = crafted_creature_name
-		creature_name_input.text = ""
+#		creature_name_label.text = crafted_creature_name
+#		creature_name_input.text = ""
 
 		#creature_name_label.text = preview_container.get_child(0).name
-		emit_signal("crafting_completed")
+
+		# **** Who's this signal for?
+		#emit_signal("crafting_completed")
+
 #		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
 #		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
+
+func empty_preview_container():
+	for children in preview_container.get_children():
+		preview_container.remove_child(children)
 
 
 func copy_genes(from_body_part, to_body_part):
@@ -86,18 +110,11 @@ func copy_genes(from_body_part, to_body_part):
 
 
 func _save_crafted_creature() -> void:
-	if preview_container.get_child_count() < 1:
+	if creature_on_display == null:
 		print("Could not get creature node from CreaturePreviewContainer")
 	else:
-		var creature : Creature = preview_container.get_child(0)
-		creature.creature_name = creature_name
-		#print("what's in the preview container? ", preview_container.get_children(), ", ", preview_container.get_child(0).creature_name)
+		relocate_creature_to_storage(creature_on_display)
 
-		#DataStore.crafted_creatures.append(creature)
-
-		relocate_creature_to_storage(creature)
-
-		#print(DataStore.crafted_creatures)
 
 func relocate_creature_to_storage(creature):
 	# prevent creature from queuing_free when the lab level is freed
@@ -112,7 +129,7 @@ func _on_CraftCreatureButton_pressed() -> void:
 	if Game.player.sweat <= 0:
 		Game.player.sweat = 0
 		Game.player.tears += 50
-	_craft_creature(creature_name_input.get_text())
+	_craft_creature()
 	#_save_crafted_creature()
 
 
@@ -120,35 +137,61 @@ func _on_CraftCreatureButton_pressed() -> void:
 func _on_ReturnToMainButton_pressed():
 	Game.main._on_AnyButton_pressed()
 
-	_save_crafted_creature()
+	#_save_crafted_creature()
+	creature_on_display = null
 	Game.main.return_to_main()
 
 
 
 func _on_OnToStudioButton_pressed():
-	Game.main._on_AnyButton_pressed()
-	Game.player.sweat -= 10
-	_save_crafted_creature()
-	Game.main.load_level("Stream")
+	if creature_on_display != null:
+		Game.main._on_AnyButton_pressed()
+		Game.player.sweat -= 10
+		_save_crafted_creature()
+		creature_on_display = null
+		Game.main.load_level("Stream")
 
 
 func _on_CreatureNameInput_text_changed(new_text):
 	if new_text != "" and new_text != null:
-		creature_name = new_text
-		craft_creature_button.disabled = false
+		#creature_name = new_text
+		if creature_on_display != null:
+			creature_on_display.creature_name = new_text
+
+
+func disable_some_buttons():
+
+	if not stage_has_parts():
+		#creature_name_input.editable = false
+		disable_button(craft_creature_button)
+	else:
+		#creature_name_input.editable = true
+		enable_button(craft_creature_button)
+
+	if creature_on_display == null:
+		disable_button(onto_studio_button)
+		creature_name_input.editable = false
+	else:
+		enable_button(onto_studio_button)
+		creature_name_input.editable = true
+
+func stage_has_parts():
+	if staged_body_parts.get_item_count() > 0:
+		return true
+	else:
+		return false
+
+func disable_button(button_node : Button):
+	button_node.disabled = true
+	button_node.modulate = Color.darkgray
+
+func enable_button(button_node : Button):
+	button_node.disabled = false
+	button_node.modulate = Color.white
 
 #warning-ignore:unused_argument
 func _process(delta):
 	# probably don't need this every frame.
 	ticks += 1
 	if ticks % 30 == 0: # around 1/2 second
-		if staged_body_parts.get_item_count() == 0:
-			creature_name_input.editable = false
-			craft_creature_button.disabled = true
-			craft_creature_button.modulate = Color(0.5, 0.5, 0.5, 1)
-		else:
-			creature_name_input.editable = true
-			craft_creature_button.disabled = false
-			craft_creature_button.modulate = Color(1, 1, 1, 1)
-
-		pass
+		disable_some_buttons()

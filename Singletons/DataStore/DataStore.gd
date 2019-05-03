@@ -15,12 +15,17 @@ var body_parts : Dictionary # populated by BodyPart.gd when BodyParts.tscn is in
 # Note: possible body parts are listed in BodyParts.tscn
 # unlocked_body_parts compares against part_name
 func _ready() -> void:
+	reset_locked_parts()
+	_populate_genes_dict()
+
+func reset_locked_parts():
 	unlocked_body_parts = [
 		"Lizard Head",
 		"Lizard Legs",
 		"Lizard Torso"
 	]
-	_populate_genes_dict()
+
+
 
 func _populate_genes_dict() -> void:
 	var dir : Directory = Directory.new()

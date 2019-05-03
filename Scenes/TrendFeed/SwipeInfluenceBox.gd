@@ -105,21 +105,29 @@ func _on_ChooseStory_pressed():
 
 
 	var message: String = ""
-	message += "You broadcasted this important bit of news to the world. "
+	message += "You broadcast this important bit of news to the world. "
 	message += trend_text_on_card
-	message += " are on the rise!"
+	message += " are on the rise!\n"
 
 
 	for trend in trends_shown_on_card:
 		var new_followers : int = int(float(Game.player.followers) * rand_range(0.2, 0.8))
 
 		trend.increase_followers(new_followers)
-		message += "\n\t" + trend.name + " is up " +  str(new_followers) + " followers."
+		message += "\n" + trend.name + " is up " +  str(new_followers) + " followers."
+
+	message += "\n\n...But you die a little inside"
+
+	var random_tears = int(rand_range(10, 30))
+	Game.player.tears += random_tears
+
+	message += " (+ " + str(random_tears) + " tears)."
+
+
 
 	$PopupDialog.show()
 	$PopupDialog/MarginContainer/VBoxContainer/ChirpOutcomeText.set_text(message)
 
-	Game.player.tears += 20
 	#Game.main.return_to_main()
 
 
