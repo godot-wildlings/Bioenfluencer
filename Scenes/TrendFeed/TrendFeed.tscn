@@ -143,3 +143,4 @@ text = "Return to Main"
 [connection signal="pressed" from="TrendFeed1/Panel/VBoxContainer/HBoxContainer/AnalystButton" to="." method="_on_AnalystButton_pressed"]
 [connection signal="pressed" from="TrendFeed1/Panel/VBoxContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
 [connection signal="timeout" from="SweatTimer" to="." method="_on_SweatTimer_timeout"]
+[connection signal="pressed" from="EjectionDescription/MarginContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
