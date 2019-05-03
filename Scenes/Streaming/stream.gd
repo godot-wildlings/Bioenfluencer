@@ -89,6 +89,8 @@ func _on_SellButton_pressed():
 
 
 func _on_AppraiseButton_pressed():
+	print(self.name, appraise_button.name, " clicked"  )
+	print(" disabled == ", appraise_button.disabled)
 	if appraise_button.disabled == false:
 
 		Game.main._on_AnyButton_pressed()
@@ -99,7 +101,6 @@ func _on_AppraiseButton_pressed():
 				Game.player.sweat = 0
 				Game.main.return_to_main()
 				# should probably pass time to get sweat back..
-
 			appraise_button.set_disabled(true)
 			appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
 
@@ -109,16 +110,16 @@ func _process(delta):
 	if ticks % 30 == 0: # around every 1/2second
 		if creature_on_display == null:
 
-			appraise_button.disabled = true
-			appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
+#			appraise_button.disabled = true
+#			appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
 
 			sell_button.disabled = true
 			sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
 
 		else:
 
-			appraise_button.disabled = false
-			appraise_button.modulate = Color(1, 1, 1, 1)
+#			appraise_button.disabled = false
+#			appraise_button.modulate = Color(1, 1, 1, 1)
 
 			sell_button.disabled = false
 			sell_button.modulate = Color(1, 1, 1, 1)
