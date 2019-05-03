@@ -87,7 +87,7 @@ func _draw():
 		point = curve.get_point_position(point_num)
 		if point_num > 0:
 			last_point = curve.get_point_position(point_num-1)
-		draw_line(last_point, point, color, 1, true)
+			draw_line(last_point, point, color, 1, true)
 		last_point = point
 
 

@@ -24,12 +24,12 @@ func _init():
 
 func reset():
 	trending_factor = rand_range(-1.0, 1.0)
-	number_of_followers = pow(10, randi()%4 + 1)
+	number_of_followers = int(pow(10, randi()%4 + 1))
 	follower_history.clear()
-	print(self.name, " has ", str(number_of_followers), " followers")
+#	print(self.name, " has ", str(number_of_followers), " followers")
 
 func _set_name(new_name : String) -> void:
-	print(self.name , " changing name to ", new_name )
+#	print(self.name , " changing name to ", new_name )
 	name = new_name
 
 func pass_time(weeks):
@@ -39,17 +39,18 @@ func pass_time(weeks):
 	follower_history.push_back(number_of_followers)
 	number_of_followers += weeks * int(float(number_of_followers) * trending_factor) # can be negative.
 	trending_factor += rand_range(-0.25, 0.25)
+	number_of_followers = max(number_of_followers, 1) # never go to zero
 
-	print("passing time: ")
-	print(name, ": followers: ", number_of_followers)
-	print(name, ": trending_factor: ", trending_factor)
+#	print("passing time: ")
+#	print(name, ": followers: ", number_of_followers)
+#	print(name, ": trending_factor: ", trending_factor)
 
 func get_value() -> float:
 	"""
 	value is based on number_of_followers, which changes over time.
 	"""
 	var value = log(number_of_followers)/log(10) * 20 * rand_range(0.5, 1.5)
-	print(self.name, " is valued at ", str(value))
+#	print(self.name, " is valued at ", str(value))
 	return value
 
 func get_temporal_value(week) -> int:

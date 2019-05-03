@@ -12,6 +12,7 @@ var current_level
 
 
 func _init():
+	randomize()
 	Game.main = self
 
 func _ready():
