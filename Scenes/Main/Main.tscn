@@ -44,7 +44,7 @@ margin_bottom = 14.0
 [node name="CenterContainer" type="HBoxContainer" parent="UI/MainUI/VBoxContainer"]
 margin_top = 18.0
 margin_right = 640.0
-margin_bottom = 326.0
+margin_bottom = 310.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -57,7 +57,7 @@ size_flags_vertical = 3
 
 [node name="Right" type="GridContainer" parent="UI/MainUI/VBoxContainer/CenterContainer"]
 margin_right = 640.0
-margin_bottom = 308.0
+margin_bottom = 292.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -92,6 +92,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Fullscreen"
 script = ExtResource( 6 )
+tool_tip = "Toggle"
 
 [node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
 margin_left = 451.0
@@ -132,9 +133,9 @@ align = 1
 valign = 1
 
 [node name="ButtonBar" type="GridContainer" parent="UI/MainUI/VBoxContainer"]
-margin_top = 330.0
+margin_top = 314.0
 margin_right = 640.0
-margin_bottom = 360.0
+margin_bottom = 344.0
 size_flags_horizontal = 3
 size_flags_vertical = 8
 custom_constants/vseparation = 25
@@ -189,6 +190,12 @@ size_flags_vertical = 4
 text = "Partz!"
 script = ExtResource( 6 )
 tool_tip = "Buy new parts"
+
+[node name="BottomSpacer" type="MarginContainer" parent="UI/MainUI/VBoxContainer"]
+margin_top = 348.0
+margin_right = 640.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 0, 12 )
 
 [node name="WTFHelp" type="PopupDialog" parent="UI/MainUI"]
 editor/display_folded = true
