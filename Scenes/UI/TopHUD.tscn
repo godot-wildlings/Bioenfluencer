@@ -40,7 +40,7 @@ margin_right = 188.0
 margin_bottom = 20.0
 text = "Blood"
 script = ExtResource( 3 )
-tool_tip = "Use Blood to pay analyst and appraiser"
+tool_tip = "Use Blood to pay analyst"
 
 [node name="NumBlood" type="Label" parent="HBoxContainer"]
 margin_left = 192.0

@@ -1,15 +1,20 @@
 extends Control
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var pay_analyst_button : Button = $InfoPopup/MarginContainer/VBoxContainer/HBoxContainer/PayAnalystButton
+onready var info_popup : Button = $InfoPopup
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	show_info_popup()
+	pay_analyst_button.hide()
+
 	if Game.week > 1:
 		call_deferred("populate_chart")
-	else:
-		show_info_popup()
+
+		pay_analyst_button.show()
+		if Game.player.blood == 0:
+			pay_analyst_button.set_disabled(true)
+
+
 
 
 func show_info_popup():
@@ -40,3 +45,9 @@ func _on_ReturnButton_pressed():
 
 
 	Game.main.return_to_main()
+
+
+func _on_PayAnalystButton_pressed():
+	Game.player.blood = max(0, Game.player.blood - 1)
+	info_popup.hide()
+

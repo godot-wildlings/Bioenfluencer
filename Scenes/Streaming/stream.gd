@@ -17,6 +17,7 @@ onready var appraise_label = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/App
 onready var appraise_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton
 onready var sell_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2
 
+
 var creature_on_display
 var ticks : int = 0
 
@@ -24,6 +25,7 @@ var ticks : int = 0
 
 func _ready():
 
+	appraise_button.set_disabled(true)
 	populate_creature_list()
 
 	check_sweat_equity()
@@ -65,6 +67,7 @@ func _on_CreatureList_item_selected(index):
 				display_position.remove_child(child)
 
 		creature_on_display = creature
+		appraise_button.set_disabled(false)
 		display_position.add_child(creature)
 		#creatures_list.clear()
 		populate_creature_list()
