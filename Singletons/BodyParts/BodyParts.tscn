@@ -71,7 +71,7 @@ icon = ExtResource( 5 )
 visible = false
 part_name = "Octopus Head"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
-price = 25
+price = 50
 icon = ExtResource( 6 )
 
 [node name="OctopusTorso" parent="." instance=ExtResource( 1 )]
@@ -79,7 +79,7 @@ visible = false
 part_name = "Octopus Torso"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 1
-price = 25
+price = 75
 icon = ExtResource( 7 )
 
 [node name="OctopusLegs" parent="." instance=ExtResource( 1 )]
@@ -87,7 +87,7 @@ visible = false
 part_name = "Octopus Legs"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 2
-price = 25
+price = 100
 icon = ExtResource( 8 )
 
 [node name="OctopusTail" parent="." instance=ExtResource( 1 )]
@@ -102,7 +102,7 @@ icon = ExtResource( 9 )
 visible = false
 part_name = "Bird Head"
 gene_list = "feathery,kawaii,terrorific"
-price = 25
+price = 50
 icon = ExtResource( 10 )
 
 [node name="BirdTorso" parent="." instance=ExtResource( 1 )]
@@ -121,10 +121,10 @@ category = 2
 price = 25
 icon = ExtResource( 12 )
 
-[node name="BirdTail" parent="." instance=ExtResource( 1 )]
+[node name="LionTail" parent="." instance=ExtResource( 1 )]
 visible = false
-part_name = "Bird Tail"
-gene_list = "feathery,kawaii,terrorific"
+part_name = "Lion Tail"
+gene_list = "furry, kawaii,terrorific"
 category = 3
 price = 25
 icon = ExtResource( 13 )
@@ -170,7 +170,7 @@ icon = ExtResource( 18 )
 
 [node name="GhostTorso" parent="." instance=ExtResource( 1 )]
 visible = false
-part_name = "Sheep Torso"
+part_name = "Ghost Torso"
 gene_list = "terrorific"
 category = 1
 price = 100
@@ -178,7 +178,7 @@ icon = ExtResource( 19 )
 
 [node name="GhostLegs" parent="." instance=ExtResource( 1 )]
 visible = false
-part_name = "Sheep Legs"
+part_name = "Ghost Legs"
 gene_list = "terrorific"
 category = 2
 price = 50
@@ -186,7 +186,7 @@ icon = ExtResource( 20 )
 
 [node name="GhostTail" parent="." instance=ExtResource( 1 )]
 visible = false
-part_name = "Sheep Tail"
+part_name = "GhostTail"
 gene_list = "terrorific"
 category = 3
 price = 50
