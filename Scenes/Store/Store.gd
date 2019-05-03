@@ -32,6 +32,9 @@ func on_BuyButton_pressed() -> void:
 			DataStore.unlock_new_body_part(body_parts.selected_body_part)
 			var selected_items : PoolIntArray = body_parts.get_selected_items()
 			body_parts.remove_item(selected_items[0])
+
+			#wait for main to make a noise
+			yield(get_tree().create_timer(0.1), "timeout")
 			buy_button.disabled = true
 			cost_label.text = "Cost: "
 
