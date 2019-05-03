@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/TrendFeed/TrendFeed.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/TrendFeed/tv2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=5]
 
 [node name="TrendFeed" type="Control"]
 anchor_right = 1.0
@@ -80,6 +81,7 @@ margin_bottom = 30.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Pay Analyst"
+script = ExtResource( 5 )
 
 [node name="ReturnToMainButton" type="Button" parent="TrendFeed1/Panel/VBoxContainer/HBoxContainer"]
 margin_left = 312.0
@@ -88,6 +90,7 @@ margin_bottom = 30.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Return to Main"
+script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="TrendFeed1/Panel/VBoxContainer"]
 margin_top = 58.0

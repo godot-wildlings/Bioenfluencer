@@ -130,6 +130,7 @@ margin_bottom = 342.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Accept, Take To Studio"
+script = ExtResource( 6 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 460.0
@@ -150,6 +151,9 @@ margin_right = 180.0
 margin_bottom = 342.0
 disabled = true
 text = "PREVIEW CREATURE"
+script = ExtResource( 6 )
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
 [connection signal="text_changed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/CreatureNameInput" to="." method="_on_CreatureNameInput_text_changed"]
+[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/OnToStudioButton" to="." method="_on_AnyButton_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/OnToStudioButton" to="." method="_on_OnToStudioButton_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer2/PreviewCreatureButton" to="." method="_on_PreviewCreatureButton_pressed"]

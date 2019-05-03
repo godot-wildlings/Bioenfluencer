@@ -10,7 +10,6 @@ onready var creature_storage_container = $CreatureStorageContainer
 var current_level
 
 
-
 func _init():
 	randomize()
 	Game.main = self
@@ -107,14 +106,10 @@ func pass_time(weeks):
 	"""
 	Game.week += 1
 	# reduce tears, increase blood
-	Game.player.tears = max(Game.player.tears - 50, 0)
-	Game.player.blood = min(Game.player.blood + 1, 3)
 
-	#Disabled temporarily, for graph debugging
-	#Game.player.followers -= int(rand_range(25, 100))
+	Game.player.pass_time(weeks)
 
 
-	Game.player.sweat = min(Game.player.sweat + 50, 100)
 	if Game.player.followers <= 0:
 		lose()
 	else:
@@ -141,7 +136,8 @@ func _on_StartButton_pressed():
 	add_child(instance_level)
 
 func _on_QuitButton_pressed():
-	get_tree().quit()
+	$UI/QuitPopup.show()
+	$UI/QuitPopup/MarginContainer/QuitTimer.start()
 
 func _on_OptionsButton_pressed():
 	get_node("main_ui").hide()
@@ -197,18 +193,20 @@ func _on_PassTimeButton_pressed():
 	pass_time(1)
 
 
-func _on_AnyButton_pressed():
+#warning-ignore:unused_argument
+func _on_AnyButton_clicked(button_node):
+	play_click_noise()
+
+func play_click_noise():
 	$ClickNoise.play()
 
 
+#warning-ignore:unused_argument
+func _on_AnyButton_hovered(button_node):
+	play_hover_noise()
 
-
-func _on_AnyButton_hovered():
+func play_hover_noise():
 	$HoverNoise.play()
-
-
-func _onAnyButton_hovered():
-	pass # Replace with function body.
 
 
 
@@ -222,3 +220,7 @@ func _on_RestartButton_pressed():
 	lose_screen.hide()
 	return_to_main()
 
+
+
+func _on_QuitTimer_timeout():
+	get_tree().quit()

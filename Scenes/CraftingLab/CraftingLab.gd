@@ -38,20 +38,13 @@ var ticks : int = 0
 func _ready() -> void:
 	Game.crafting_lab = self
 	#warning-ignore:return_value_discarded
-	preview_creature_button.connect("pressed", self, "_on_PreviewCreatureButton_pressed")
-	#warning-ignore:return_value_discarded
-
-	# **** if it's going to self, why use a signal instead of a method call?
-	#connect("crafting_completed", self, "_on_CraftingLab_crafting_completed")
+	if not preview_creature_button.is_connected("pressed", self, "_on_PreviewCreatureButton_pressed"):
+		preview_creature_button.connect("pressed", self, "_on_PreviewCreatureButton_pressed")
 
 	if not creature_name_input.is_connected("text_changed", self, "_on_CreatureNameInput_text_changed"):
 		#warning-ignore:return_value_discarded
 		creature_name_input.connect("text_changed", self, "_on_CreatureNameInput_text_changed")
 
-func _on_CraftingLab_crafting_completed() -> void:
-	pass
-	# relocated to Go to studio button
-	#_save_crafted_creature()
 
 func _craft_creature() -> void:
 	"""
@@ -123,20 +116,21 @@ func relocate_creature_to_storage(creature):
 func _on_PreviewCreatureButton_pressed() -> void:
 
 	if preview_creature_button.disabled == false:
-		Game.main._on_AnyButton_pressed()
 
 		Game.player.sweat -= 5
 		if Game.player.sweat <= 0:
 			Game.player.sweat = 0
 			Game.player.tears += 50
 		_craft_creature()
+
+		# pause to let GenericButton.gd signal main to play a noise.
+		yield(get_tree().create_timer(0.1), "timeout")
 		disable_button(preview_creature_button)
 		#_save_crafted_creature()
 
 
 
 func _on_ReturnToMainButton_pressed():
-	Game.main._on_AnyButton_pressed()
 
 	#_save_crafted_creature()
 	creature_on_display = null
@@ -146,7 +140,7 @@ func _on_ReturnToMainButton_pressed():
 
 func _on_OnToStudioButton_pressed():
 	if creature_on_display != null:
-		Game.main._on_AnyButton_pressed()
+
 		Game.player.sweat -= 10
 		_save_crafted_creature()
 		creature_on_display = null
@@ -196,3 +190,12 @@ func _process(delta):
 	ticks += 1
 	if ticks % 30 == 0: # around 1/2 second
 		disable_some_buttons()
+
+# moved to GenericButton.gd
+#func _on_AnyButton_pressed():
+#	Game.main._on_AnyButton_pressed(self)
+#
+#
+#func _on_AnyButton_hovered():
+#	Game.main._on_AnyButton_hovered(self)
+

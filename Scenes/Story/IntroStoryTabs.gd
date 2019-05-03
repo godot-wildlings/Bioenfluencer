@@ -17,15 +17,12 @@ func initialize_fields():
 
 
 func _on_NextTabButton_pressed():
-	Game.main._on_AnyButton_pressed()
 
 	if story_tabs.get_current_tab() < story_tabs.get_tab_count()-1:
 		story_tabs.set_current_tab(story_tabs.get_current_tab()+1)
 	else:
 		emit_signal("story_completed")
 
-func _on_NextTabButton_mouse_entered():
-		Game.main._on_AnyButton_hovered()
 
 
 

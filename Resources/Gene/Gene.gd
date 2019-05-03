@@ -39,7 +39,7 @@ func pass_time(weeks):
 	follower_history.push_back(number_of_followers)
 	number_of_followers += weeks * int(float(number_of_followers) * trending_factor) # can be negative.
 	trending_factor += rand_range(-0.25, 0.25)
-	number_of_followers = max(number_of_followers, 1) # never go to zero
+	number_of_followers = int(max(number_of_followers, 1)) # never go to zero
 
 #	print("passing time: ")
 #	print(name, ": followers: ", number_of_followers)

@@ -101,7 +101,7 @@ func _on_ChooseStory_pressed():
 		Get a list of the trends in the story.
 		Give those trends more followers
 	"""
-	Game.main._on_AnyButton_pressed()
+
 
 
 	var message: String = ""
@@ -132,6 +132,4 @@ func _on_ChooseStory_pressed():
 
 
 func _on_ReturnToMainButton_pressed():
-	Game.main._on_AnyButton_pressed()
-
 	Game.main.return_to_main()

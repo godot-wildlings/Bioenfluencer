@@ -19,7 +19,7 @@ onready var sell_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxCo
 
 
 var creature_on_display
-var ticks : int = 0
+#var ticks : int = 0
 
 #var trends
 
@@ -45,7 +45,6 @@ func populate_creature_list():
 
 
 func _on_ReturnToMainButton_pressed():
-	Game.main._on_AnyButton_pressed()
 
 	if creature_on_display != null and is_instance_valid(creature_on_display):
 		Game.main.store_creature(creature_on_display)
@@ -79,7 +78,6 @@ func _on_SellButton_pressed():
 	remove the creature from the stage (it's not currently in storage)
 	add followers
 	"""
-	Game.main._on_AnyButton_pressed()
 
 	if creature_on_display != null and is_instance_valid(creature_on_display):
 		var income = creature_on_display.get_value()
@@ -87,16 +85,15 @@ func _on_SellButton_pressed():
 		Game.player.tears += 1
 
 		creature_on_display.die()
-
+		creature_on_display = null
+		# wait for audio
+		yield(get_tree().create_timer(0.1), "timeout")
+		sell_button.set_disabled(true)
 
 
 
 func _on_AppraiseButton_pressed():
-	print(self.name, appraise_button.name, " clicked"  )
-	print(" disabled == ", appraise_button.disabled)
 	if appraise_button.disabled == false:
-
-		Game.main._on_AnyButton_pressed()
 
 		if creature_on_display != null and is_instance_valid(creature_on_display):
 			Game.player.sweat -= 10
@@ -104,27 +101,34 @@ func _on_AppraiseButton_pressed():
 				Game.player.sweat = 0
 				Game.main.return_to_main()
 				# should probably pass time to get sweat back..
-			appraise_button.set_disabled(true)
+
 			appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
+
+			# wait for sound
+			yield(get_tree().create_timer(0.1), "timeout")
+			appraise_button.set_disabled(true)
+
 
 #warning-ignore:unused_argument
 func _process(delta):
-	ticks += 1
-	if ticks % 30 == 0: # around every 1/2second
-		if creature_on_display == null:
+	# moved to specific button clicks. no need to monitor it repeatedly
 
-#			appraise_button.disabled = true
-#			appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
-
-			sell_button.disabled = true
-			sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
-
-		else:
-
-#			appraise_button.disabled = false
-#			appraise_button.modulate = Color(1, 1, 1, 1)
-
-			sell_button.disabled = false
-			sell_button.modulate = Color(1, 1, 1, 1)
-
+#	ticks += 1
+#	if ticks % 30 == 0: # around every 1/2second
+#		if creature_on_display == null:
+#
+##			appraise_button.disabled = true
+##			appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
+#
+#			sell_button.disabled = true
+#			sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
+#
+#		else:
+#
+##			appraise_button.disabled = false
+##			appraise_button.modulate = Color(1, 1, 1, 1)
+#
+#			sell_button.disabled = false
+#			sell_button.modulate = Color(1, 1, 1, 1)
+#
 		pass

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Store/Store.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Store/BodyParts.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=4]
 
 [node name="Store" type="Control"]
 anchor_right = 1.0
@@ -64,6 +65,7 @@ margin_top = 330.0
 margin_right = 210.0
 margin_bottom = 360.0
 text = "ReturnToMain"
+script = ExtResource( 4 )
 
 [node name="PanelRight" type="Panel" parent="HBoxContainer"]
 margin_left = 428.0
@@ -93,4 +95,5 @@ margin_top = -160.0
 margin_right = 19.0
 margin_bottom = -140.0
 text = "BUY"
+script = ExtResource( 4 )
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

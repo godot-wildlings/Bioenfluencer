@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/Story/IntroStoryTabs.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Story/Intro01.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Story/Intro01.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 20.0
@@ -71,14 +72,7 @@ margin_top = -28.0
 margin_right = -2.0
 margin_bottom = 2.0
 text = "Next"
-
-[node name="FullscreenButton" type="Button" parent="Tab0"]
-visible = false
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -22.0
-margin_right = 12.0
-text = "Fullscreen"
+script = ExtResource( 3 )
 
 [node name="Tab1" type="Tabs" parent="."]
 visible = false
@@ -92,7 +86,7 @@ margin_bottom = -4.0
 [node name="StoryImage1" type="TextureRect" parent="Tab1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
@@ -106,6 +100,7 @@ margin_top = -29.025
 margin_right = -1.0249
 margin_bottom = 0.974976
 text = "Next"
+script = ExtResource( 3 )
 
 [node name="Tab3" type="Tabs" parent="."]
 visible = false
@@ -171,10 +166,7 @@ anchor_bottom = 1.0
 margin_left = -50.0
 margin_top = -30.0
 text = "Next"
-[connection signal="mouse_entered" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
+script = ExtResource( 3 )
 [connection signal="pressed" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_pressed"]
-[connection signal="pressed" from="Tab0/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]
-[connection signal="mouse_entered" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab1/NextTabButton" to="." method="_on_NextTabButton_pressed"]
-[connection signal="mouse_entered" from="Tab3/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab3/NextTabButton" to="." method="_on_NextTabButton_pressed"]

@@ -41,8 +41,6 @@ func populate_chart():
 
 
 func _on_ReturnButton_pressed():
-	Game.main._on_AnyButton_pressed()
-
 
 	Game.main.return_to_main()
 

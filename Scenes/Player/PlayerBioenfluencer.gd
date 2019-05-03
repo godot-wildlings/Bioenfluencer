@@ -25,6 +25,8 @@ var sweat : int
 #warning-ignore:unused_class_variable
 var tears : int
 
+var follower_history : Array = []
+
 signal player_followers_changed(followers)
 
 func _init():
@@ -34,10 +36,27 @@ func _ready():
 	reset()
 
 func reset():
-	followers = 100
-	blood = 3
-	sweat = 100
-	tears = 0
+	followers = 100 # lost by passing time, gained by selling creatures
+	blood = 5 # lost by paying analyst. Never regained
+	sweat = 100 # lost by watching feed, creating creatures, regained by passing time
+	tears = 0 # gained by chirping and selling creatures. Never lost
+	follower_history.clear()
+
+func pass_time(weeks):
+
+	tears = max(tears - randi()%40+10, 0)
+
+	#blood = min(blood + 1, 3)
+	# ^^^ Maybe you shouldn't regain blood.
+
+	var most_recent_follower_loss = rand_range(25, 100)
+	follower_history.push_back(most_recent_follower_loss)
+	followers -= int(most_recent_follower_loss)
+
+
+	Game.player.sweat = min(Game.player.sweat + 50, 100)
+
+
 
 #warning-ignore:unused_argument
 func _process(delta):

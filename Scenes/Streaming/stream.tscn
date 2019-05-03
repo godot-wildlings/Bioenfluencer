@@ -83,6 +83,7 @@ margin_left = 133.0
 margin_right = 245.0
 margin_bottom = 30.0
 text = "Sell Creature"
+script = ExtResource( 5 )
 
 [node name="ReturnToMainButton" type="Button" parent="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer"]
 margin_left = 249.0
@@ -91,6 +92,7 @@ margin_bottom = 30.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Return to Main"
+script = ExtResource( 5 )
 
 [node name="AppraisedValueLabel" type="Label" parent="VBoxContainer/stream_UI/LeftSide/VBoxContainer"]
 margin_top = 34.0

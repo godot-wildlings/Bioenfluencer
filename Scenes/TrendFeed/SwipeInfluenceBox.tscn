@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/TrendFeed/SwipeInfluenceBox.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=3]
 
 [node name="SwipeInfluenceBox" type="Panel"]
 anchor_right = 1.0
@@ -43,6 +44,7 @@ margin_bottom = 320.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "ReChirp this Story"
+script = ExtResource( 3 )
 
 [node name="PopupDialog" type="PopupDialog" parent="."]
 visible = true
@@ -75,5 +77,6 @@ margin_top = 290.0
 margin_right = 600.0
 margin_bottom = 320.0
 text = "Return to Main"
+script = ExtResource( 3 )
 [connection signal="pressed" from="VBoxContainer/ChooseStory" to="." method="_on_ChooseStory_pressed"]
 [connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
