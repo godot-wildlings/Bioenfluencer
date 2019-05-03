@@ -7,7 +7,7 @@ It's possible a line2D is better suited for this, but whatever. (time pressure)
 
 extends Path2D
 
-var current_week : int = 0
+#var current_week : int = 0
 var draw_week : int = -1
 var trend_name: String
 var trend : Gene

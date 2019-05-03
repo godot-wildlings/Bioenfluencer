@@ -27,7 +27,6 @@ tabs_visible = false
 script = ExtResource( 2 )
 
 [node name="Tab0" type="Tabs" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -35,20 +34,30 @@ margin_top = 8.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="IntroText" type="Label" parent="Tab0"]
+[node name="MarginContainer" type="MarginContainer" parent="Tab0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -27.0
-margin_bottom = 104.0
-text = "It is the far future. Scientific advances in the genetics have reached the point of mass-consumable products and vanities.
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 
-Today, the Biogenetical Sculpting Industry is one of the richest industries, providing billions of people across the world with living creations. These scientific and artistic creators are often referred to as Bioenfluencers.
+[node name="IntroText" type="Label" parent="Tab0/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 614.0
+margin_bottom = 330.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Today, the Biogenetical Sculpting Industry is the richest on earth. Bioengineers, or \"Bioenfluencers\", as they are better known, are more famous than popstars and fashion designers.
 
-You are one such Bioenfluencer. In your prime, you were one of the most prolific designers pioneering the Genetical Sculpting Industry. But now you waste your life away, hammering about the glory days while your account approaches the brink of bankrupcy. This house won't pay for itself.
+You are one such Bioenfluencer. In your prime, you were a rising star, one of the most prolific designers on the cutting edge. Now you waste your life away, yammering about the glory days. Sadly, this house ain't gonna pay for itself.
 
-You turn on the television...
+You turn on the vidfeed...
 
-\"Join us at this gala opening event, where Mix Clickei shows off her newest creation, inspired by latest trends in terrorific and yet kawaii animals, the pink-gator-terrier!\""
+\"Join us at this gala opening event, where Mix Clickei shows off her newest creation, inspired by the latest trends of kawaii terror, her pink-gator-terrier! Feathers are so 2047!\"
+"
+align = 3
 autowrap = true
 clip_text = true
 
@@ -99,6 +108,7 @@ margin_bottom = 0.974976
 text = "Next"
 
 [node name="Tab3" type="Tabs" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -163,7 +173,6 @@ margin_top = -60.2966
 margin_right = -30.5818
 margin_bottom = -30.2966
 text = "Next"
-
 [connection signal="mouse_entered" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_mouse_entered"]
 [connection signal="pressed" from="Tab0/NextTabButton" to="." method="_on_NextTabButton_pressed"]
 [connection signal="pressed" from="Tab0/FullscreenButton" to="." method="_on_FullscreenButton_pressed"]

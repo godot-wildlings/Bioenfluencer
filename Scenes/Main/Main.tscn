@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Main/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Main/Envision.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=3]
 [ext_resource path="res://Scenes/Story/Intro02.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Main/HSlider.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=8]
-[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=10]
-[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Main/HSlider.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Story/IntroStoryTabs.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI/Themes/PovertyTheme.tres" type="Theme" id=9]
+[ext_resource path="res://Scenes/Player/PlayerBioenfluencer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/buttonHoverMunch.wav" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/UI/buttonThump.wav" type="AudioStream" id=12]
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
@@ -68,6 +69,8 @@ margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Pass the time. Relax, Drink, Sleep"
+script = ExtResource( 6 )
+tool_tip = "Lose followers. Regain Sweat"
 
 [node name="QuitButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
 margin_left = 261.0
@@ -77,6 +80,8 @@ margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Quit"
+script = ExtResource( 6 )
+tool_tip = "End the game"
 
 [node name="FullScreenButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
 margin_left = 356.0
@@ -86,6 +91,7 @@ margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Fullscreen"
+script = ExtResource( 6 )
 
 [node name="WTFButton" type="Button" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
 margin_left = 451.0
@@ -95,6 +101,8 @@ margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "WTF? Help!"
+script = ExtResource( 6 )
+tool_tip = "Please"
 
 [node name="HBoxContainer3" type="VBoxContainer" parent="UI/MainUI/VBoxContainer/CenterContainer/Right"]
 margin_left = 547.0
@@ -113,10 +121,10 @@ max_value = 1.0
 step = 0.0
 value = 0.5
 ticks_on_borders = true
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
 [node name="VolLabel" type="Label" parent="UI/MainUI/VBoxContainer/CenterContainer/Right/HBoxContainer3"]
-margin_top = 4.0
+margin_top = 20.0
 margin_right = 91.0
 margin_bottom = 40.0
 text = "Volume"
@@ -124,7 +132,6 @@ align = 1
 valign = 1
 
 [node name="ButtonBar" type="GridContainer" parent="UI/MainUI/VBoxContainer"]
-editor/display_folded = true
 margin_top = 330.0
 margin_right = 640.0
 margin_bottom = 360.0
@@ -140,6 +147,8 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Feed"
+script = ExtResource( 6 )
+tool_tip = "Discover Trends"
 
 [node name="CreatureLabButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 133.0
@@ -148,6 +157,8 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Lab"
+script = ExtResource( 6 )
+tool_tip = "Create Creatures"
 
 [node name="StreamStudioButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 266.0
@@ -156,6 +167,8 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Studio"
+script = ExtResource( 6 )
+tool_tip = "Gain Followers"
 
 [node name="ChirperButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 399.0
@@ -164,6 +177,8 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Chirp"
+script = ExtResource( 6 )
+tool_tip = "Influence Trends"
 
 [node name="StoreButton" type="Button" parent="UI/MainUI/VBoxContainer/ButtonBar"]
 margin_left = 532.0
@@ -172,6 +187,8 @@ margin_bottom = 30.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Partz!"
+script = ExtResource( 6 )
+tool_tip = "Buy new parts"
 
 [node name="WTFHelp" type="PopupDialog" parent="UI/MainUI"]
 editor/display_folded = true
@@ -222,17 +239,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
 
-[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 7 )]
+[node name="IntroStoryTabs" parent="UI/IntroStoryPopup" instance=ExtResource( 8 )]
 margin_left = 2.0
 margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
 
 [node name="LoseStoryPopup" type="PopupPanel" parent="UI"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 8 )
+theme = ExtResource( 9 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/LoseStoryPopup"]
 margin_left = 4.0
@@ -288,17 +304,16 @@ layer = -1
 anchor_mode = 0
 current = true
 
-[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 9 )]
+[node name="PlayerBioenfluencer" parent="." instance=ExtResource( 10 )]
 
 [node name="CreatureStorageContainer" type="Node2D" parent="."]
 visible = false
 
 [node name="HoverNoise" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
-
-[node name="ClickNoise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 
+[node name="ClickNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 [connection signal="mouse_entered" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_hovered"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_AnyButton_pressed"]
 [connection signal="pressed" from="UI/MainUI/VBoxContainer/CenterContainer/Right/PassTimeButton" to="." method="_on_PassTimeButton_pressed"]

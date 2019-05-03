@@ -75,6 +75,5 @@ margin_top = 290.0
 margin_right = 600.0
 margin_bottom = 320.0
 text = "Return to Main"
-
 [connection signal="pressed" from="VBoxContainer/ChooseStory" to="." method="_on_ChooseStory_pressed"]
 [connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

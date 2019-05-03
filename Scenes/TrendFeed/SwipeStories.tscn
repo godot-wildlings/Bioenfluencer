@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 custom_constants/separation = 50
+dragger_visibility = 1
 
 [node name="SwipeInfluenceBox" parent="HSplitContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -39,5 +40,4 @@ margin_top = -353.519
 margin_right = 57.1394
 margin_bottom = -323.519
 text = "Return to Main"
-
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

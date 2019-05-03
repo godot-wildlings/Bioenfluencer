@@ -19,6 +19,11 @@ func _ready():
 	story_container.popup()
 	if has_node("UI/BGImage"):
 		$UI/BGImage.show()
+	initialize_buttons()
+
+func initialize_buttons():
+	pass
+
 
 func reset_player_stats():
 	Game.player.reset()
@@ -200,6 +205,7 @@ func _on_RestartButton_pressed():
 	reset_player_stats()
 	clear_stored_creatures()
 	reset_trends()
+	Game.week = 0
 	lose_screen.hide()
 	return_to_main()
 

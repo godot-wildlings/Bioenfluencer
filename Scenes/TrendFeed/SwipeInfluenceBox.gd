@@ -59,9 +59,9 @@ func get_trend_performance(influencer):
 		"will surely be next years trends"
 	]
 
-	if influencer.number_followers > 200:
+	if influencer.number_followers > 1000:
 		return positive_stories[randi()%positive_stories.size()]
-	elif influencer.number_followers < 100:
+	elif influencer.number_followers < 500:
 		return "are so yesterday!"
 	else:
 		return "are still big"

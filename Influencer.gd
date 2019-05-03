@@ -17,7 +17,7 @@ var influencer_genders : Array = [
 var influencer_name : String = ""
 
 #warning-ignore:unused_class_variable
-var number_followers : int = 500
+var number_followers : int
 
 var gender : String = ""
 
@@ -35,6 +35,7 @@ func start(mode):
 
 	gender = influencer_genders[randi()%influencer_genders.size()]
 	build_random_face()
+	number_followers = pow(10,randi()%4+1)
 
 func build_random_face():
 	for body_part_category in get_children():
