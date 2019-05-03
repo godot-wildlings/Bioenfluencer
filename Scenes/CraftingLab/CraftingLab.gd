@@ -24,7 +24,7 @@ onready var preview_container : Node2D = $Control/HBoxContainer/MarginContainer/
 var creature_on_display : Creature
 
 #warning-ignore:unused_class_variable
-onready var craft_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/CraftCreatureButton
+onready var preview_creature_button : Button = $Control/HBoxContainer/VBoxContainer2/PreviewCreatureButton
 onready var onto_studio_button : Button = $Control/HBoxContainer/MarginContainer/VBoxContainer/OnToStudioButton
 onready var creature_name_input : LineEdit = $Control/HBoxContainer/MarginContainer/VBoxContainer/CreatureNameInput
 #onready var creature_name_label : Label = $CraftingTube/CreatureNameLabel
@@ -38,7 +38,7 @@ var ticks : int = 0
 func _ready() -> void:
 	Game.crafting_lab = self
 	#warning-ignore:return_value_discarded
-	craft_creature_button.connect("pressed", self, "_on_CraftCreatureButton_pressed")
+	preview_creature_button.connect("pressed", self, "_on_PreviewCreatureButton_pressed")
 	#warning-ignore:return_value_discarded
 
 	# **** if it's going to self, why use a signal instead of a method call?
@@ -120,17 +120,18 @@ func relocate_creature_to_storage(creature):
 	# prevent creature from queuing_free when the lab level is freed
 	Game.main.store_creature(creature)
 
-func _on_CraftCreatureButton_pressed() -> void:
+func _on_PreviewCreatureButton_pressed() -> void:
 
+	if preview_creature_button.disabled == false:
+		Game.main._on_AnyButton_pressed()
 
-	Game.main._on_AnyButton_pressed()
-
-	Game.player.sweat -= 5
-	if Game.player.sweat <= 0:
-		Game.player.sweat = 0
-		Game.player.tears += 50
-	_craft_creature()
-	#_save_crafted_creature()
+		Game.player.sweat -= 5
+		if Game.player.sweat <= 0:
+			Game.player.sweat = 0
+			Game.player.tears += 50
+		_craft_creature()
+		disable_button(preview_creature_button)
+		#_save_crafted_creature()
 
 
 
@@ -163,10 +164,10 @@ func disable_some_buttons():
 
 	if not stage_has_parts():
 		#creature_name_input.editable = false
-		disable_button(craft_creature_button)
+		disable_button(preview_creature_button)
 	else:
 		#creature_name_input.editable = true
-		enable_button(craft_creature_button)
+		enable_button(preview_creature_button)
 
 	if creature_on_display == null:
 		disable_button(onto_studio_button)

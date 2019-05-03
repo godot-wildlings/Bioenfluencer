@@ -8,7 +8,7 @@ export var name : String = "Gene" setget _set_name
 #warning-ignore:unused_class_variable
 export(GeneCategory) var category : int = GeneCategory.CATEGORY_MISC
 #warning-ignore:unused_class_variable
-export var number_of_followers : int = 100
+export var number_of_followers : int
 
 #warning-ignore:unused_class_variable
 export var trending_factor : float # rise over run (followers per week)

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/UI/Themes/SNESy.tres" type="Theme" id=1]
 [ext_resource path="res://Scenes/CraftingLab/CraftingLab.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/CraftingLab/craftingtube.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/UI/TopHUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/CraftingLab/BodyParts.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/UI/GenericButton.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/CraftingLab/StagedBodyParts.gd" type="Script" id=7]
 
 [node name="CraftingLab" type="Control"]
 anchor_right = 1.0
@@ -90,6 +91,8 @@ margin_bottom = 30.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Cancel, Return to Main"
+script = ExtResource( 6 )
+tool_tip = "These creatures don't please me."
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/MarginContainer/VBoxContainer"]
 margin_top = 34.0
@@ -139,9 +142,9 @@ margin_bottom = 308.0
 rect_min_size = Vector2( 180, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource( 6 )
+script = ExtResource( 7 )
 
-[node name="CraftCreatureButton" type="Button" parent="Control/HBoxContainer/VBoxContainer2"]
+[node name="PreviewCreatureButton" type="Button" parent="Control/HBoxContainer/VBoxContainer2"]
 margin_top = 312.0
 margin_right = 180.0
 margin_bottom = 342.0

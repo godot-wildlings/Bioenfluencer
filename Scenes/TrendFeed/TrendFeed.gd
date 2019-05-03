@@ -11,10 +11,6 @@ Each trend needs a slope : float (x/y)
 
 extends Control
 
-# This will move to the resource Caevv set up
-#var creature_colors = ["pink", "red", "brown", "blue"]
-#var body_shapes = ["pudgy", "lean", "pear", "wobbly", "thin", "muscular" ]
-#var creature_movement = [ "wobbly", "bouncy", "jittery", "calm" ]
 
 var trends = DataStore.get_gene_list()
 
@@ -66,7 +62,13 @@ func generate_trending_words(num_trends_active : int) -> void:
 	for i in range(num_trends_active):
 		var word = get_random_trend()
 		#active_trends[word] = get_random_trending_rate()
-		active_trends[word] = DataStore.get_gene(word).trending_factor
+
+		# change this to track number of followers instead of trending factor
+		#active_trends[word] = DataStore.get_gene(word).trending_factor
+		var num_followers = DataStore.get_gene(word).number_of_followers
+		var num_digits = log(num_followers)/log(10)
+		print(self.name, "word == ", word, ", num_followers == ", num_followers, ", num_digits == ", num_digits)
+		active_trends[word] = -1*( num_digits - 2.0 )
 
 
 func display_trends(num_trends_visible : int) -> void:
