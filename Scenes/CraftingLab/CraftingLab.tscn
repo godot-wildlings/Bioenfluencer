@@ -154,6 +154,5 @@ text = "PREVIEW CREATURE"
 script = ExtResource( 6 )
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
 [connection signal="text_changed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/CreatureNameInput" to="." method="_on_CreatureNameInput_text_changed"]
-[connection signal="pressed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/OnToStudioButton" to="." method="_on_AnyButton_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/MarginContainer/VBoxContainer/OnToStudioButton" to="." method="_on_OnToStudioButton_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/VBoxContainer2/PreviewCreatureButton" to="." method="_on_PreviewCreatureButton_pressed"]

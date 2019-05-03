@@ -26,6 +26,8 @@ var creature_on_display
 func _ready():
 
 	appraise_button.set_disabled(true)
+	sell_button.set_disabled(true)
+
 	populate_creature_list()
 
 	check_sweat_equity()
@@ -67,6 +69,8 @@ func _on_CreatureList_item_selected(index):
 
 		creature_on_display = creature
 		appraise_button.set_disabled(false)
+		sell_button.set_disabled(false)
+
 		display_position.add_child(creature)
 		#creatures_list.clear()
 		populate_creature_list()
@@ -111,24 +115,11 @@ func _on_AppraiseButton_pressed():
 
 #warning-ignore:unused_argument
 func _process(delta):
-	# moved to specific button clicks. no need to monitor it repeatedly
-
-#	ticks += 1
-#	if ticks % 30 == 0: # around every 1/2second
-#		if creature_on_display == null:
-#
-##			appraise_button.disabled = true
-##			appraise_button.modulate = Color(0.5, 0.5, 0.5, 1)
-#
-#			sell_button.disabled = true
-#			sell_button.modulate = Color(0.5, 0.5, 0.5, 1)
-#
-#		else:
-#
-##			appraise_button.disabled = false
-##			appraise_button.modulate = Color(1, 1, 1, 1)
-#
-#			sell_button.disabled = false
-#			sell_button.modulate = Color(1, 1, 1, 1)
-#
 		pass
+
+func _on_KeepButton_pressed():
+	if creature_on_display != null and is_instance_valid(creature_on_display):
+		Game.main.store_creature(creature_on_display)
+		populate_creature_list()
+		sell_button.set_disabled(true)
+		appraise_button.set_disabled(true)
