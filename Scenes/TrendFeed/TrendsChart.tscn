@@ -10,14 +10,10 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="TrendsContainer" type="Node2D" parent="."]
+position = Vector2( 21.666, 339.691 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 291.001, 191 )
-
-[node name="ReferenceRect" type="ReferenceRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
 
 [node name="InfoPopup" type="PopupPanel" parent="."]
 anchor_right = 1.0
@@ -66,5 +62,21 @@ margin_top = -40.5826
 margin_right = -11.6686
 margin_bottom = -10.5826
 text = "Return to Main"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 620.0
+margin_bottom = 340.0
+mouse_filter = 2
 [connection signal="pressed" from="InfoPopup/MarginContainer/WarningLabel/ReturnButton2" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]

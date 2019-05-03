@@ -65,6 +65,18 @@ func set_random_color():
 #	current_week = int(min(int(current_week)+1, int(Game.week)))
 
 func _draw():
+
+#	# Show the extents of the reference rectangle
+#	var reference_points : Array = [
+#		Vector2(viewing_area.position.x, viewing_area.position.y),
+#		Vector2(viewing_area.position.x + viewing_area.size.x, viewing_area.position.y),
+#		Vector2(viewing_area.position.x,  viewing_area.position.y - viewing_area.size.y),
+#		Vector2(viewing_area.position.x + viewing_area.size.x, viewing_area.position.y - viewing_area.size.y)
+#	]
+#
+#	for point in reference_points:
+#		draw_circle(point, 20, Color.red)
+
 	if curve.get_point_count() < 2:
 		return
 
@@ -86,9 +98,9 @@ func _on_NextPointTimer_timeout():
 	if draw_week < Game.week: # at Game.week 1, genes will have 1 entry in their followers_history, at index 0.
 		var x_spacing = viewing_area.size.x / Game.week
 		var y_spacing = viewing_area.size.y / 6
-		var y = log(trend.get_temporal_value(draw_week))/log(10)
-		curve.add_point(Vector2(draw_week * x_spacing, trend.get_temporal_value(draw_week) * y_spacing))
-		$PathFollow2D.set_unit_offset(1)
+		var y = -log(trend.get_temporal_value(draw_week))/log(10)
+		curve.add_point(Vector2(draw_week * x_spacing, y * y_spacing))
+		$PathFollow2D.set_unit_offset(0.999) # 1.0 wraps to 0
 		update()
 
 		$NextPointTimer.start()
