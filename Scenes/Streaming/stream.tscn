@@ -78,7 +78,7 @@ text = "Appraise"
 script = ExtResource( 5 )
 tool_tip = "Appraising takes effort (+sweat)"
 
-[node name="SellButton2" type="Button" parent="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer"]
+[node name="SellButton" type="Button" parent="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer"]
 margin_left = 135.0
 margin_right = 247.0
 margin_bottom = 30.0
@@ -132,7 +132,6 @@ text = "Return to Main"
 script = ExtResource( 5 )
 
 [node name="EffortDepletedPopup" type="PopupPanel" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -180,7 +179,7 @@ text = "Return to Main"
 align = 2
 script = ExtResource( 5 )
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton" to="." method="_on_AppraiseButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2" to="." method="_on_SellButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton" to="." method="_on_SellButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/KeepButton" to="." method="_on_KeepButton_pressed"]
 [connection signal="item_selected" from="VBoxContainer/stream_UI/RightSide/CreatureList" to="." method="_on_CreatureList_item_selected"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/RightSide/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]

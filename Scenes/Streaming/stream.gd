@@ -15,7 +15,7 @@ onready var creatures_list = $VBoxContainer/stream_UI/RightSide/CreatureList
 onready var display_position = $VBoxContainer/stream_UI/LeftSide/DisplayPosition
 onready var appraise_label = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/AppraisedValueLabel
 onready var appraise_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton
-onready var sell_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2
+onready var sell_button = $VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton
 
 
 var creature_on_display
@@ -90,6 +90,11 @@ func _on_SellButton_pressed():
 
 		creature_on_display.die()
 		creature_on_display = null
+
+		Game.player.sweat = max(Game.player.sweat - 10, 0)
+		if Game.player.sweat <= 0:
+			show_effort_depleted_dialog()
+
 		# wait for audio
 		yield(get_tree().create_timer(0.1), "timeout")
 		sell_button.set_disabled(true)
@@ -100,13 +105,10 @@ func _on_AppraiseButton_pressed():
 	if appraise_button.disabled == false:
 
 		if creature_on_display != null and is_instance_valid(creature_on_display):
-			Game.player.sweat -= 10
-			if Game.player.sweat <= 0:
-				Game.player.sweat = 0
-
+			Game.player.sweat = max(Game.player.sweat - 10, 0)
+			if Game.player.sweat == 0:
 				Game.main.store_creature(creature_on_display)
 				show_effort_depleted_dialog()
-				# should probably pass time to get sweat back..
 
 			appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
 
