@@ -72,6 +72,9 @@ func _on_CreatureList_item_selected(index):
 		sell_button.set_disabled(false)
 
 		display_position.add_child(creature)
+
+		creature.make_noise()
+
 		#creatures_list.clear()
 		populate_creature_list()
 

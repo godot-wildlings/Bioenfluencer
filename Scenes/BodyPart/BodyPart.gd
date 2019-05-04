@@ -10,6 +10,7 @@ var genes : Array
 export var part_name : String = "BodyPart"
 
 export var gene_list : String = ""
+export var audio_stream : AudioStream
 
 #warning-ignore:unused_class_variable
 export(BodyPartCategory) var category : int = BodyPartCategory.HEAD
@@ -24,6 +25,7 @@ func _ready() -> void:
 	$Sprite.texture = icon
 	$Sprite.visible = DataStore.is_body_part_unlocked(part_name)
 	DataStore.body_parts[part_name] = self
+
 
 
 func set_genes():

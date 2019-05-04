@@ -22,3 +22,13 @@ func get_value() -> float:
 		value /= num_parts # average, not total
 	return value
 
+func make_noise():
+	var noisy_parts : Array = []
+	for body_part in $BodyParts.get_children():
+		if body_part.has_noise():
+			noisy_parts.push_back(body_part)
+
+	if noisy_parts.size() > 0:
+		noisy_parts[randi()%noisy_parts.size()].make_noise()
+
+

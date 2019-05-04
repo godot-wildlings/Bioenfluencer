@@ -15,6 +15,21 @@ func _ready():
 func add_gene(gene):
 	genes.push_back(gene)
 
+func add_audio(audio_stream : AudioStream):
+	$AudioStreamPlayer.set_stream(audio_stream)
+
+func has_noise():
+	if $AudioStreamPlayer.stream != null:
+		return true
+	else:
+		return false
+
+func make_noise():
+	if $AudioStreamPlayer.stream != null:
+		$AudioStreamPlayer.set_volume_db(rand_range(-12, -5))
+		$AudioStreamPlayer.set_pitch_scale(rand_range(0.8, 1.2))
+		$AudioStreamPlayer.play()
+
 
 func get_value() -> float:
 	value = 0.0

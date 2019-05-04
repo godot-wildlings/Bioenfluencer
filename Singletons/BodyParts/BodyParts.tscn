@@ -1,38 +1,45 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scenes/BodyPart/BodyPart.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/BodyPart/Head03.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/BodyPart/Body03.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/BodyPart/Tail01.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/BodyPart/Legs02.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/BodyPart/Head02.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/BodyPart/Body01.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/BodyPart/Legs01.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/BodyPart/Tail03.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/BodyPart/Head01.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/BodyPart/Body02.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/BodyPart/Legs04.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/BodyPart/Tail04.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/BodyPart/Head04.png" type="Texture" id=14]
-[ext_resource path="res://Scenes/BodyPart/Body04.png" type="Texture" id=15]
-[ext_resource path="res://Scenes/BodyPart/Legs03.png" type="Texture" id=16]
-[ext_resource path="res://Scenes/BodyPart/Tail02.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/BodyPart/Head06.png" type="Texture" id=18]
-[ext_resource path="res://Scenes/BodyPart/Body06.png" type="Texture" id=19]
-[ext_resource path="res://Scenes/BodyPart/Legs06.png" type="Texture" id=20]
-[ext_resource path="res://Scenes/BodyPart/Tail06.png" type="Texture" id=21]
-[ext_resource path="res://Scenes/BodyPart/Head05.png" type="Texture" id=22]
-[ext_resource path="res://Scenes/BodyPart/Body05.png" type="Texture" id=23]
-[ext_resource path="res://Scenes/BodyPart/Legs05.png" type="Texture" id=24]
-[ext_resource path="res://Scenes/BodyPart/Tail05.png" type="Texture" id=25]
-[ext_resource path="res://Scenes/BodyPart/Head08.png" type="Texture" id=26]
-[ext_resource path="res://Scenes/BodyPart/Body08.png" type="Texture" id=27]
-[ext_resource path="res://Scenes/BodyPart/Legs08.png" type="Texture" id=28]
-[ext_resource path="res://Scenes/BodyPart/Tail08.png" type="Texture" id=29]
-[ext_resource path="res://Scenes/BodyPart/Head07.png" type="Texture" id=30]
-[ext_resource path="res://Scenes/BodyPart/Body07.png" type="Texture" id=31]
-[ext_resource path="res://Scenes/BodyPart/Legs07.png" type="Texture" id=32]
-[ext_resource path="res://Scenes/BodyPart/Tail07.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/Creature/lizard.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/BodyPart/Head03.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/BodyPart/Body03.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/BodyPart/Tail01.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/BodyPart/Legs02.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/BodyPart/Head02.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/BodyPart/Body01.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/BodyPart/Legs01.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/BodyPart/Tail03.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Creature/goose.wav" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/BodyPart/Head01.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/BodyPart/Body02.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/BodyPart/Legs04.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/BodyPart/Tail04.png" type="Texture" id=15]
+[ext_resource path="res://Scenes/Creature/sheep.wav" type="AudioStream" id=16]
+[ext_resource path="res://Scenes/BodyPart/Head04.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/BodyPart/Body04.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/BodyPart/Legs03.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/BodyPart/Tail02.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Creature/ghost.wav" type="AudioStream" id=21]
+[ext_resource path="res://Scenes/BodyPart/Head06.png" type="Texture" id=22]
+[ext_resource path="res://Scenes/BodyPart/Body06.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/BodyPart/Legs06.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/BodyPart/Tail06.png" type="Texture" id=25]
+[ext_resource path="res://Scenes/Creature/zombie.wav" type="AudioStream" id=26]
+[ext_resource path="res://Scenes/BodyPart/Head05.png" type="Texture" id=27]
+[ext_resource path="res://Scenes/BodyPart/Body05.png" type="Texture" id=28]
+[ext_resource path="res://Scenes/BodyPart/Legs05.png" type="Texture" id=29]
+[ext_resource path="res://Scenes/BodyPart/Tail05.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/Creature/bro.wav" type="AudioStream" id=31]
+[ext_resource path="res://Scenes/BodyPart/Head08.png" type="Texture" id=32]
+[ext_resource path="res://Scenes/BodyPart/Body08.png" type="Texture" id=33]
+[ext_resource path="res://Scenes/BodyPart/Legs08.png" type="Texture" id=34]
+[ext_resource path="res://Scenes/BodyPart/Tail08.png" type="Texture" id=35]
+[ext_resource path="res://Scenes/Creature/matroid.wav" type="AudioStream" id=36]
+[ext_resource path="res://Scenes/BodyPart/Head07.png" type="Texture" id=37]
+[ext_resource path="res://Scenes/BodyPart/Body07.png" type="Texture" id=38]
+[ext_resource path="res://Scenes/BodyPart/Legs07.png" type="Texture" id=39]
+[ext_resource path="res://Scenes/BodyPart/Tail07.png" type="Texture" id=40]
 
 [node name="BodyParts" type="Node"]
 
@@ -40,8 +47,9 @@
 visible = false
 part_name = "Lizard Head"
 gene_list = "terrorific,green,muscular"
+audio_stream = ExtResource( 2 )
 price = 25
-icon = ExtResource( 2 )
+icon = ExtResource( 3 )
 
 [node name="LizardTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -49,7 +57,7 @@ part_name = "Lizard Torso"
 gene_list = "athletic,lovecraftian,muscular,scaley"
 category = 1
 price = 25
-icon = ExtResource( 3 )
+icon = ExtResource( 4 )
 
 [node name="LizardTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -57,7 +65,7 @@ part_name = "Lizard Tail"
 gene_list = "athletic,lovecraftian,muscular,scaley"
 category = 3
 price = 25
-icon = ExtResource( 4 )
+icon = ExtResource( 5 )
 
 [node name="LizardLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -65,14 +73,14 @@ part_name = "Lizard Legs"
 gene_list = "athletic,lovecraftian,muscular,scaley"
 category = 2
 price = 25
-icon = ExtResource( 5 )
+icon = ExtResource( 6 )
 
 [node name="OctopusHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Octopus Head"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
 price = 50
-icon = ExtResource( 6 )
+icon = ExtResource( 7 )
 
 [node name="OctopusTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -80,7 +88,7 @@ part_name = "Octopus Torso"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 1
 price = 75
-icon = ExtResource( 7 )
+icon = ExtResource( 8 )
 
 [node name="OctopusLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -88,7 +96,7 @@ part_name = "Octopus Legs"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 2
 price = 100
-icon = ExtResource( 8 )
+icon = ExtResource( 9 )
 
 [node name="OctopusTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -96,14 +104,15 @@ part_name = "Octopus Tail"
 gene_list = "muscular,kawaii,lovecraftian,terrorific"
 category = 3
 price = 25
-icon = ExtResource( 9 )
+icon = ExtResource( 10 )
 
 [node name="BirdHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Bird Head"
 gene_list = "feathery,kawaii,terrorific"
+audio_stream = ExtResource( 11 )
 price = 50
-icon = ExtResource( 10 )
+icon = ExtResource( 12 )
 
 [node name="BirdTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -111,7 +120,7 @@ part_name = "Bird Torso"
 gene_list = "feathery,kawaii,terrorific"
 category = 1
 price = 25
-icon = ExtResource( 11 )
+icon = ExtResource( 13 )
 
 [node name="BirdLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -119,7 +128,7 @@ part_name = "Bird Legs"
 gene_list = "feathery,kawaii,terrorific"
 category = 2
 price = 25
-icon = ExtResource( 12 )
+icon = ExtResource( 14 )
 
 [node name="LionTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -127,14 +136,15 @@ part_name = "Lion Tail"
 gene_list = "furry, kawaii,terrorific"
 category = 3
 price = 25
-icon = ExtResource( 13 )
+icon = ExtResource( 15 )
 
 [node name="SheepHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Sheep Head"
 gene_list = "furry,kawaii,zombi"
+audio_stream = ExtResource( 16 )
 price = 25
-icon = ExtResource( 14 )
+icon = ExtResource( 17 )
 
 [node name="SheepTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -142,7 +152,7 @@ part_name = "Sheep Torso"
 gene_list = "furry,kawaii,zombi"
 category = 1
 price = 25
-icon = ExtResource( 15 )
+icon = ExtResource( 18 )
 
 [node name="SheepLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -150,7 +160,7 @@ part_name = "Sheep Legs"
 gene_list = "furry,kawaii,zombi"
 category = 2
 price = 25
-icon = ExtResource( 16 )
+icon = ExtResource( 19 )
 
 [node name="SheepTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -158,15 +168,16 @@ part_name = "Sheep Tail"
 gene_list = "furry,kawaii,zombi"
 category = 3
 price = 25
-icon = ExtResource( 17 )
+icon = ExtResource( 20 )
 
 [node name="GhostHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Ghost Head"
 gene_list = "terrorific"
+audio_stream = ExtResource( 21 )
 category = 3
 price = 100
-icon = ExtResource( 18 )
+icon = ExtResource( 22 )
 
 [node name="GhostTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -174,7 +185,7 @@ part_name = "Ghost Torso"
 gene_list = "terrorific"
 category = 1
 price = 100
-icon = ExtResource( 19 )
+icon = ExtResource( 23 )
 
 [node name="GhostLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -182,7 +193,7 @@ part_name = "Ghost Legs"
 gene_list = "terrorific"
 category = 2
 price = 50
-icon = ExtResource( 20 )
+icon = ExtResource( 24 )
 
 [node name="GhostTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -190,14 +201,15 @@ part_name = "GhostTail"
 gene_list = "terrorific"
 category = 3
 price = 50
-icon = ExtResource( 21 )
+icon = ExtResource( 25 )
 
 [node name="ZombieHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Zombie Head"
 gene_list = "terrorific, zombi"
+audio_stream = ExtResource( 26 )
 price = 100
-icon = ExtResource( 22 )
+icon = ExtResource( 27 )
 
 [node name="ZombieTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -205,7 +217,7 @@ part_name = "Zombie Torso"
 gene_list = "zombi,terrorific"
 category = 1
 price = 200
-icon = ExtResource( 23 )
+icon = ExtResource( 28 )
 
 [node name="ZombieLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -213,7 +225,7 @@ part_name = "Zombie Legs"
 gene_list = "zombi,terrorific"
 category = 2
 price = 100
-icon = ExtResource( 24 )
+icon = ExtResource( 29 )
 
 [node name="ZombieTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -221,14 +233,15 @@ part_name = "Zombie Tail"
 gene_list = "zombi,terrorific"
 category = 3
 price = 25
-icon = ExtResource( 25 )
+icon = ExtResource( 30 )
 
 [node name="BroHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Bro Head"
 gene_list = "muscular"
+audio_stream = ExtResource( 31 )
 price = 200
-icon = ExtResource( 26 )
+icon = ExtResource( 32 )
 
 [node name="BroTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -236,7 +249,7 @@ part_name = "Bro Torso"
 gene_list = "muscular"
 category = 1
 price = 50
-icon = ExtResource( 27 )
+icon = ExtResource( 33 )
 
 [node name="BroLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -244,7 +257,7 @@ part_name = "Bro Legs"
 gene_list = "muscular"
 category = 2
 price = 100
-icon = ExtResource( 28 )
+icon = ExtResource( 34 )
 
 [node name="BroTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -252,14 +265,15 @@ part_name = "Bro Tail"
 gene_list = "muscular"
 category = 3
 price = 50
-icon = ExtResource( 29 )
+icon = ExtResource( 35 )
 
 [node name="MatroidHead" parent="." instance=ExtResource( 1 )]
 visible = false
 part_name = "Matroid Head"
 gene_list = "lovecraftian"
+audio_stream = ExtResource( 36 )
 price = 500
-icon = ExtResource( 30 )
+icon = ExtResource( 37 )
 
 [node name="MatroidTorso" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -267,7 +281,7 @@ part_name = "Matroid Torso"
 gene_list = "lovecraftian"
 category = 1
 price = 500
-icon = ExtResource( 31 )
+icon = ExtResource( 38 )
 
 [node name="MatroidLegs" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -275,7 +289,7 @@ part_name = "Matroid Legs"
 gene_list = "lovecraftian"
 category = 2
 price = 300
-icon = ExtResource( 32 )
+icon = ExtResource( 39 )
 
 [node name="MatroidTail" parent="." instance=ExtResource( 1 )]
 visible = false
@@ -283,4 +297,4 @@ part_name = "Matroid Tail"
 gene_list = "lovecraftian"
 category = 3
 price = 200
-icon = ExtResource( 33 )
+icon = ExtResource( 40 )

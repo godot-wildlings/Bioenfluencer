@@ -67,7 +67,7 @@ func generate_trending_words(num_trends_active : int) -> void:
 		#active_trends[word] = DataStore.get_gene(word).trending_factor
 		var num_followers = DataStore.get_gene(word).number_of_followers
 		var num_digits = log(num_followers)/log(10)
-		print(self.name, "word == ", word, ", num_followers == ", num_followers, ", num_digits == ", num_digits)
+		#print(self.name, "word == ", word, ", num_followers == ", num_followers, ", num_digits == ", num_digits)
 		active_trends[word] = -1*( num_digits - 2.0 )
 
 

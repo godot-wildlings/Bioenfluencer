@@ -67,27 +67,17 @@ func _craft_creature() -> void:
 				var live_body_part_scene : PackedScene = load("res://Scenes/BodyPart/LiveBodyPart.tscn")
 				var spawned_body_part = live_body_part_scene.instance()
 
-				#var spawned_body_part : Sprite = Sprite.new()
-
 
 				creature.get_node("BodyParts").add_child(spawned_body_part)
 				spawned_body_part.texture = body_part.icon
+				if body_part.audio_stream != null:
+					spawned_body_part.add_audio(body_part.audio_stream)
 
 				copy_genes(body_part, spawned_body_part)
 
 				body_parts.add_item(body_part.part_name, body_part.icon)
 		staged_body_parts.clear()
 
-#		creature_name_label.text = crafted_creature_name
-#		creature_name_input.text = ""
-
-		#creature_name_label.text = preview_container.get_child(0).name
-
-		# **** Who's this signal for?
-		#emit_signal("crafting_completed")
-
-#		print(self.name, " creature name == ", DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name)
-#		creature_name_label.text = DataStore.crafted_creatures[DataStore.crafted_creatures.size()-1].creature_name
 
 func empty_preview_container():
 	for children in preview_container.get_children():
