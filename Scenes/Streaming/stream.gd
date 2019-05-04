@@ -103,7 +103,9 @@ func _on_AppraiseButton_pressed():
 			Game.player.sweat -= 10
 			if Game.player.sweat <= 0:
 				Game.player.sweat = 0
-				Game.main.return_to_main()
+
+				Game.main.store_creature(creature_on_display)
+				show_effort_depleted_dialog()
 				# should probably pass time to get sweat back..
 
 			appraise_label.set_text(creature_on_display.creature_name + " will probably generate " + str(int(creature_on_display.get_value())) + " followers.")
@@ -112,10 +114,11 @@ func _on_AppraiseButton_pressed():
 			yield(get_tree().create_timer(0.1), "timeout")
 			appraise_button.set_disabled(true)
 
+func show_effort_depleted_dialog():
+	$EffortDepletedPopup.show()
 
-#warning-ignore:unused_argument
-func _process(delta):
-		pass
+
+
 
 func _on_KeepButton_pressed():
 	if creature_on_display != null and is_instance_valid(creature_on_display):
@@ -123,3 +126,4 @@ func _on_KeepButton_pressed():
 		populate_creature_list()
 		sell_button.set_disabled(true)
 		appraise_button.set_disabled(true)
+

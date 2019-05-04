@@ -130,8 +130,58 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Return to Main"
 script = ExtResource( 5 )
+
+[node name="EffortDepletedPopup" type="PopupPanel" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="EffortDepletedPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EffortDepletedPopup/MarginContainer"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 596.0
+margin_bottom = 316.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="EffortDepletedPopup/MarginContainer/VBoxContainer"]
+margin_right = 556.0
+margin_bottom = 242.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "The mere thought of viewing, appraising, and selling one more creature nauseates you. You just don't have it in you. It all seems like a tremendous hassle.
+
+Wouldn't sleep be better? Or maybe a drink would make it less painful.
+
+(No work effort remaining. Sweat == 0)"
+align = 1
+autowrap = true
+
+[node name="ReturnToMainButton" type="Button" parent="EffortDepletedPopup/MarginContainer/VBoxContainer"]
+margin_left = 433.0
+margin_top = 246.0
+margin_right = 556.0
+margin_bottom = 276.0
+size_flags_horizontal = 8
+text = "Return to Main"
+align = 2
+script = ExtResource( 5 )
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/AppraiseButton" to="." method="_on_AppraiseButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/SellButton2" to="." method="_on_SellButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/LeftSide/VBoxContainer/HBoxContainer/KeepButton" to="." method="_on_KeepButton_pressed"]
 [connection signal="item_selected" from="VBoxContainer/stream_UI/RightSide/CreatureList" to="." method="_on_CreatureList_item_selected"]
 [connection signal="pressed" from="VBoxContainer/stream_UI/RightSide/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
+[connection signal="pressed" from="EffortDepletedPopup/MarginContainer/VBoxContainer/ReturnToMainButton" to="." method="_on_ReturnToMainButton_pressed"]
